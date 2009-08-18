@@ -1,0 +1,14 @@
+# Enviroment Variables
+export EDITOR="mate -w"
+export CVSROOT="/Users/james/Documents/cvs-rep"
+export CVSEDITOR="mate -w"
+export CVS_RSH="ssh"
+export SVN_EDITOR="mate -w"
+export LC_CTYPE=en_US.UTF-8
+export HISTSIZE=500
+export HISTFILESIZE=1500
+export HISTCONTROL=erasedups
+export CLICOLOR=1
+
+# Path
+export PATH="/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"

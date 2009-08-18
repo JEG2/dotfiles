@@ -1,0 +1,69 @@
+# Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# Misc
+NO_COLOR='\e[0m' #disable any colors
+# Regular colors
+BLACK='\e[0;30m'
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+YELLOW='\e[0;33m'
+BLUE='\e[0;34m'
+MAGENTA='\e[0;35m'
+CYAN='\e[0;36m'
+WHITE='\e[0;37m'
+# Emphasized (bolded) colors
+EBLACK='\e[1;30m'
+ERED='\e[1;31m'
+EGREEN='\e[1;32m'
+EYELLOW='\e[1;33m'
+EBLUE='\e[1;34m'
+EMAGENTA='\e[1;35m'
+ECYAN='\e[1;36m'
+EWHITE='\e[1;37m'
+# Underlined colors
+UBLACK='\e[4;30m'
+URED='\e[4;31m'
+UGREEN='\e[4;32m'
+UYELLOW='\e[4;33m'
+UBLUE='\e[4;34m'
+UMAGENTA='\e[4;35m'
+UCYAN='\e[4;36m'
+UWHITE='\e[4;37m'
+# Background colors
+BBLACK='\e[40m'
+BRED='\e[41m'
+BGREEN='\e[42m'
+BYELLOW='\e[43m'
+BBLUE='\e[44m'
+BMAGENTA='\e[45m'
+BCYAN='\e[46m'
+BWHITE='\e[47m'
+
+# Prompt: requires vcprompt (http://vc.gerg.ca/hg/vcprompt)
+export PS1="\h:\w \[$EBLACK\]\$(vcprompt)\[$NO_COLOR\]\$ "
+export PS2='> '
+
+# History
+shopt -s histappend
+
+# Terminal
+stty discard undef
+
+# Completions
+_my_dirs() {
+	local comp=${COMP_WORDS[COMP_CWORD]}
+	if [[ "$comp" != /* && "$comp" != .* && "$comp" != ~* && $(cd "${comp%/*}" 2>/dev/null && pwd && cd "$OLDPWD") != '/Users/james/Documents' ]]; then
+		COMPREPLY=($(ruby -e 'comp, pwd, docs = [ARGV.shift] + ARGV.map { |a| a.split }; puts docs.reject { |d| pwd.any? { |p| p =~ %r{#{Regexp.escape(comp)}[^/]*\Z} } }' "${COMP_WORDS[COMP_CWORD]##*/}" "$(ls -d `pwd`/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)" "$(ls -d ~/Documents/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)"))
+	fi
+}
+complete -F _my_dirs -o plusdirs cd
+
+_my_hosts() {
+	local comp=${COMP_WORDS[COMP_CWORD]}
+	if [[ "$comp" == *:/* && "$1" == *scp ]]; then
+		local path=${comp#*:}
+		COMPREPLY=($(compgen -W "$(ssh "${comp%%:*}" ls -FHd "${path}*" 2>/dev/null | sed 's/[*@=%|]$//')" -- "${path}"))
+	else
+		COMPREPLY=($(compgen -W "$(ruby -ne 'print $1, " " if /\AHost\s+(\S+)/' ~/.ssh/config)" -- "$comp"))
+	fi
+}
+complete -F _my_hosts -o nospace ssh scp

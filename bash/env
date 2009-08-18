@@ -12,3 +12,4 @@ export CLICOLOR=1
 
 # Path
 export PATH="/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"

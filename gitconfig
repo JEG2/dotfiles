@@ -1,0 +1,18 @@
+[user]
+	name = James Edward Gray II
+	email = james@graysoftinc.com
+[apply]
+	whitespace = nowarn
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[gc]
+	auto = 1
+[github]
+	user = JEG2
+	token = 1574ad0c52232c5ef48ab915e716e0c0

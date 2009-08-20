@@ -1,3 +1,14 @@
-# Aliases
+# MySQL
 alias start_mysql="sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist"
-alias stop_mysql="sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysqld.plist"
+
+# Git
+alias g="git status"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit -m"
+alias gca="git commit -am"
+alias gl="git log"
+alias gbl="git blame"
+alias gbr="git branch"
+alias gps="git push"
+alias gpl="git pull"

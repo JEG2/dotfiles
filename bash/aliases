@@ -12,3 +12,16 @@ alias gbl="git blame"
 alias gbr="git branch"
 alias gps="git push"
 alias gpl="git pull"
+
+# Ruby
+alias r="ruby"
+alias i="irb"
+alias r_="ruby_dev"
+alias i_="irb_dev"
+
+# Rails
+alias sc="script/console"
+alias ss="script/server"
+alias rt="rake test"
+alias rdm="rake db:migrate"
+

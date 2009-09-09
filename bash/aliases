@@ -21,6 +21,8 @@ alias r="ruby"
 alias i="irb"
 alias r_="ruby_dev"
 alias i_="irb_dev"
+alias rk="rake"
+alias rkt="rake -T"
 
 # Rails
 alias sc="script/console"

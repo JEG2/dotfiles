@@ -8,6 +8,7 @@ export LC_CTYPE=en_US.UTF-8
 export HISTSIZE=500
 export HISTFILESIZE=1500
 export HISTCONTROL=erasedups
+export PROMPT_COMMAND='history -a'  # write previous line as prompt is displayed
 export CLICOLOR=1
 
 # Path

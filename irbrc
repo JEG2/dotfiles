@@ -36,4 +36,20 @@ if $PROGRAM_NAME =~ /\Airb/
   def ri(*names)
     system(%{ri #{names.join(" ")}})
   end
+  
+  def copy(str)
+    open("| pbcopy", "w") { |clipboard| clipboard << str.to_s }
+  end
+  
+  def paste
+    `pbpaste`
+  end
+  
+  def clip
+    history = Readline::HISTORY.entries
+    index   = history.rindex("exit") || -1
+    content = history[(index+1)..-2].join("\n")
+    puts "Session copied to clipboard."
+    copy content
+  end
 end

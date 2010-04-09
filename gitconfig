@@ -13,6 +13,3 @@
 	logallrefupdates = true
 [gc]
 	auto = 1
-[github]
-	user = JEG2
-	token = 1574ad0c52232c5ef48ab915e716e0c0

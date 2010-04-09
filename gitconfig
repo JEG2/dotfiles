@@ -1,3 +1,4 @@
+# WARNING:  This file is copied, not symlinked, due to the token.
 [user]
 	name = James Edward Gray II
 	email = james@graysoftinc.com
@@ -13,3 +14,6 @@
 	logallrefupdates = true
 [gc]
 	auto = 1
+# [github]
+#   user = JEG2
+#   token = ...

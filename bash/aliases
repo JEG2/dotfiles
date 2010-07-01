@@ -51,3 +51,7 @@ alias rkgi="rake gems:install"
 alias rkgu="rake gems:unpack"
 alias rklc="rake log:clear"
 alias rkr="rake routes | mate"
+
+# Official.FM
+alias start_ofm="sudo /usr/local/sbin/nginx -c /usr/local/conf/nginx.conf && unicorn_rails -c /Users/james/Documents/official.fm/config/unicorn_dev.rb -D && memcached -d -P /Users/james/Documents/official.fm/log/memcached.pid"
+alias stop_ofm="sudo /usr/local/sbin/nginx -s stop && kill \$(cat /Users/james/Documents/official.fm/log/unicorn.pid) && kill \$(cat /Users/james/Documents/official.fm/log/memcached.pid)"

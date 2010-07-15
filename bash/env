@@ -10,6 +10,7 @@ export HISTFILESIZE=1500
 export HISTCONTROL=erasedups
 export PROMPT_COMMAND='history -a'  # write previous line as prompt is displayed
 export CLICOLOR=1
+export RUBY_FFI_NCURSES_LIB=ncursesw
 
 # Path
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"

@@ -33,19 +33,34 @@ alias rk_="rake_dev"
 alias rk_t="rake_dev -T | mate"
 
 # Rails
-alias sc="script/console"
-alias ss="script/server"
-alias sg="script/generate"
-alias sgmo="script/generate model"
-alias sgmi="script/generate migration"
-alias sgma="script/generate mailer"
-alias sgc="script/generate controller"
-alias sgr="script/generate resource"
+# console
+function sc() {
+  if [ -x script/rails ]; then
+    script/rails console $1
+  else
+    script/console $1
+  fi
+}
+# server
+function ss() {
+  if [ -x script/rails ]; then
+    script/rails server thin
+  else
+    script/console
+  fi
+}
+# generator
+function sg() {
+  if [ -x script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
+# other
 alias rkdm="rake db:migrate"
 alias rkdmr="rake db:migrate:redo"
 alias rkdc="rake db:create"
-alias rkds="rake db:seed"
-alias rkdd="rake db:drop"
 alias rkg="rake gems"
 alias rkgi="rake gems:install"
 alias rkgu="rake gems:unpack"

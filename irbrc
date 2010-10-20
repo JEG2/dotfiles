@@ -1,7 +1,7 @@
 require "irb/completion"
 ARGV << "--readline"
 
-if File.basename($PROGRAM_NAME) =~ /\A(?:irb|restclient)/
+if File.basename($PROGRAM_NAME) =~ /\A(?:irb|restclient|rails)/
   IRB.conf[:PROMPT_MODE] = :SIMPLE
 
   IRB.conf[:EVAL_HISTORY] = 1000

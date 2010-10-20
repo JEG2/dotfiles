@@ -47,7 +47,7 @@ function ss() {
   if [ -x script/rails ]; then
     script/rails server thin
   else
-    script/console
+    script/server
   fi
 }
 # generator

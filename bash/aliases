@@ -45,9 +45,9 @@ function sc() {
 # server
 function ss() {
   if [ -x script/rails ]; then
-    script/rails server thin
+    script/rails server thin $@
   else
-    script/server
+    script/server $@
   fi
 }
 # generator

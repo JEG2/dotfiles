@@ -32,6 +32,8 @@ alias rk="rake"
 alias rkt="rake -T | mate"
 alias rk_="rake_dev"
 alias rk_t="rake_dev -T | mate"
+alias b="bundle"
+alias be="bundle exec"
 
 # Rails
 # console

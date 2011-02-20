@@ -1,3 +1,7 @@
+# PostgreSQL
+alias start_postgres="sudo launchctl load -w /Library/LaunchDaemons/org.postgresql.postgres.plist"
+alias stop_postgres="sudo launchctl unload -w /Library/LaunchDaemons/org.postgresql.postgres.plist"
+
 # MySQL
 alias start_mysql="sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist"
 alias stop_mysql="sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysqld.plist"

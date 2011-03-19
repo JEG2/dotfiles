@@ -38,6 +38,7 @@ alias rk_="rake_dev"
 alias rk_t="rake_dev -T | mate"
 alias b="bundle"
 alias be="bundle exec"
+alias bi="bundle install"
 
 # Rails
 # console
@@ -67,9 +68,7 @@ function sg() {
 # other
 alias rkdm="rake db:migrate"
 alias rkdmr="rake db:migrate:redo"
+alias rkdr="rake db:rollback"
 alias rkdc="rake db:create"
-alias rkg="rake gems"
-alias rkgi="rake gems:install"
-alias rkgu="rake gems:unpack"
 alias rklc="rake log:clear"
 alias rkr="rake routes | mate"

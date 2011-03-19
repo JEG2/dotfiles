@@ -1,6 +1,5 @@
 # Enviroment Variables
 export EDITOR="mate -w"
-export CVSROOT="/Users/james/Documents/cvs-rep"
 export CVSEDITOR="mate -w"
 export CVS_RSH="ssh"
 export SVN_EDITOR="mate -w"
@@ -13,5 +12,4 @@ export CLICOLOR=1
 export RUBY_FFI_NCURSES_LIB=ncursesw
 
 # Path
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"
-export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"

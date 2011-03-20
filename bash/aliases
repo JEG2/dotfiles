@@ -1,6 +1,6 @@
 # PostgreSQL
-alias start_postgres="sudo launchctl load -w /Library/LaunchDaemons/org.postgresql.postgres.plist"
-alias stop_postgres="sudo launchctl unload -w /Library/LaunchDaemons/org.postgresql.postgres.plist"
+alias start_postgres="launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist"
+alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/org.postgresql.postgres.plist"
 
 # MySQL
 alias start_mysql="launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist"
@@ -29,13 +29,8 @@ alias gpl="git pull"
 # Ruby
 alias r="ruby"
 alias i="irb"
-alias r_="ruby_dev"
-alias i_="irb_dev"
-alias ri_="ri_dev"
 alias rk="rake"
 alias rkt="rake -T | mate"
-alias rk_="rake_dev"
-alias rk_t="rake_dev -T | mate"
 alias b="bundle"
 alias be="bundle exec"
 alias bi="bundle install"

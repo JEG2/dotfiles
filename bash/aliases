@@ -3,8 +3,8 @@ alias start_postgres="sudo launchctl load -w /Library/LaunchDaemons/org.postgres
 alias stop_postgres="sudo launchctl unload -w /Library/LaunchDaemons/org.postgresql.postgres.plist"
 
 # MySQL
-alias start_mysql="sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist"
-alias stop_mysql="sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysqld.plist"
+alias start_mysql="launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist"
+alias stop_mysql="launchctl unload -w ~/Library/LaunchAgents/com.mysql.mysqld.plist"
 
 # Git
 alias g="git status"

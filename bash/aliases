@@ -26,6 +26,12 @@ alias gbl="git blame"
 alias gps="git push"
 alias gpl="git pull"
 
+# TMUX
+alias t="tmux"
+alias ta="tmux attach"
+alias tls="tmux list-sessions"
+alias tk="tmux kill-server"
+
 # Ruby
 alias r="ruby"
 alias i="irb"

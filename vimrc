@@ -19,3 +19,8 @@ call pathogen#runtime_append_all_bundles()
 " Install Ack.vim (requires ack)
 " http://www.vim.org/scripts/script.php%3Fscript_id%3D2572
 "
+
+"
+" Install Gist.vim (requires git)
+" http://www.vim.org/scripts/script.php?script_id=2423
+"

@@ -35,7 +35,7 @@ alias tk="tmux kill-server"
 
 # Ruby
 alias r="ruby"
-alias i="irb"
+alias i="pry --simple-prompt"
 alias rk="rake"
 alias rkt="rake -T | mate"
 alias b="bundle"
@@ -45,13 +45,7 @@ alias bu="bundle update"
 
 # Rails
 # console
-function sc() {
-  if [ -x script/rails ]; then
-    script/rails console $1
-  else
-    script/console $1
-  fi
-}
+alias sc="pry --simple-prompt -r config/environment"
 # server
 function ss() {
   if [ -x script/rails ]; then

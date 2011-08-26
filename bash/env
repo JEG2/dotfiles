@@ -11,4 +11,4 @@ export PROMPT_COMMAND='history -a'  # write previous line as prompt is displayed
 export CLICOLOR=1
 
 # Path
-export PATH="/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"
+export PATH="/Users/james/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:$PATH"

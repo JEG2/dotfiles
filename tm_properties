@@ -5,5 +5,5 @@ fontSize = 14
 tabSize  = 2
 softTabs = true
 
-[ *.{icns,ico,jpg,jpeg,nib,png,psd,pyc,rtf,tif,tiff,xib,rbc,o} ]
-binary = true
+[ *.{txt,md,mdown,markdown} ]
+spellChecking = true

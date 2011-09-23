@@ -45,7 +45,7 @@ alias bu="bundle update"
 
 # Rails
 # console
-alias sc="pry --simple-prompt -r config/environment"
+alias sc="pry --simple-prompt -r ./config/environment"
 # server
 function ss() {
   if [ -x script/rails ]; then

@@ -1,0 +1,9 @@
+TM_GIT = "/usr/local/bin/git"
+
+fontName = "DejaVu Sans Mono"
+fontSize = 14
+tabSize  = 2
+softTabs = true
+
+[ *.{icns,ico,jpg,jpeg,nib,png,psd,pyc,rtf,tif,tiff,xib,rbc,o} ]
+binary = true

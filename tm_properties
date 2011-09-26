@@ -7,3 +7,6 @@ softTabs = true
 
 [ *.{txt,md,mdown,markdown} ]
 spellChecking = true
+
+[ *.rb ]
+softWrap = true

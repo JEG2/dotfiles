@@ -14,6 +14,8 @@
 	logallrefupdates = true
 [gc]
 	auto = 1
+[push]
+	default = tracking
 # [github]
 #   user = JEG2
 #   token = ...

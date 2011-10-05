@@ -27,7 +27,7 @@ alias glr=" git --no-pager log --graph --abbrev-commit --date=relative -10 --all
 alias gs="git show"
 alias gd="git diff"
 alias gbl="git blame"
-alias gps="git push -u"
+alias gps="git push"
 alias gpsd="git push --delete"
 alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"

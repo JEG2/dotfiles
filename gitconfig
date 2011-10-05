@@ -15,7 +15,7 @@
 [gc]
 	auto = 1
 [push]
-	default = tracking
+	default = current
 # [github]
 #   user = JEG2
 #   token = ...

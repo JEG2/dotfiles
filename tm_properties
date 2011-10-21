@@ -1,9 +1,10 @@
 TM_GIT = "/usr/local/bin/git"
 
-fontName = "DejaVu Sans Mono"
-fontSize = 14
-tabSize  = 2
-softTabs = true
+windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A\/Users\/james\/Documents\/\w+\/?(.*)\z/${1/\A(?=.)/ – /}/}"
+fontName    = "DejaVu Sans Mono"
+fontSize    = 14
+tabSize     = 2
+softTabs    = true
 
 [ *.{txt,md,mdown,markdown} ]
 spellChecking = true

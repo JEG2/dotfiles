@@ -1,6 +1,6 @@
 TM_GIT = "/usr/local/bin/git"
 
-windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A\/Users\/james\/Documents\/\w+\/?(.*)\z/${1/\A(?=.)/ – /}/}"
+windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A(?:\/Users\/james\/Documents\/(?:work\/)?(?!\b(?:communication|programming|reference)\b)\w+\/?(.*)|(.+))\z/${2:? – ${2/\/Users\/james/~/}:${1/\A(?=.)/ – /}}/}"
 fontName    = "DejaVu Sans Mono"
 fontSize    = 14
 tabSize     = 2

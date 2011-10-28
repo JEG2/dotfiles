@@ -33,6 +33,7 @@ alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
 alias gplff="git pull --ff-only"
+alias gplr="git pull --rebase"
 
 # TMUX
 alias t="tmux"

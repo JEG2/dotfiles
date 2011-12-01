@@ -5,6 +5,7 @@ fontName    = "DejaVu Sans Mono"
 fontSize    = 14
 tabSize     = 2
 softTabs    = true
+wrapColumn  = 80
 
 [ *.{txt,md,mdown,markdown} ]
 spellChecking = true

@@ -1,0 +1,9 @@
+.DS_Store
+**/.DS_Store
+
+emacs.d/backups
+emacs.d/elpa
+
+emacs.d/secrets.el
+
+emacs.d/vendor/pbcopy

@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: header
+# key: ;;;
+# --
+`(make-string 4 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))`${1:$(make-string (string-width text) (aref (if (and comment-start (eq (string-width comment-start) 1)) comment-start "#") 0))}`(make-string 4 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))`
+`(make-string 3 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))` ${1:Header} `(make-string 3 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))`
+`(make-string 4 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))`${1:$(make-string (string-width text) (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))}`(make-string 4 (aref (if (and comment-start (eq (string-\
+width comment-start) 1)) comment-start "#") 0))`$0

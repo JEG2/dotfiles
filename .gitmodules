@@ -1,0 +1,6 @@
+[submodule "emacs.d/vendor/gh"]
+	path = emacs.d/vendor/gh
+	url = https://github.com/sigma/gh.el.git
+[submodule "emacs.d/vendor/gist"]
+	path = emacs.d/vendor/gist
+	url = https://github.com/mhayashi1120/gist.el.git

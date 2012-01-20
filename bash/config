@@ -40,10 +40,10 @@ BWHITE='\e[47m'
 
 # Prompt: requires git and svn
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[git:\1]/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [git:\1]/'
 }
 parse_svn_branch() {
-    parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print "[svn:"$1"]" }'
+    parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " [svn:"$1"]" }'
 }
 parse_svn_url() {
     svn info 2>/dev/null | sed -ne 's#^URL: ##p'
@@ -51,7 +51,10 @@ parse_svn_url() {
 parse_svn_repository_root() {
     svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
-export PS1="\h:\w \[$EBLACK\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\$ "
+parse_ruby_version() {
+    ruby -v | awk '{ printf " [%s:%s]", $1, $2 }'
+}
+export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\]\$(parse_ruby_version)\[$NO_COLOR\]\$ "
 export PS2='> '
 
 # History

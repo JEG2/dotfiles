@@ -9,6 +9,9 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
+;; Git
+(global-set-key (kbd "C-c p") 'gist-region-or-buffer)
+
 ;; shortcuts
 (global-set-key (kbd "C-c l") 'linum-mode)
 (global-set-key (kbd "C-c s") 'shell)

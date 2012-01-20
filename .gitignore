@@ -1,9 +1,14 @@
 .DS_Store
 **/.DS_Store
 
+emacs.d/auto-save-list
 emacs.d/backups
 emacs.d/elpa
+emacs.d/var
 
 emacs.d/secrets.el
 
 emacs.d/vendor/pbcopy
+
+emacs.d/*.elc
+emacs.d/**/*.elc

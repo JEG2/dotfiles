@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
 ;; Git
+(global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c p") 'gist-region-or-buffer)
 
 ;; shortcuts

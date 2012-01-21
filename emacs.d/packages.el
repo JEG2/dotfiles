@@ -43,7 +43,7 @@
 
 ;; load gist
 ;; 
-;; fetch gist submodule (for use with this repository):
+;; fetch gist.el submodule (for use with this repository):
 ;; 
 ;;   git submodule init
 ;;   git submodule update
@@ -54,6 +54,22 @@
 ;;                     emacs.d/vendor/gist
 (load (expand-file-name "vendor/gist/loaddefs.el" user-emacs-directory))
 (setq gist-authenticate-function 'gist-basic-authentication)
+
+;; load mo-git-blame
+;; 
+;; fetch mo-git-blame.el submodule (for use with this repository):
+;; 
+;;   git submodule init
+;;   git submodule update
+;; 
+;; or set the mo-git-blame.el submodule (for others to use):
+;;
+;;   git submodule add https://github.com/voins/mo-git-blame.git \
+;;                     emacs.d/vendor/mo-git-blame
+(autoload 'mo-git-blame-file    "mo-git-blame.el"
+  "Show an interactive git blame session for a specified file" t)
+(autoload 'mo-git-blame-current "mo-git-blame.el"
+  "Show an interactive git blame session for the current file" t)
 
 ;; load pbcopy
 ;;

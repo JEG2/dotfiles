@@ -11,6 +11,7 @@
 
 ;; Git
 (global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c b") 'mo-git-blame-current)
 (global-set-key (kbd "C-c p") 'gist-region-or-buffer)
 
 ;; shortcuts

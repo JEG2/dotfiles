@@ -17,3 +17,12 @@
 ;; shortcuts
 (global-set-key (kbd "C-c l") 'linum-mode)
 (global-set-key (kbd "C-c s") 'shell)
+
+;; custom keystrokes
+(defun end-of-line-and-newline-and-indent ()
+  "Insert a new line below the current line and indent it."
+  (interactive)
+  (unless (eolp)
+    (end-of-line))
+  (newline-and-indent))
+(global-set-key (kbd "C-c RET") 'end-of-line-and-newline-and-indent)

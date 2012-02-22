@@ -2,13 +2,6 @@
 # name: header
 # key: ;;;
 # --
-`(make-string 4 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))`${1:$(make-string (string-width text) (aref (if (and comment-start (eq (string-width comment-start) 1)) comment-start "#") 0))}`(make-string 4 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))`
-`(make-string 3 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))` ${1:Header} `(make-string 3 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))`
-`(make-string 4 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))`${1:$(make-string (string-width text) (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))}`(make-string 4 (aref (if (and comment-start (eq (string-\
-width comment-start) 1)) comment-start "#") 0))`$0
+${1:$(let ((ender (jeg2s-string-trim (or comment-end "")))) (let ((starter (jeg2s-string-trim (or comment-start "#")))) (let ((starter-tail (string-to-char (substring starter -1)))) (let ((outdent-size (length (jeg2s-regex-replace ender (concat "^\\\\(" (regexp-quote (char-to-string starter-tail)) "\\\\)+") "")))) (concat starter (make-string (- (+ (length text) 8) (length starter) outdent-size) starter-tail))))))}
+${1:$(let ((starter (jeg2s-string-trim (or comment-start "#")))) (let ((starter-tail (string-to-char (substring starter -1)))) (let ((indent-size (length (jeg2s-regex-replace starter (concat "\\\\(" (regexp-quote (char-to-string starter-tail)) "\\\\)+$") "")))) (concat (make-string indent-size ?\s) (make-string (- 3 indent-size) starter-tail)))))} ${1:Header} ${1:$(let ((ender (jeg2s-string-trim (or comment-end "")))) (let ((starter (jeg2s-string-trim (or comment-start "#")))) (let ((starter-tail (string-to-char (substring starter -1)))) (let ((outdent-size (length (jeg2s-regex-replace ender (concat "^\\\\(" (regexp-quote (char-to-string starter-tail)) "\\\\)+") "")))) (make-string (- 3 outdent-size) starter-tail)))))}
+${1:$(let ((ender (jeg2s-string-trim (or comment-end "")))) (let ((starter (jeg2s-string-trim (or comment-start "#")))) (let ((starter-tail (string-to-char (substring starter -1)))) (let ((indent-size (length (jeg2s-regex-replace starter (concat "\\\\(" (regexp-quote (char-to-string starter-tail)) "\\\\)+$") "")))) (concat (make-string indent-size ?\s) (make-string (- (+ (length text) 8) indent-size (length ender)) (string-to-char (substring starter -1))) ender)))))}

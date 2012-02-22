@@ -6,13 +6,13 @@
 
 ;; add the Marmalade archive
 (add-to-list 'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/"))
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; install required packages
-(setq jeg2-required-packages 
-  (list 'magit 'gh 'markdown-mode 'yasnippet))
+(setq jeg2s-required-packages 
+      (list 'magit 'gh 'markdown-mode 'yasnippet))
 
-(dolist (package jeg2-required-packages)
+(dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
     (package-refresh-contents)
     (package-install package)))
@@ -34,10 +34,10 @@
 (yas/load-directory yas/root-directory)
 
 ;; add vendored packages to load path
-(setq jeg2-vendored-packages 
-  (expand-file-name "vendor" user-emacs-directory))
+(setq jeg2s-vendored-packages 
+      (expand-file-name "vendor" user-emacs-directory))
 
-(dolist (project (directory-files jeg2-vendored-packages t "\\w+"))
+(dolist (project (directory-files jeg2s-vendored-packages t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
@@ -53,23 +53,6 @@
 ;;   git submodule add https://github.com/mhayashi1120/gist.el.git \
 ;;                     emacs.d/vendor/gist
 (load (expand-file-name "vendor/gist/loaddefs.el" user-emacs-directory))
-(setq gist-authenticate-function 'gist-basic-authentication)
-
-;; load mo-git-blame
-;; 
-;; fetch mo-git-blame.el submodule (for use with this repository):
-;; 
-;;   git submodule init
-;;   git submodule update
-;; 
-;; or set the mo-git-blame.el submodule (for others to use):
-;;
-;;   git submodule add https://github.com/voins/mo-git-blame.git \
-;;                     emacs.d/vendor/mo-git-blame
-(autoload 'mo-git-blame-file    "mo-git-blame.el"
-  "Show an interactive git blame session for a specified file" t)
-(autoload 'mo-git-blame-current "mo-git-blame.el"
-  "Show an interactive git blame session for the current file" t)
 
 ;; load pbcopy
 ;;

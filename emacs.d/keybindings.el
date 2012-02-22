@@ -11,7 +11,7 @@
 
 ;; Git
 (global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "C-c b") 'mo-git-blame-current)
+(global-set-key (kbd "C-c b") 'vc-annotate)
 (global-set-key (kbd "C-c p") 'gist-region-or-buffer)
 
 ;; shortcuts
@@ -19,10 +19,10 @@
 (global-set-key (kbd "C-c s") 'shell)
 
 ;; custom keystrokes
-(defun end-of-line-and-newline-and-indent ()
+(defun jeg2s-end-of-line-and-newline-and-indent ()
   "Insert a new line below the current line and indent it."
   (interactive)
   (unless (eolp)
     (end-of-line))
   (newline-and-indent))
-(global-set-key (kbd "C-c RET") 'end-of-line-and-newline-and-indent)
+(global-set-key (kbd "C-c RET") 'jeg2s-end-of-line-and-newline-and-indent)

@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;
+;;; Functions ;;;
+;;;;;;;;;;;;;;;;;
+
 (defun jeg2s-regex-replace (str regex replacement &optional fixedcase literal)
   "Replace a regular expression in the passed string, if it occurs."
   (or (when (string-match regex str)
@@ -15,6 +19,10 @@
   "Trim whitespace from both ends of the passed string."
   (jeg2s-regex-replace (jeg2s-regex-replace str "[ \t]+$" "" t t)
 		       "^[ \t]+" "" t t))
+
+;;;;;;;;;;;;;;;;
+;;; Commands ;;;
+;;;;;;;;;;;;;;;;
 
 (defun jeg2s-insert-header-comment ()
   (interactive)
@@ -82,8 +90,4 @@
 				(string-to-char (substring starter -1)))
 		   ender))
 	  (indent-for-tab-command))))))
-(global-set-key (kbd "C-c #") 'jeg2s-insert-header-comment)
-
-(defun jeg2s-region-test (start end)
-  (interactive "r")
-  (message start))
+(global-set-key (kbd "C-c ;") 'jeg2s-insert-header-comment)

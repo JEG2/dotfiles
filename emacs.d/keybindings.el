@@ -19,10 +19,10 @@
 (global-set-key (kbd "C-c s") 'shell)
 
 ;; custom keystrokes
-(defun jeg2s-end-of-line-and-newline-and-indent ()
+(defun jeg2s-end-of-line-and-newline-and-indent (skip-eol)
   "Insert a new line below the current line and indent it."
-  (interactive)
-  (unless (eolp)
+  (interactive "P")
+  (unless (or (eolp) skip-eol)
     (end-of-line))
   (newline-and-indent))
 (global-set-key (kbd "C-c RET") 'jeg2s-end-of-line-and-newline-and-indent)

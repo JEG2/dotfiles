@@ -9,13 +9,34 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; install required packages
-(setq jeg2s-required-packages 
-      (list 'magit 'gh 'markdown-mode 'yasnippet))
+(setq jeg2s-required-packages
+      (list 'fill-column-indicator 'gh 'magit
+	    'markdown-mode 'rainbow-mode 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
     (package-refresh-contents)
     (package-install package)))
+
+;; configure Fill-Column-Indicator
+(require 'fill-column-indicator)
+(setq jeg2s-wrap-limit 80)
+(setq jeg2s-buffer-is-wrapped nil)
+(defun jeg2s-toggle-wrap ()
+  (interactive)
+  (if jeg2s-buffer-is-wrapped
+      (progn (fci-mode 0)
+	     (longlines-mode 0))
+    (progn (setq fill-column jeg2s-wrap-limit)
+	   (setq fci-rule-column jeg2s-wrap-limit)
+	   (fci-mode 1)
+	   (longlines-mode 1)))
+    (setq jeg2s-buffer-is-wrapped (not jeg2s-buffer-is-wrapped)))
+(add-hook 'after-change-major-mode-hook
+	  (lambda ()
+	    (make-local-variable 'jeg2s-buffer-is-wrapped)
+	    (jeg2s-toggle-wrap)))
+(global-set-key (kbd "C-c w") 'jeg2s-toggle-wrap)
 
 ;; configure markdown-mode
 (autoload 'markdown-mode "markdown-mode.el"
@@ -33,8 +54,11 @@
 (setq yas/prompt-functions '(yas/ido-prompt))
 (yas/load-directory yas/root-directory)
 
+;; configure rainbow-mode
+(add-hook 'css-mode-hook (lambda () (rainbow-mode)))
+
 ;; add vendored packages to load path
-(setq jeg2s-vendored-packages 
+(setq jeg2s-vendored-packages
       (expand-file-name "vendor" user-emacs-directory))
 
 (dolist (project (directory-files jeg2s-vendored-packages t "\\w+"))
@@ -42,12 +66,12 @@
     (add-to-list 'load-path project)))
 
 ;; load gist
-;; 
+;;
 ;; fetch gist.el submodule (for use with this repository):
-;; 
+;;
 ;;   git submodule init
 ;;   git submodule update
-;; 
+;;
 ;; or set the gist.el submodule (for others to use):
 ;;
 ;;   git submodule add https://github.com/mhayashi1120/gist.el.git \
@@ -57,7 +81,7 @@
 ;; load pbcopy
 ;;
 ;; fetch code:
-;; 
+;;
 ;;   mkdir emacs.d/vendor/pbcopy
 ;;   cd emacs.d/vendor/pbcopy
 ;;   curl -O https://raw.github.com/wesen/emacs/master/pbcopy.el

@@ -27,10 +27,11 @@
   (if jeg2s-buffer-is-wrapped
       (progn (fci-mode 0)
 	     (longlines-mode 0))
-    (progn (setq fill-column jeg2s-wrap-limit)
-	   (setq fci-rule-column jeg2s-wrap-limit)
-	   (fci-mode 1)
-	   (longlines-mode 1)))
+    (unless (= (elt (buffer-name) 0) ?*)
+      (setq fill-column jeg2s-wrap-limit)
+      (setq fci-rule-column jeg2s-wrap-limit)
+      (fci-mode 1)
+      (longlines-mode 1)))
     (setq jeg2s-buffer-is-wrapped (not jeg2s-buffer-is-wrapped)))
 (add-hook 'after-change-major-mode-hook
 	  (lambda ()

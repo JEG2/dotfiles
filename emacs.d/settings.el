@@ -34,4 +34,4 @@
 (setq whitespace-style '(face trailing lines empty))
 (setq whitespace-line-column jeg2s-wrap-limit)
 (global-whitespace-mode 1)
-(global-set-key (kbd "C-c t") 'whitespace-cleanup)
+(global-set-key (kbd "C-c SPC") 'whitespace-cleanup)

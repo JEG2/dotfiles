@@ -25,7 +25,7 @@
 				  '(?| . ?|))))   ; do pair | in Ruby
 (add-hook 'css-mode-hook
 	  (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
-				  '(?: . ?\;))))   ; do pair | in Ruby
+				  '(?: . ?\;))))   ; pair : with ; in CSS
 
 ;; turn on autoindenting
 (electric-indent-mode 1)

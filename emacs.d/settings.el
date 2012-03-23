@@ -1,4 +1,8 @@
-;; setup columns
+;; use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+(setq         tab-width        4)
+
+;; show columns
 (column-number-mode 1)
 
 ;; move backups into .emacs.d/backups
@@ -19,19 +23,23 @@
 ;; activate character pairing
 (electric-pair-mode 1)
 (global-set-key (kbd "'")
-		(lambda () (interactive) (insert "'")))  ; don't pair ' anywhere
+                (lambda () (interactive) (insert "'")))  ; don't pair ' anywhere
 (add-hook 'ruby-mode-hook
-	  (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
-				  '(?| . ?|))))   ; do pair | in Ruby
+          (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
+                                  '(?| . ?|))))   ; do pair | in Ruby
 (add-hook 'css-mode-hook
-	  (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
-				  '(?: . ?\;))))   ; pair : with ; in CSS
+          (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
+                                  '(?: . ?\;))))   ; pair : with ; in CSS
 
 ;; turn on autoindenting
 (electric-indent-mode 1)
 
 ;; show junk whitespace
-(setq whitespace-style '(face trailing lines empty))
+(setq whitespace-style '(face tabs trailing lines empty))
 (setq whitespace-line-column jeg2s-wrap-limit)
 (global-whitespace-mode 1)
-(global-set-key (kbd "C-c SPC") 'whitespace-cleanup)
+(global-set-key (kbd "C-c SPC")
+                (lambda ()
+                  (interactive)
+                  (untabify 0 (buffer-size))
+                  (whitespace-cleanup)))

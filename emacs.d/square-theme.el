@@ -17,8 +17,10 @@
  '(font-lock-function-name-face ((t (:foreground "blue" :weight bold))))
  '(font-lock-keyword-face ((t (:foreground "cyan" :weight bold))))
  '(font-lock-preprocessor-face ((t (:foreground "blue"))))
- '(font-lock-regexp-grouping-backslash ((t (:foreground "yellow" :weight 							bold))))
- '(font-lock-regexp-grouping-construct ((t (:foreground "yellow" :weight 							bold))))
+ '(font-lock-regexp-grouping-backslash ((t
+                                         (:foreground "yellow" :weight bold))))
+ '(font-lock-regexp-grouping-construct ((t
+                                         (:foreground "yellow" :weight bold))))
  '(font-lock-string-face ((t (:foreground "green" :weight bold))))
  '(font-lock-type-face ((t (:foreground "green"))))
  '(font-lock-variable-name-face ((t (:foreground "yellow"))))

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: begin
+# key: begin
+# expand-env: ((yas/indent-line 'fixed))
+# --
+begin
+  $0
+rescue ${1:Exception}${2:$(if (> (length text) 0) " => " "")}${2:error}
+  
+end

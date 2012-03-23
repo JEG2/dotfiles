@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: module
+# key: mod
+# --
+module ${1:`(jeg2s-camelize (file-name-nondirectory (directory-file-name (file-name-directory (file-name-sans-extension (buffer-file-name))))))`}
+  $0
+end

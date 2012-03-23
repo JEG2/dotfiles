@@ -20,6 +20,15 @@
   (jeg2s-regex-replace (jeg2s-regex-replace str "[ \t]+$" "" t t)
                        "^[ \t]+" "" t t))
 
+(defun jeg2s-camelize (str)
+  "Forces a string into CamelCase."
+  (mapconcat (lambda (s)
+               (if (string-match "[aeiouy]" s)
+                   (capitalize s)
+                 (upcase s)))
+             (split-string str "[^A-Za-z0-9]")
+             ""))
+
 ;;;;;;;;;;;;;;;;
 ;;; Commands ;;;
 ;;;;;;;;;;;;;;;;

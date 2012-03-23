@@ -26,13 +26,15 @@
   (interactive)
   (if jeg2s-buffer-is-wrapped
       (progn (fci-mode 0)
-             (longlines-mode 0))
-    (unless (= (elt (buffer-name) 0) ?*)
+             (longlines-mode 0)
+             (setq jeg2s-buffer-is-wrapped nil))
+    (unless (or (= (elt (buffer-name) 0) ?*)
+                (string-match "\\.yasnippet$" (buffer-name)))
       (setq fill-column jeg2s-wrap-limit)
       (setq fci-rule-column jeg2s-wrap-limit)
       (fci-mode 1)
-      (longlines-mode 1)))
-  (setq jeg2s-buffer-is-wrapped (not jeg2s-buffer-is-wrapped)))
+      (longlines-mode 1)
+      (setq jeg2s-buffer-is-wrapped t))))
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (make-local-variable 'jeg2s-buffer-is-wrapped)
@@ -57,6 +59,16 @@
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (setq yas/buffer-local-condition t)))
+(add-hook 'yas/before-expand-snippet-hook
+          (lambda ()
+            (if jeg2s-buffer-is-wrapped
+                (progn (fci-mode       0)
+                       (longlines-mode 0)))))
+(add-hook 'yas/after-exit-snippet-hook
+          (lambda ()
+            (if jeg2s-buffer-is-wrapped
+                (progn (fci-mode       1)
+                       (longlines-mode 1)))))
 
 ;; configure rainbow-mode
 (add-hook 'css-mode-hook (lambda () (rainbow-mode)))

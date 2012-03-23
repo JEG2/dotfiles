@@ -52,8 +52,11 @@
 (require 'yasnippet)
 (yas/initialize)
 (setq yas/root-directory (expand-file-name "snippets" user-emacs-directory))
-(setq yas/prompt-functions '(yas/ido-prompt))
 (yas/load-directory yas/root-directory)
+(setq yas/prompt-functions '(yas/ido-prompt))
+(add-hook 'after-change-major-mode-hook
+	  (lambda ()
+	    (setq yas/buffer-local-condition t)))
 
 ;; configure rainbow-mode
 (add-hook 'css-mode-hook (lambda () (rainbow-mode)))

@@ -16,7 +16,9 @@
 
 ;; shortcuts
 (global-set-key (kbd "C-c l") 'linum-mode)
-(global-set-key (kbd "C-c s") 'shell)
+(global-set-key (kbd "C-c t") (lambda ()
+                                (interactive)
+                                (ansi-term "bash" "localhost")))
 
 ;; custom keystrokes
 (defun jeg2s-end-of-line-and-newline-and-indent (skip-eol)

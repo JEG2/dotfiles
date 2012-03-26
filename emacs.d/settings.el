@@ -42,5 +42,5 @@
 (global-set-key (kbd "C-c SPC")
                 (lambda ()
                   (interactive)
-                  (untabify 0 (buffer-size))
+                  (untabify (point-min) (point-max))
                   (whitespace-cleanup)))

@@ -38,7 +38,7 @@
   (let ((header))
     (if (region-active-p)
         (let ((start (region-beginning))
-              (end (region-end)))
+              (end   (region-end)))
           (goto-char start)
           (setq header (buffer-substring start end))
           (message header)

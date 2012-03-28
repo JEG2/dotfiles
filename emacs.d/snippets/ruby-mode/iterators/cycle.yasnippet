@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cycle
+# key: cyc
+# --
+cycle${1:$(if (> (length text) 0) "(" "")}${1:10}${1:$(if (> (length text) 0) ")" "")} do |${2:e}|
+  $0
+end

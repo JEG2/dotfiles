@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: each_line
+# key: eal
+# --
+each_line${1:$(if (> (length text) 0) "(" "")}${1:"${2:\n}"}${1:$(if (> (length text) 0) ")" "")} do |${3:line}|
+  $0
+end

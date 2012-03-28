@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Array.new
+# key: Array
+# --
+Array.new(${1:10}) {${2:$(if (> (length text) 0) " |" "")}${2:i}${2:$(if (> (length text) 0) "|" "")} $0 }

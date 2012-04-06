@@ -31,6 +31,9 @@
 (add-hook 'css-mode-hook
           (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
                                   '(?: . ?\;))))   ; pair : with ; in CSS
+(add-hook 'markdown-mode-hook
+          (lambda () (add-to-list (make-local-variable 'electric-pair-pairs)
+                                  '(?` . ?`))))   ; do pair ` in Markdown
 
 ;; turn on autoindenting
 (electric-indent-mode 1)
@@ -44,3 +47,12 @@
                   (interactive)
                   (untabify (point-min) (point-max))
                   (whitespace-cleanup)))
+
+;; check spelling (requires:  brew install aspell --lang=en)
+(setq jeg2s-prog-spelled-modes
+      '(css sh emacs-lisp html ruby))
+(add-hook 'text-mode-hook
+          (lambda () (flyspell-mode 1)))
+(dolist (mode jeg2s-prog-spelled-modes)
+  (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
+            (lambda () (flyspell-prog-mode))))

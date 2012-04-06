@@ -50,6 +50,17 @@
 (add-to-list 'auto-mode-alist '("\\.mdown"    . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md"       . markdown-mode))
 
+(defun jeg2s-markdown-yank-as-pre ()
+  (interactive)
+  (call-interactively 'yank)
+  (call-interactively 'exchange-point-and-mark)
+  (call-interactively 'exchange-point-and-mark)
+  (call-interactively 'markdown-pre-region))
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
+
+
 ;; configure YASnippet
 (require 'yasnippet)
 (yas/initialize)

@@ -49,10 +49,18 @@
                   (whitespace-cleanup)))
 
 ;; check spelling (requires:  brew install aspell --lang=en)
+(add-hook 'text-mode-hook ;; covers Markdown
+          (lambda () (flyspell-mode 1)))
+(setq jeg2s-skipped-markdown-faces
+      '(markdown-pre-face markdown-reference-face markdown-url-face))
+(defun jeg2s-markdown-mode-flyspell-verify ()
+  (let ((f (get-text-property (point) 'face)))
+    (not (memq f jeg2s-skipped-markdown-faces))))
+(put 'markdown-mode 'flyspell-mode-predicate
+     'jeg2s-markdown-mode-flyspell-verify)
+
 (setq jeg2s-prog-spelled-modes
       '(css sh emacs-lisp html ruby))
-(add-hook 'text-mode-hook
-          (lambda () (flyspell-mode 1)))
 (dolist (mode jeg2s-prog-spelled-modes)
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
             (lambda () (flyspell-prog-mode))))

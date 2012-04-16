@@ -3,6 +3,3 @@
 
 ;; disable the splash screen
 (setq inhibit-splash-screen t)
-
-;; load theme
-(load-theme 'square t)

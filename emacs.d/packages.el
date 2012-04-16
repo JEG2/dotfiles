@@ -10,13 +10,17 @@
 
 ;; install required packages
 (setq jeg2s-required-packages
-      (list 'fill-column-indicator 'gh 'magit
+      (list 'color-theme-sanityinc-tomorrow
+            'fill-column-indicator 'gh 'magit
             'markdown-mode 'rainbow-mode 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
     (package-refresh-contents)
     (package-install package)))
+
+;; load theme
+(load-theme 'sanityinc-tomorrow-bright t)
 
 ;; configure Fill-Column-Indicator
 (require 'fill-column-indicator)

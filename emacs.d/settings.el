@@ -58,7 +58,7 @@
                   (whitespace-cleanup)))
 
 ;; check spelling (requires:  brew install aspell --lang=en)
-(add-hook 'text-mode-hook ;; covers Markdown
+(add-hook 'text-mode-hook  ;; covers Markdown
           (lambda () (flyspell-mode 1)))
 (setq jeg2s-skipped-markdown-faces
       '(markdown-pre-face markdown-reference-face markdown-url-face))

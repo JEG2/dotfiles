@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: option
+# key: opt
+# --
+parser.on( "-${1:o}", "--${2:long-option-name ARG}"${3:$(if (> (length text) 0) ", " "")}${3:String},
+           "${4:Option description.}" ) do${5:$(if (> (length text) 0) " |" "")}${5:arg}${5:$(if (> (length text) 0) "|" "")}
+  options[:${6:option}] = $5$0
+end

@@ -51,10 +51,7 @@ parse_svn_url() {
 parse_svn_repository_root() {
     svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
-parse_ruby_version() {
-    ruby -v | awk '{ printf " [%s:%s]", $1, $2 }'
-}
-export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\]\$(parse_ruby_version)\[$NO_COLOR\]\$ "
+export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(~/.rvm/bin/rvm-prompt i v p g s)]\[$NO_COLOR\]\$ "
 export PS2='> '
 
 # History

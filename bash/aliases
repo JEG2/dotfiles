@@ -3,8 +3,8 @@ alias start_postgres="launchctl load -w ~/Library/LaunchAgents/org.postgresql.po
 alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/org.postgresql.postgres.plist"
 
 # MySQL
-alias start_mysql="launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist"
-alias stop_mysql="launchctl unload -w ~/Library/LaunchAgents/com.mysql.mysqld.plist"
+alias start_mysql="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias stop_mysql="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 
 # MongoDB
 alias run_mongo="mongod run --config /usr/local/Cellar/mongodb/2.0.2-x86_64/mongod.conf"

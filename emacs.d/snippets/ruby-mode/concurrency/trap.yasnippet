@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: trap
+# key: tra
+# --
+${1:old_handler}${1:$(if (> (length text) 0) " = " "")}trap(${2::${3:INT}}) do
+  $0
+end

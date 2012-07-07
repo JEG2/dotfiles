@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: must_output
+# key: muso
+# --
+-> do
+  $0
+end.must_output(${1:stdout}${2:$(if (> (length text) 0) ", " "")}${2:stderr})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: expect not_to throw_symbol
+# key: expntts
+# --
+expect do
+  $0
+end.not_to throw_symbol(:${1:symbol}${2:$(if (> (length text) 0) ", " "")}${2:value})

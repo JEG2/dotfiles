@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: after
+# key: aft
+# --
+after${1:$(if (> (length text) 0) " :" "")}${1:all} do
+  $0
+end

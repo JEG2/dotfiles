@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: expect to yield_with_args
+# key: exptywa
+# --
+expect do |block|
+  $0
+end.to yield_with_args(${1:args})

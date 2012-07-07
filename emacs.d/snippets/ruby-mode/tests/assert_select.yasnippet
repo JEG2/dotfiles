@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assert_select
+# key: asss
+# --
+assert_select(${1:"${2:selector}"}${3:$(if (> (length text) 0) ", " "")}${3:tests})${4: do |${5:elements}|
+  $0
+end}

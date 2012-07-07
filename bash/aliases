@@ -80,3 +80,8 @@ alias rkdr="rake db:rollback"
 alias rkdc="rake db:create"
 alias rklc="rake log:clear"
 alias rkr="rake routes | mate"
+
+# Emacs only
+if [ -n "$EMACS" ]; then
+  alias ri="PAGER='less -R' ri -f ansi"
+fi

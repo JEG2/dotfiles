@@ -73,3 +73,8 @@
 (dolist (mode jeg2s-prog-spelled-modes)
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
             (lambda () (flyspell-prog-mode))))
+
+;; expand file type coverage
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake$"  . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$"  . ruby-mode))

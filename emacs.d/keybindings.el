@@ -19,3 +19,4 @@
 (global-set-key (kbd "C-c t") (lambda ()
                                 (interactive)
                                 (ansi-term "bash" "localhost")))
+(global-set-key (kbd "C-c m") 'man)

@@ -2,4 +2,4 @@
 # name: subject
 # key: sub
 # --
-subject { $0 }
+subject${1:$(if (> (length text) 0) "(:" "")}${1:name}${1:$(if (> (length text) 0) ")" "")} { $0 }

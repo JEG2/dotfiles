@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect to have_
+# key: expth
+# --
+expect(${1:actual}).to have_${2:attribute}${3:$(if (> (length text) 0) "(" "")}${3:args}${3:$(if (> (length text) 0) ")" "")}

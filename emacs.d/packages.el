@@ -33,6 +33,7 @@
              (longlines-mode 0)
              (setq jeg2s-buffer-is-wrapped nil))
     (unless (or (= (elt (buffer-name) 0) ?*)
+                (= (elt (buffer-name) 0) ?\ )
                 (string-match "\\.yasnippet$" (buffer-name)))
       (setq fill-column jeg2s-wrap-limit)
       (setq fci-rule-column jeg2s-wrap-limit)

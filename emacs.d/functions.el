@@ -109,7 +109,7 @@
   (unless (or (eolp) skip-eol)
     (end-of-line))
   (newline-and-indent))
-(global-set-key (kbd "C-c o") 'jeg2s-newline-below)
+(global-set-key (kbd "C-c l") 'jeg2s-newline-below)
 (defun jeg2s-newline-above ()
   "Insert a new line above the current line and indent it."
   (interactive)
@@ -118,7 +118,7 @@
   (newline)
   (previous-line)
   (indent-according-to-mode))
-(global-set-key (kbd "C-c O") 'jeg2s-newline-above)
+(global-set-key (kbd "C-c L") 'jeg2s-newline-above)
 
 (defun jeg2s-duplicate-line-or-region ()
   "Duplicate the current region, or line, and leave it selected."
@@ -139,3 +139,13 @@
     ;; starting case of an unselected line
     (kmacro-exec-ring-item (quote ("" 0 "%d")) nil)))
 (global-set-key (kbd "C-c d") 'jeg2s-duplicate-line-or-region)
+
+(defun jeg2s-erc-connect ()
+  "Prompts for a channel, then connects to IRC."
+  (interactive)
+  (erc :server    "irc.freenode.net"
+       :port      6667
+       :nick      "JEG2"
+       :password  freenode-password
+       :full-name "James Edward Gray II"))
+(global-set-key (kbd "C-c o i") 'jeg2s-erc-connect)

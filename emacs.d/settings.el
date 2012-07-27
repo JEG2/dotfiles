@@ -78,3 +78,12 @@
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$"  . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$"  . ruby-mode))
+
+;; erc
+(setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
+                                "324" "329" "332" "333" "353" "477"))
+
+(setq erc-max-buffer-size 50000)
+(defvar erc-insert-post-hook)
+(add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
+(setq erc-truncate-buffer-on-save t)

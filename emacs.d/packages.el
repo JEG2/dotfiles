@@ -11,7 +11,7 @@
 ;; install required packages
 (setq jeg2s-required-packages
       (list 'color-theme-sanityinc-tomorrow
-            'fill-column-indicator 'gh 'magit
+            'expand-region 'fill-column-indicator 'gh 'magit
             'markdown-mode 'rainbow-mode 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
@@ -34,7 +34,9 @@
              (setq jeg2s-buffer-is-wrapped nil))
     (unless (or (= (elt (buffer-name) 0) ?*)
                 (= (elt (buffer-name) 0) ?\ )
-                (string-match "\\.yasnippet$" (buffer-name)))
+                (string-match "\\.yasnippet$" (buffer-name))
+                (eq (buffer-local-value 'major-mode (current-buffer))
+                    'dired-mode))
       (setq fill-column jeg2s-wrap-limit)
       (setq fci-rule-column jeg2s-wrap-limit)
       (fci-mode 1)
@@ -44,7 +46,7 @@
           (lambda ()
             (make-local-variable 'jeg2s-buffer-is-wrapped)
             (jeg2s-toggle-wrap)))
-(global-set-key (kbd "C-c w") 'jeg2s-toggle-wrap)
+(global-set-key (kbd "C-c v w") 'jeg2s-toggle-wrap)
 
 ;; configure markdown-mode
 (autoload 'markdown-mode "markdown-mode.el"

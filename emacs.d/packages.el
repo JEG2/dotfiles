@@ -11,7 +11,7 @@
 ;; install required packages
 (setq jeg2s-required-packages
       (list 'color-theme-sanityinc-tomorrow
-            'expand-region 'fill-column-indicator 'gh 'magit
+            'fill-column-indicator 'gh 'magit
             'markdown-mode 'rainbow-mode 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
@@ -98,6 +98,21 @@
 (dolist (project (directory-files jeg2s-vendored-packages t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
+
+;; load expand-region
+;;
+;; fetch expand-region.el submodule (for use with this repository):
+;;
+;;   git submodule init
+;;   git submodule update
+;;
+;; or set the expand-region.el submodule (for others to use):
+;;
+;;   git submodule add https://github.com/JEG2/expand-region.el.git \
+;;                     emacs.d/vendor/expand-region
+(load (expand-file-name "vendor/expand-region/expand-region.el"
+                        user-emacs-directory))
+(global-set-key (kbd "C-c e") 'er/expand-region)
 
 ;; load gist
 ;;

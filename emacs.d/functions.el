@@ -8,17 +8,29 @@
         (replace-match replacement fixedcase literal str))
       str))
 
-(defun jeg2s-regex-replace-all (str regex replacement &optional fixedcase literal)
+(defun jeg2s-regex-replace-all (str
+                                regex
+                                replacement
+                                &optional
+                                fixedcase
+                                literal)
   "Replace a regular expression everywhere it occurs in the passed string."
   (if (string-match regex str)
-    (jeg2s-regex-replace-all (replace-match replacement fixedcase literal str)
-                             regex replacement fixedcase literal)
+      (concat (replace-match replacement
+                             fixedcase
+                             literal
+                             (substring str 0 (match-end 0)))
+              (jeg2s-regex-replace-all (substring str (match-end 0))
+                                       regex
+                                       replacement
+                                       fixedcase
+                                       literal))
     str))
 
 (defun jeg2s-string-trim (str)
   "Trim whitespace from both ends of the passed string."
-  (jeg2s-regex-replace (jeg2s-regex-replace str "[ \t]+$" "" t t)
-                       "^[ \t]+" "" t t))
+  (jeg2s-regex-replace (jeg2s-regex-replace str "[ \t]+\\'" "" t t)
+                       "\\`[ \t]+" "" t t))
 
 (defun jeg2s-camelize (str)
   "Forces a string into CamelCase."
@@ -149,3 +161,58 @@
        :password  freenode-password
        :full-name "James Edward Gray II"))
 (global-set-key (kbd "C-c o i") 'jeg2s-erc-connect)
+
+(defun jeg2s-toggle-string-type ()
+  "Toggle between double, single, and choose-your-own-quotes string types."
+  (interactive)
+  (let ((regex (concat "\\`\\(?:"
+                       "\"\\(?:\\\\\\\\\\|\\\\\.\\|[^\"\\]+\\)*\""
+                       "\\|"
+                       "'\\(?:\\\\\\\\\\|\\\\\.\\|[^'\\]+\\)*'"
+                       "\\|"
+                       "%Q{.*}"
+                       "\\)\\'")))
+    (while (or (not (region-active-p))
+               (not (or (and (= (point-min) (region-beginning))
+                             (= (point-max) (region-end)))
+                        (string-match regex (buffer-substring-no-properties
+                                             (region-beginning)
+                                             (region-end))))))
+      (call-interactively 'er/expand-region))
+    (let ((matched (buffer-substring-no-properties (region-beginning)
+                                                   (region-end))))
+      (if (string-match regex matched)
+          (cond ((string= (substring matched 0 1) "\"")
+                 (call-interactively 'backward-delete-char-untabify)
+                 (let ((old_point (point)))
+                   (insert (concat "%Q{"
+                                   (jeg2s-regex-replace-all
+                                    (substring matched 1 -1)
+                                    "\\\\\""
+                                    "\"")
+                                   "}"))
+                   (goto-char (+ old_point 3))))
+                ((string= (substring matched 0 1) "'")
+                 (call-interactively 'backward-delete-char-untabify)
+                 (let ((old_point (point)))
+                   (insert (concat "\""
+                                   (jeg2s-regex-replace-all
+                                    (jeg2s-regex-replace-all (substring matched
+                                                                        1
+                                                                        -1)
+                                                             "\\\\\'"
+                                                             "'")
+                                    "\""
+                                    "\\\\\"")
+                                   "\""))
+                   (goto-char (+ old_point 1))))
+                ((string= (substring matched 0 3) "%Q{")
+                 (call-interactively 'backward-delete-char-untabify)
+                 (let ((old_point (point)))
+                   (insert (concat "'"
+                                   (jeg2s-regex-replace (substring matched 3 -1)
+                                                        "'"
+                                                        "\\\\'")
+                                   "'"))
+                   (goto-char (+ old_point 1)))))))))
+(global-set-key (kbd "C-c s") 'jeg2s-toggle-string-type)

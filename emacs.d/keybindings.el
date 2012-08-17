@@ -26,3 +26,5 @@
 (global-set-key (kbd "C-c o m") 'man)
 (global-set-key (kbd "C-c o c") 'calc)
 (global-set-key (kbd "C-c o l") 'ielm)
+(global-set-key (kbd "C-c o r") 'inf-ruby)
+(global-set-key (kbd "C-c o t") 'ruby-compilation-rake)

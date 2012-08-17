@@ -11,8 +11,8 @@
 ;; install required packages
 (setq jeg2s-required-packages
       (list 'color-theme-sanityinc-tomorrow
-            'fill-column-indicator 'gh 'inf-ruby 'magit
-            'markdown-mode 'rainbow-mode 'rvm 'yasnippet))
+            'fill-column-indicator 'gh 'inf-ruby 'magit 'markdown-mode
+            'rainbow-mode 'ruby-compilation 'rvm 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
@@ -66,6 +66,9 @@
 (add-hook 'markdown-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
+
+;; load ruby-compilation so it can set bindings
+(require 'ruby-compilation)
 
 ;; configure rvm
 (add-hook 'ruby-mode-hook

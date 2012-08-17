@@ -25,3 +25,4 @@
                                   (ansi-term "bash" "localhost")))
 (global-set-key (kbd "C-c o m") 'man)
 (global-set-key (kbd "C-c o c") 'calc)
+(global-set-key (kbd "C-c o l") 'ielm)

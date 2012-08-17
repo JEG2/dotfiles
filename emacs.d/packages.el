@@ -11,8 +11,8 @@
 ;; install required packages
 (setq jeg2s-required-packages
       (list 'color-theme-sanityinc-tomorrow
-            'fill-column-indicator 'gh 'magit
-            'markdown-mode 'rainbow-mode 'yasnippet))
+            'fill-column-indicator 'gh 'inf-ruby 'magit
+            'markdown-mode 'rainbow-mode 'rvm 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
@@ -67,6 +67,9 @@
           (lambda ()
             (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
 
+;; configure rvm
+(add-hook 'ruby-mode-hook
+          (lambda () (rvm-activate-corresponding-ruby)))
 
 ;; configure YASnippet
 (require 'yasnippet)

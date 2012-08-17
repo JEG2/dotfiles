@@ -10,9 +10,9 @@
 
 ;; install required packages
 (setq jeg2s-required-packages
-      (list 'color-theme-sanityinc-tomorrow
-            'fill-column-indicator 'gh 'inf-ruby 'magit 'markdown-mode
-            'rainbow-mode 'ruby-compilation 'rvm 'yasnippet))
+      (list 'color-theme-sanityinc-tomorrow 'fill-column-indicator 'full-ack 'gh
+            'inf-ruby 'magit 'markdown-mode 'rainbow-mode 'ruby-compilation 'rvm
+            'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
@@ -48,6 +48,13 @@
             (jeg2s-toggle-wrap)))
 (global-set-key (kbd "C-c v w") 'jeg2s-toggle-wrap)
 
+;; add a keystroke for inf-ruby
+(global-set-key (kbd "C-c o r") 'inf-ruby)
+
+;; add keystrokes for full-ack
+(global-set-key (kbd "C-c a") 'ack-same)
+(global-set-key (kbd "C-c A") 'ack)
+
 ;; configure markdown-mode
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
@@ -67,10 +74,11 @@
           (lambda ()
             (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
 
-;; load ruby-compilation so it can set bindings
+;; load ruby-compilation so it can set bindings and add a keystroke
 (require 'ruby-compilation)
+(global-set-key (kbd "C-c o t") 'ruby-compilation-rake)
 
-;; configure rvm
+;; load rvm as needed
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))
 
@@ -94,7 +102,7 @@
                 (progn (fci-mode       1)
                        (longlines-mode 1)))))
 
-;; configure rainbow-mode
+;; load rainbow-mode as needed
 (add-hook 'css-mode-hook (lambda () (rainbow-mode)))
 
 ;; add vendored packages to load path
@@ -116,7 +124,7 @@
 ;;
 ;;   git submodule add https://github.com/JEG2/expand-region.el.git \
 ;;                     emacs.d/vendor/expand-region
-(load (expand-file-name "vendor/expand-region/expand-region.el"
+(load (expand-file-name "vendor/expand-region/loaddefs.el"
                         user-emacs-directory))
 (global-set-key (kbd "C-c e") 'er/expand-region)
 

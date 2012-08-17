@@ -87,3 +87,8 @@
 (defvar erc-insert-post-hook)
 (add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
 (setq erc-truncate-buffer-on-save t)
+
+;; configure re-builder
+(require 're-builder)
+(setq reb-re-syntax 'string)
+(global-set-key (kbd "C-c o e") 're-builder)

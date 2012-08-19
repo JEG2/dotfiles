@@ -96,6 +96,9 @@
             (setq yas/buffer-local-condition t)))
 (add-hook 'yas/before-expand-snippet-hook
           (lambda ()
+            (if (= (line-number-at-pos) (count-lines (point-min) (point-max)))
+                (progn (call-interactively 'jeg2s-newline-below)
+                       (previous-line)))
             (if jeg2s-buffer-is-wrapped
                 (progn (fci-mode       0)
                        (longlines-mode 0)))))

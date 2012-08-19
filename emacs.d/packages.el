@@ -11,8 +11,8 @@
 ;; install required packages
 (setq jeg2s-required-packages
       (list 'color-theme-sanityinc-tomorrow 'fill-column-indicator 'full-ack 'gh
-            'inf-ruby 'magit 'markdown-mode 'rainbow-mode 'ruby-compilation 'rvm
-            'yasnippet))
+            'idomenu 'inf-ruby 'magit 'markdown-mode 'rainbow-mode
+            'ruby-compilation 'rvm 'yasnippet))
 
 (dolist (package jeg2s-required-packages)
   (when (not (package-installed-p package))
@@ -47,6 +47,9 @@
             (make-local-variable 'jeg2s-buffer-is-wrapped)
             (jeg2s-toggle-wrap)))
 (global-set-key (kbd "C-c v w") 'jeg2s-toggle-wrap)
+
+;; add a keystroke for idomenu
+(global-set-key (kbd "C-c s") 'idomenu)
 
 ;; add a keystroke for inf-ruby
 (global-set-key (kbd "C-c o r") 'inf-ruby)

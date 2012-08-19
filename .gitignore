@@ -7,6 +7,7 @@ emacs.d/elpa
 emacs.d/var
 
 emacs.d/secrets.el
+emacs.d/tramp
 
 emacs.d/vendor/pbcopy
 

@@ -39,7 +39,6 @@ alias gplff="git pull --ff-only"
 alias gplr="git pull --rebase"
 
 # TMUX
-alias t="tmux"
 alias ta="tmux attach"
 alias tls="tmux list-sessions"
 alias tk="tmux kill-server"

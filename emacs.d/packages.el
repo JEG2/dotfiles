@@ -119,7 +119,7 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-;; load expand-region
+;; load expand-region and bind it to a keystroke
 ;;
 ;; fetch expand-region.el submodule (for use with this repository):
 ;;
@@ -156,3 +156,17 @@
 ;;   curl -O https://raw.github.com/wesen/emacs/master/pbcopy.el
 (require 'pbcopy)
 (turn-on-pbcopy)
+
+;; load and configure rhtml
+;;
+;; fetch rhtml submodule (for use with this repository):
+;;
+;;   git submodule init
+;;   git submodule update
+;;
+;; or set the rhtml submodule (for others to use):
+;;
+;;   git submodule add https://github.com/eschulte/rhtml.git \
+;;                     emacs.d/vendor/rhtml
+(require 'rhtml-mode)
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))

@@ -43,6 +43,34 @@
              (split-string str "[^A-Za-z0-9]")
              ""))
 
+(defun jeg2s-find-subpath-in-path (subpath path)
+  "Walks up the passed path hunting for subpath at each level."
+  (let ((match (concat (file-name-as-directory path) subpath)))
+    (if (file-exists-p match)
+        match
+      (unless (string= path "/")
+        (jeg2s-find-subpath-in-path
+         subpath
+         (file-name-directory (substring path 0 -1)))))))
+
+(defun jeg2s-find-in-path (subpath)
+  "Walks up the current path hunting for subpath at each level."
+  (jeg2s-find-subpath-in-path
+   subpath
+   (expand-file-name (if (buffer-file-name)
+                         (file-name-directory (buffer-file-name))
+                       default-directory))))
+
+(defun jeg2s-read-rails-database-config (path)
+  "Loads the database config as:  adapter database username [password]."
+  (split-string
+   (shell-command-to-string
+    (concat "ruby -ryaml -rerb -e 'puts YAML.load(ARGF)[%q{"
+            (or (getenv "RAILS_ENV") "development")
+            "}].values_at(*%w[adapter database username password])"
+            ".compact.join(%q{ })' "
+            path))))
+
 ;;;;;;;;;;;;;;;;
 ;;; Commands ;;;
 ;;;;;;;;;;;;;;;;
@@ -408,3 +436,25 @@
 (add-hook 'ruby-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c t t") 'jeg2s-toggle-ruby-test-meaning)))
+
+(require 'sql)
+(defun jeg2s-rails-dbconsole ()
+  "Open a SQL shell using the settings from config/database.yml."
+  (interactive)
+  (let ((config (jeg2s-find-in-path "config/database.yml")))
+    (if config
+        (let* ((env     (jeg2s-read-rails-database-config config))
+               (adapter (car env))
+               (db      (cond ((string-match "\\`mysql"   adapter)
+                               "mysql")
+                              ((string-match "\\`sqlite"  adapter)
+                               "sqlite")
+                              ((string=      "postgresql" adapter)
+                               "postgres"))))
+          (let ((sql-fun      (intern (concat "sql-" db)))
+                (sql-database (cadr   env))
+                (sql-user     (caddr  env))
+                (sql-password (cadddr env)))
+            (flet ((sql-get-login (&rest pars) () t)) ; silence confirmation
+              (funcall sql-fun)))))))
+(global-set-key (kbd "C-c o d") 'jeg2s-rails-dbconsole)

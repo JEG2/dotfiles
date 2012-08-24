@@ -51,8 +51,20 @@
 ;; add a keystroke for idomenu
 (global-set-key (kbd "C-c s") 'idomenu)
 
-;; add a keystroke for inf-ruby
+;; add keystrokes for inf-ruby
+(require 'inf-ruby)
+(setq inf-ruby-first-prompt-pattern "^>>\s*")
+(setq inf-ruby-prompt-pattern       "^\\(>>\s*\\)")
 (global-set-key (kbd "C-c o r") 'inf-ruby)
+
+(defun jeg2s-rails-console ()
+  "Invoke inf-ruby with Rails environment loaded."
+  (interactive)
+  (let ((config (jeg2s-find-in-path "config/environment.rb")))
+    (if config
+        (run-ruby (concat "irb --inf-ruby-mode -r irb/completion -r " config)
+                  "ruby"))))
+(global-set-key (kbd "C-c o R") 'jeg2s-rails-console)
 
 ;; add keystrokes for full-ack
 (global-set-key (kbd "C-c a") 'ack-same)

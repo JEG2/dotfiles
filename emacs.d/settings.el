@@ -10,8 +10,12 @@
 (setq         tab-width        4)
 (setq         tab-stop-list    (number-sequence 4 120 4))
 
-;; show columns
+;; show columns and time in modeline
 (column-number-mode 1)
+
+(setq display-time-day-and-date t
+      display-time-24hr-format  t)
+(display-time)
 
 ;; move backups into .emacs.d/backups
 (setq backup-directory-alist

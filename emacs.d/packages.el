@@ -89,6 +89,9 @@
           (lambda ()
             (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
 
+;; load rainbow-mode as needed
+(add-hook 'css-mode-hook (lambda () (rainbow-mode)))
+
 ;; load ruby-compilation so it can set bindings and add a keystroke
 (require 'ruby-compilation)
 (global-set-key (kbd "C-c o t") 'ruby-compilation-rake)
@@ -108,7 +111,8 @@
             (setq yas/buffer-local-condition t)))
 (add-hook 'yas/before-expand-snippet-hook
           (lambda ()
-            (if (= (line-number-at-pos) (count-lines (point-min) (point-max)))
+            (if (and (= 1 (line-number-at-pos))
+                     (= 1 (count-lines (point-min) (point-max))))
                 (progn (call-interactively 'jeg2s-newline-below)
                        (previous-line)))
             (if jeg2s-buffer-is-wrapped
@@ -119,9 +123,6 @@
             (if jeg2s-buffer-is-wrapped
                 (progn (fci-mode       1)
                        (longlines-mode 1)))))
-
-;; load rainbow-mode as needed
-(add-hook 'css-mode-hook (lambda () (rainbow-mode)))
 
 ;; add vendored packages to load path
 (setq jeg2s-vendored-packages

@@ -456,6 +456,86 @@
                 (sql-database (cadr   env))
                 (sql-user     (caddr  env))
                 (sql-password (cadddr env)))
-            (flet ((sql-get-login (&rest pars) () t)) ; silence confirmation
+            (flet ((sql-get-login (&rest pars) t))  ; silence confirmation
               (funcall sql-fun)))))))
 (global-set-key (kbd "C-c o d") 'jeg2s-rails-dbconsole)
+
+(defun jeg2s-html-insert-open-and-close-tag ()
+  "Generates an open and close HTML snippet using the current word."
+  (interactive)
+  (let ((inserting-new-tag nil))
+    (if (looking-back "[-A-Za-z0-9:_]")
+        (progn (set-mark-command nil)
+               (while (looking-back "[-A-Za-z0-9:_]")
+                 (backward-char)))
+      (setq inserting-new-tag t)
+      (set-mark-command nil)
+      (insert "p")
+      (exchange-point-and-mark))
+    (let ((tag (buffer-substring (region-beginning) (region-end))))
+      (delete-char (string-width tag))
+      (cond ((string-match "\\`[bh]r\\'" tag)
+             (insert (concat "<" tag ">")))
+            ((string-match (concat "\\`\\(?:img\\|meta\\|link\\|"
+                                   "input\\|base\\|area\\|col\\|"
+                                   "frame\\|param\\)\\'")
+                           tag)
+             (yas/expand-snippet (concat "<" tag " $1>$0")))
+            (t
+             (yas/expand-snippet
+              (if inserting-new-tag
+                  (concat "<${1:"
+                          tag
+                          "}>$0</${1:"
+                          "$(and (string-match \"[-A-Za-z0-9:_]+\" text) "
+                          "(match-string 0 text))}>")
+                (concat "<"
+                        tag
+                        "$1>$0</"
+                        tag
+                        ">"))))))))
+(global-set-key (kbd "C-c <") 'jeg2s-html-insert-open-and-close-tag)
+
+(defun jeg2s-erb-insert-or-toggle-erb-tag ()
+  "Insert an ERb tag if the point isn't currently in one, or toggle the type."
+  (interactive)
+  (let ((action))
+    (save-excursion
+      (let ((regex (concat "\\`<%.*%>\\'")))
+        (while (or (not (region-active-p))
+                   (not (or (and (= (point-min) (region-beginning))
+                                 (= (point-max) (region-end)))
+                            (string-match regex (buffer-substring-no-properties
+                                                 (region-beginning)
+                                                 (region-end))))))
+          (er/expand-region 1))
+        (let ((matched (buffer-substring-no-properties (region-beginning)
+                                                       (region-end))))
+          (if (string-match regex matched)
+              (progn (goto-char (+ (if (< (point) (mark)) (point) (mark)) 2))
+                     (cond ((looking-at "=")
+                            (delete-char 1))
+                           ((looking-at "#")
+                            (delete-char 1)
+                            (insert "="))
+                           (t
+                            (insert "#"))))
+            (setq action 'insert)))))
+    (if (eq action 'insert)
+        (progn (insert "<%=  %>")
+               (backward-char 3)))))
+(global-set-key (kbd "C-c >") 'jeg2s-erb-insert-or-toggle-erb-tag)
+
+(defun jeg2s-nest-new-section ()
+  "Splits content before and after the point to insert new content between."
+  (interactive)
+  (indent-for-tab-command)
+  (newline)
+  (newline)
+  (indent-for-tab-command)
+  (previous-line)
+  (indent-for-tab-command))
+(global-set-key (kbd "C-c RET") 'jeg2s-nest-new-section)
+(add-hook 'html-mode-hook  ; override HTML's command
+          (lambda ()
+            (local-set-key (kbd "C-c RET") 'jeg2s-nest-new-section)))

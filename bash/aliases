@@ -83,4 +83,5 @@ alias rkr="rake routes | mate"
 # Emacs only
 if [ -n "$EMACS" ]; then
   alias ri="PAGER='less -R' ri -f ansi"
+  alias ssh="TERM=xterm ssh"
 fi

@@ -22,6 +22,21 @@
 ;; load theme
 (load-theme 'sanityinc-tomorrow-bright t)
 
+(defun jeg2s-htmlify-buffer-dark ()
+  "Converts the entire buffer in syntax highlighted HTML."
+  (interactive)
+  (htmlfontify-buffer)
+  (mark-whole-buffer)
+  (replace-string "font-size: 0pt;" "font-size: 14pt;"))
+(global-set-key (kbd "C-c H") 'jeg2s-htmlify-buffer-dark)
+(defun jeg2s-htmlify-buffer-light ()
+  "Converts the entire buffer in syntax highlighted HTML."
+  (interactive)
+  (load-theme 'sanityinc-tomorrow-day t)
+  (jeg2s-htmlify-buffer-dark)
+  (load-theme 'sanityinc-tomorrow-bright t))
+(global-set-key (kbd "C-c h") 'jeg2s-htmlify-buffer-light)
+
 ;; configure Fill-Column-Indicator
 (require 'fill-column-indicator)
 (setq jeg2s-wrap-limit 80)

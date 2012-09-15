@@ -27,7 +27,12 @@
   (interactive)
   (htmlfontify-buffer)
   (mark-whole-buffer)
-  (replace-string "font-size: 0pt;" "font-size: 14pt;"))
+  (replace-string "font-size: 0pt;" "font-size: 14pt;")
+  (mark-whole-buffer)
+  (replace-string "font-family: default;" "font-family: \"DejaVu Sans Mono\"")
+  (save-buffer)
+  (call-process "open" nil nil nil (buffer-file-name))
+  (kill-buffer))
 (global-set-key (kbd "C-c H") 'jeg2s-htmlify-buffer-dark)
 (defun jeg2s-htmlify-buffer-light ()
   "Converts the entire buffer in syntax highlighted HTML."

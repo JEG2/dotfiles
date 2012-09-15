@@ -132,12 +132,16 @@
                        (previous-line)))
             (if jeg2s-buffer-is-wrapped
                 (progn (fci-mode       0)
-                       (longlines-mode 0)))))
+                       (longlines-mode 0)))
+            (if (eq major-mode 'ruby-mode)
+                (remove-hook 'after-change-functions #'erm-req-parse t))))
 (add-hook 'yas/after-exit-snippet-hook
           (lambda ()
             (if jeg2s-buffer-is-wrapped
                 (progn (fci-mode       1)
-                       (longlines-mode 1)))))
+                       (longlines-mode 1)))
+            (if (eq major-mode 'ruby-mode)
+                (erm-reset-buffer))))
 
 ;; add vendored packages to load path
 (setq jeg2s-vendored-packages
@@ -198,3 +202,18 @@
 ;;                     emacs.d/vendor/rhtml
 (require 'rhtml-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+
+;; load enhanced ruby mode
+;;
+;; fetch enhanced ruby mode submodule (for use with this repository):
+;;
+;;   git submodule init
+;;   git submodule update
+;;
+;; or set the enhanced ruby mode submodule (for others to use):
+;;
+;;   git submodule add https://github.com/jacott/Enhanced-Ruby-Mode.git \
+;;                     emacs.d/vendor/Enhanced-Ruby-Mode
+(load (expand-file-name "vendor/Enhanced-Ruby-Mode/ruby-mode.elc"
+                        user-emacs-directory))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))

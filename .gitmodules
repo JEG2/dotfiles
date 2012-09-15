@@ -8,3 +8,6 @@
 [submodule "emacs.d/vendor/rhtml"]
 	path = emacs.d/vendor/rhtml
 	url = https://github.com/eschulte/rhtml.git
+[submodule "emacs.d/vendor/Enhanced-Ruby-Mode"]
+	path = emacs.d/vendor/Enhanced-Ruby-Mode
+	url = https://github.com/jacott/Enhanced-Ruby-Mode.git

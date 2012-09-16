@@ -10,6 +10,9 @@
 (setq         tab-width        4)
 (setq         tab-stop-list    (number-sequence 4 120 4))
 
+;; trim trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; show columns and time in modeline
 (column-number-mode 1)
 

@@ -539,3 +539,22 @@
 (add-hook 'html-mode-hook  ; override HTML's command
           (lambda ()
             (local-set-key (kbd "C-c RET") 'jeg2s-nest-new-section)))
+
+(defun jeg2s-trim-backwards ()
+  "Removes all whitespace behind the point."
+  (interactive)
+  (while (looking-back "[\s\t\n]")
+    (backward-delete-char-untabify 1)))
+(global-set-key (kbd "C-c w b") 'jeg2s-trim-backwards)
+(defun jeg2s-trim-forwards ()
+  "Removes all whitespace in front of the point."
+  (interactive)
+  (while (looking-at "[\s\t\n]")
+    (delete-char 1)))
+(global-set-key (kbd "C-c w f") 'jeg2s-trim-forwards)
+(defun jeg2s-trim-backwards-and-forwards ()
+  "Removes all whitespace behind and in front of the point."
+  (interactive)
+  (jeg2s-trim-backwards)
+  (jeg2s-trim-forwards))
+(global-set-key (kbd "C-c w w") 'jeg2s-trim-backwards-and-forwards)

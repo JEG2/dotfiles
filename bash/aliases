@@ -80,7 +80,9 @@ alias rkdc="rake db:create"
 alias rklc="rake log:clear"
 alias rkr="rake routes | mate"
 
-# Emacs only
+# Emacs
+alias e="emacs"
+# inside Emacs terminals
 if [ -n "$EMACS" ]; then
   alias ri="PAGER='less -R' ri -f ansi"
   alias ssh="TERM=xterm ssh"

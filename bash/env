@@ -1,9 +1,9 @@
 # Enviroment Variables
-export EDITOR="mate -w"
-export CVSEDITOR="mate -w"
+export EDITOR="emacs"
+export CVSEDITOR="emacs"
 export CVS_RSH="ssh"
-export SVN_EDITOR="mate -w"
-export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
+export SVN_EDITOR="emacs"
+export GIT_EDITOR="emacs"
 export LC_CTYPE=en_US.UTF-8
 export HISTSIZE=500
 export HISTFILESIZE=1500

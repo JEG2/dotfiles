@@ -17,6 +17,20 @@
 (global-set-key (kbd "C-c g b") 'vc-annotate)
 (global-set-key (kbd "C-c g p") 'gist-region-or-buffer)
 
+;; org-mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c f") 'org-do-demote)
+            (local-set-key (kbd "C-c b") 'org-do-promote)
+            (local-set-key (kbd "C-c F") (lambda ()
+                                           (interactive)
+                                           (org-insert-heading)
+                                           (org-do-demote)))
+            (local-set-key (kbd "C-c b") (lambda ()
+                                           (interactive)
+                                           (org-insert-heading)
+                                           (org-do-promote)))))
+
 ;; shortcuts
 (global-set-key (kbd "C-c v l") 'linum-mode)
 

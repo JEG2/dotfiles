@@ -60,10 +60,16 @@
 
 ;; turn on autoindenting
 (electric-indent-mode 1)
+; but not in org-mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            (set (make-local-variable 'electric-indent-functions)
+                 (list (lambda (arg) 'no-indent)))))
 
 ;; show junk whitespace
-(setq whitespace-style '(face tabs trailing lines empty))
-(setq whitespace-line-column jeg2s-wrap-limit)
+(setq whitespace-style        '(face tabs trailing lines empty))
+(setq whitespace-line-column  jeg2s-wrap-limit)
+(setq whitespace-global-modes '(not org-mode))
 (global-whitespace-mode 1)
 (global-set-key (kbd "C-c SPC")
                 (lambda ()
@@ -113,3 +119,6 @@
              '(nil "\\`root\\'" "/ssh:%h:"))
 (add-to-list 'tramp-default-proxies-alist
              '((regexp-quote (system-name)) nil nil))
+
+;; configure org-mode
+(setq org-startup-truncated nil)

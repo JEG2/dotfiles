@@ -147,6 +147,9 @@
                        (longlines-mode 1)))
             (if (eq major-mode 'ruby-mode)
                 (erm-reset-buffer))))
+(add-hook 'ruby-mode-hook
+          (lambda () (setq yas/fallback-behavior
+                           '(apply indent-for-tab-command))))
 
 ;; add vendored packages to load path
 (setq jeg2s-vendored-packages

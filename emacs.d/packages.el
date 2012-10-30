@@ -146,7 +146,8 @@
                 (progn (fci-mode       1)
                        (longlines-mode 1)))
             (if (eq major-mode 'ruby-mode)
-                (erm-reset-buffer))))
+                (progn (erm-reset-buffer)
+                       (indent-for-tab-command)))))
 (add-hook 'ruby-mode-hook
           (lambda () (setq yas/fallback-behavior
                            '(apply indent-for-tab-command))))

@@ -2,4 +2,4 @@
 # name: require spec
 # key: reqs
 # --
-require "${1:$$(yas/choose-value '("spec_helper" "minitest/autorun"))}"$0
+require${1:$(if (string= text "spec_helper") "_relative" "")} "${1:$$(yas/choose-value '("spec_helper" "minitest/autorun"))}"$0

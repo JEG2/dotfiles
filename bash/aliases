@@ -1,6 +1,6 @@
 # PostgreSQL
-alias start_postgres="launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist"
-alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/org.postgresql.postgres.plist"
+alias start_postgres="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
 # MySQL
 alias start_mysql="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"

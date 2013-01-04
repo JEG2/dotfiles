@@ -1,3 +1,6 @@
+# Mac OS X
+alias rebuild_ls_db="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
+
 # PostgreSQL
 alias start_postgres="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"

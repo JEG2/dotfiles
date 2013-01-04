@@ -54,7 +54,14 @@
              (setq jeg2s-buffer-is-wrapped nil))
     (unless (or (= (elt (buffer-name) 0) ?*)
                 (= (elt (buffer-name) 0) ?\ )
-                (string-match "\\.\\(?:org\\|yasnippet\\)\\'" (buffer-name))
+                (string-match (concat "\\.\\(?:"
+                                      (mapconcat 'identity
+                                                 '("erb"
+                                                   "html"
+                                                   "org"
+                                                   "yasnippet")
+                                                 "\\|")
+                                      "\\)\\'") (buffer-name))
                 (eq (buffer-local-value 'major-mode (current-buffer))
                     'dired-mode))
       (setq fill-column jeg2s-wrap-limit)

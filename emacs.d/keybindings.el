@@ -8,9 +8,12 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
-(global-set-key (kbd "C-x O")       (lambda ()
+(global-set-key (kbd "C-x o")       (lambda ()
                                       (interactive)
                                       (other-window -1)))
+(global-set-key (kbd "C-x O")       (lambda ()
+                                      (interactive)
+                                      (other-window 1)))
 
 ;; Git
 (global-set-key (kbd "C-c g g") 'magit-status)

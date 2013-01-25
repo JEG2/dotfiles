@@ -118,6 +118,14 @@
           (lambda ()
             (local-set-key (kbd "C-c y") 'jeg2s-markdown-yank-as-pre)))
 
+(defun jeg2s-markdown-preview ()
+  (interactive)
+  (save-buffer)
+  (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c o p") 'jeg2s-markdown-preview)))
+
 ;; load rainbow-mode as needed
 (add-hook 'css-mode-hook (lambda () (rainbow-mode)))
 

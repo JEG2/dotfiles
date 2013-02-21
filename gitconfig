@@ -1,21 +1,25 @@
 # WARNING:  This file is copied, not symlinked, due to the token.
 [user]
-	name = James Edward Gray II
-	email = james@graysoftinc.com
+  name = James Edward Gray II
+  email = james@graysoftinc.com
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [color]
-	status = auto
-	branch = auto
-	interactive = auto
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
+  status = auto
+  branch = auto
+  interactive = auto
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  logallrefupdates = true
 [gc]
-	auto = 1
+  auto = 1
 [push]
-	default = current
+  default = current
+[pull]
+  rebase = true
+[rerere]
+  enabled = 1
 # [github]
 #   user = JEG2
 #   token = ...

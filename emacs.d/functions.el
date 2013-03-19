@@ -558,3 +558,11 @@
   (jeg2s-trim-backwards)
   (jeg2s-trim-forwards))
 (global-set-key (kbd "C-c w w") 'jeg2s-trim-backwards-and-forwards)
+
+(defun jeg2s-align ()
+  "Aligns equal signs in the region or buffer."
+  (interactive)
+  (let ((begin (if (region-active-p) (region-beginning) (point-min)))
+        (end   (if (region-active-p) (region-end)       (point-max))))
+    (align-regexp begin end "\\(\\s-*\\)=" 1 1 nil)))
+(global-set-key (kbd "C-c =") 'jeg2s-align)

@@ -4,4 +4,4 @@
 # --
 expect do
   $0
-end.not_to raise_error(${1:Exception}${2:Failure message}${2:$(if (> (length text) 0) "\"" "")})
+end.not_to raise_error(${1:Exception}${2:$(if (> (length text) 0) ", \"" "")}${2:Failure message}${2:$(if (> (length text) 0) "\"" "")})

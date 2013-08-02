@@ -1,16 +1,10 @@
 .DS_Store
 **/.DS_Store
 
-emacs.d/auto-save-list
-emacs.d/backups
-emacs.d/elpa
-emacs.d/var
+emacs.d/*
+!emacs.d/init.el
+!emacs.d/jeg2
 
-emacs.d/secrets.el
-emacs.d/tramp
-emacs.d/bookmarks
+emacs.d/jeg2/settings/secrets.el
 
-emacs.d/vendor/pbcopy
-
-emacs.d/*.elc
-emacs.d/**/*.elc
+emacs.d/jeg2/**/*.elc

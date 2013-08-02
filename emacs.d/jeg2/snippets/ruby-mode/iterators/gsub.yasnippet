@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gsub
+# key: gsu
+# --
+gsub(${1:/${2:pattern}/}) {${3:$(if (> (length text) 0) " |" "")}${3:match}${3:$(if (> (length text) 0) "|" "")} $0 }

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: module
+# key: mod
+# --
+module ${1:`(let ((dir (file-name-nondirectory (directory-file-name (file-name-directory (file-name-sans-extension (buffer-file-name))))))) (if (string= dir "lib") (jeg2/camelize (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))) (jeg2/camelize dir)))`}
+  $0
+end

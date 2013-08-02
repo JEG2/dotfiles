@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: tap
+# key: tap
+# --
+tap do${1:$(if (> (length text) 0) " |" "")}${1:object}${1:$(if (> (length text) 0) "|" "")}
+  $0
+end

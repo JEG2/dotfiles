@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: parse_options
+# key: paro
+# --
+require "optparse"
+
+options = {${1:default: "args"}}
+
+ARGV.options do |parser|
+  parser.banner = "Usage:  #{File.basename($PROGRAM_NAME)} [OPTIONS]${2:$(if (> (length text) 0) " " "")}${2:OTHER_ARGS}"
+
+  parser.separator ""
+  parser.separator "Specific Options:"
+
+  $0
+
+  parser.separator "Common Options:"
+
+  parser.on( "-h", "--help",
+             "Show this message." ) do
+    puts parser
+    exit
+  end
+
+  begin
+    parser.parse!
+  rescue OptionParser::ParseError
+    puts parser
+    exit
+  end
+end

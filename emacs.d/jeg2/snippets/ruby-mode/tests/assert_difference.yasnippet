@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assert_difference
+# key: assd
+# --
+assert_difference(-> { $1 }${2:$(if (> (length text) 0) ", " "")}${2:-1}${3:$(if (> (length text) 0) ", \\\"" "")}${3:Failure message}${3:$(if (> (length text) 0) "\\\"" "")}) do
+  $0
+end

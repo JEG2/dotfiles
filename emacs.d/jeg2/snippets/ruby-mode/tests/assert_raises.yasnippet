@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assert_raises
+# key: assr
+# --
+${1:error}${1:$(if (> (length text) 0) " = " "")}assert_raises(${2:Exception}) do
+  $0
+end

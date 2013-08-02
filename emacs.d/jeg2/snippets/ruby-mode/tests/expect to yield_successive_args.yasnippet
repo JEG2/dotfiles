@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: expect to yield_successive_args
+# key: exptysa
+# --
+expect do |block|
+  $0
+end.to yield_successive_args(${1:args})

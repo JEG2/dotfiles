@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: class test
+# key: clat
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+class ${1:`(jeg2/camelize (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`} < MiniTest::Unit::TestCase
+  $0
+end

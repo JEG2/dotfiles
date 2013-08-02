@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: scan
+# key: sca
+# --
+scan(${1:/${2:pattern}/}) do${3:$(if (> (length text) 0) " |" "")}${3:match}${3:$(if (> (length text) 0) "|" "")}
+  $0
+end

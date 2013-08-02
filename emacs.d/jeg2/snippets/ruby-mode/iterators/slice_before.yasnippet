@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: slice_before
+# key: slib
+# --
+slice_before${1:$(if (> (length text) 0) "(" "")}${1:initial}${1:$(if (> (length text) 0) ")" "")} { |${2:e}${3:$(if (> (length text) 0) ", " "")}${3:state}| $0 }

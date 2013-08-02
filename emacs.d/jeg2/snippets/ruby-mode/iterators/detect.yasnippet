@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: detect
+# key: det
+# --
+detect${1:$(if (> (length text) 0) "(lambda { " "")}${1:default}${1:$(if (> (length text) 0) " })" "")} { |${2:e}| $0 }

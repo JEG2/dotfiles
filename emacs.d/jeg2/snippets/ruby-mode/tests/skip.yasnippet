@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: skip
+# key: ski
+# --
+skip${1:$(if (> (length text) 0) " \\\"" "")}${1:reason this code is skipped}${1:$(if (> (length text) 0) "\\\"" "")}$0

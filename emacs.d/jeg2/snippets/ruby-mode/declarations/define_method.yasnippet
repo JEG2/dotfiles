@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: define_method
+# key: defm
+# --
+define_method(${1::${2:method_name}}) {${3:$(if (> (length text) 0) " |" "")}${3:variable}${3:$(if (> (length text) 0) "|" "")} $0 }

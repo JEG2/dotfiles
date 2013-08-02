@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: bench_performance_exponential
+# key: benpe
+# --
+bench_performance_exponential "${1:algorithm name}"${2:$(if (> (length text) 0) ", " "")}${2:0.9999} do |${3:n}|
+  $0
+end

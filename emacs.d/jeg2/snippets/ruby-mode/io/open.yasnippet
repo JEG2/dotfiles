@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: open
+# key: ope
+# --
+open(${1:"${2:path}"}${3:$(if (> (length text) 0) ", \\\"" "")}${3:w}${3:$(if (> (length text) 0) "\\\"" "")}) { |${4:io}| $0 }

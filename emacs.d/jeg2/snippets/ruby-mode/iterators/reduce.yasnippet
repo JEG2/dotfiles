@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: reduce
+# key: red
+# --
+reduce${1:$(if (> (length text) 0) "(" "")}${1:initial}${1:$(if (> (length text) 0) ")" "")} { |${2:result}, ${3:e}| $0 }

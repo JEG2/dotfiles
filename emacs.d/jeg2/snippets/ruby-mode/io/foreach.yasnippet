@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: foreach
+# key: for
+# --
+foreach(${1:"${2:path}"}${3:$(if (> (length text) 0) ", encoding: \\\"" "")}${3:UTF-8}${3:$(if (> (length text) 0) "\\\"" "")}) do |${4:line}|
+  $0
+end

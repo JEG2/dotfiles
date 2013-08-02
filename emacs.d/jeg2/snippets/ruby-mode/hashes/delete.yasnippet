@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: delete
+# key: del
+# --
+delete(${1:object}) {${2:$(if (> (length text) 0) " |" "")}${2:key}${2:$(if (> (length text) 0) "|" "")} $0 }

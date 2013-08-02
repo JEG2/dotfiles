@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect not_to have_
+# key: expnth
+# --
+expect(${1:actual}).not_to have_${2:attribute}${3:$(if (> (length text) 0) "(" "")}${3:args}${3:$(if (> (length text) 0) ")" "")}

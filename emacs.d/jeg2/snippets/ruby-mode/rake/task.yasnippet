@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: task
+# key: tas
+# --
+${1:$(if (> (length text) 0) "desc \\\"" "")}${1:Task description}${1:$(if (> (length text) 0) "\\\"\n" "")}task :${2:${3:task_name} => ${4:%w[${5:dependent tasks}]}} do
+  $0
+end

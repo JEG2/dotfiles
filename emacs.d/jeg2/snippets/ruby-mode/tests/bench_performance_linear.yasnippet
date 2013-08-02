@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: bench_performance_linear
+# key: benpl
+# --
+bench_performance_linear "${1:algorithm name}"${2:$(if (> (length text) 0) ", " "")}${2:0.9999} do |${3:n}|
+  $0
+end

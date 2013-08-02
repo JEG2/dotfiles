@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: subject
+# key: sub
+# --
+subject${1:$(if (> (length text) 0) "(:" "")}${1:name}${1:$(if (> (length text) 0) ")" "")} { $0 }

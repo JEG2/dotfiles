@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: expect to raise_error
+# key: exptre
+# --
+expect do
+  $0
+end.to raise_error(${1:Exception}${2:$(if (> (length text) 0) ", \\\"" "")}${2:Failure message}${2:$(if (> (length text) 0) "\\\"" "")})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: font: style variant weight size family
+# key: font
+# contributor: Translated from TextMate snippet 
+# uuid: 30C6CFA2-C00A-4F2A-8770-096A49C3F95F
+# --
+font:${1:$(if (> (length text) 0) " " "")}${1:$$(yas/choose-value "italic" "oblique" "normal")}${2:$(if (> (length text) 0) " " "")}${2:$$(yas/choose-value "small-caps" "normal")}${3:$(if (> (length text) 0) " " "")}${3:$$(yas/choose-value "bold" "normal")} ${4:1.5em}${5:$(if (> (length text) 0) " \\\"" "")}${5:Lucidia Grande}${5:$(if (> (length text) 0) "\\\"" "")}${6:$(if (> (length text) 0) ", " "")}${6:$$(yas/choose-value "sans-serif" "monospace" "serif")};$0

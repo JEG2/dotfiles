@@ -1,9 +1,9 @@
 # Enviroment Variables
-export EDITOR="emacs"
-export CVSEDITOR="emacs"
+export EDITOR="e"
+export CVSEDITOR="e"
 export CVS_RSH="ssh"
-export SVN_EDITOR="emacs"
-export GIT_EDITOR="emacs"
+export SVN_EDITOR="e"
+export GIT_EDITOR="e"
 export LC_CTYPE=en_US.UTF-8
 export HISTSIZE=500
 export HISTFILESIZE=1500

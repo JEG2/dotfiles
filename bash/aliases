@@ -47,28 +47,40 @@ alias tk="tmux kill-server"
 
 # Ruby
 alias r="ruby"
-alias i="pry --simple-prompt"
+alias i="irb"
 alias rk="rake"
 alias rkt="rake -T"
 alias b="bundle"
-alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
+alias berk="bundle exec rake"
 
 # Rails
 # console
-alias rlc="pry --simple-prompt -r ./config/environment"
+function rlc() {
+  if [ -x bin/rails ]; then
+    bin/rails console $@
+  elif [ -x script/rails ]; then
+    script/rails console $@
+  else
+    script/console $@
+  fi
+}
 # server
 function rls() {
-  if [ -x script/rails ]; then
-    script/rails server thin $@
+  if [ -x bin/rails ]; then
+    bin/rails server $@
+  elif [ -x script/rails ]; then
+    script/rails server $@
   else
     script/server $@
   fi
 }
 # generator
 function rlg() {
-  if [ -x script/rails ]; then
+  if [ -x bin/rails ]; then
+    bin/rails generate $@
+  elif [ -x script/rails ]; then
     script/rails generate $@
   else
     script/generate $@
@@ -81,6 +93,20 @@ alias rkdr="rake db:rollback"
 alias rkdc="rake db:create"
 alias rklc="rake log:clear"
 alias rkr="rake routes"
+alias berkdm="bundle exec rake db:migrate"
+alias berkdmr="bundle exec rake db:migrate:redo"
+alias berkdr="bundle exec rake db:rollback"
+alias berkdc="bundle exec rake db:create"
+alias berklc="bundle exec rake log:clear"
+alias berkr="bundle exec rake routes"
+alias brk="bin/rake"
+alias brkdm="bin/rake db:migrate"
+alias brkdmr="bin/rake db:migrate:redo"
+alias brkdr="bin/rake db:rollback"
+alias brkdc="bin/rake db:create"
+alias brklc="bin/rake log:clear"
+alias brkr="bin/rake routes"
+alias brl="bin/rails"
 
 # Emacs
 function e() {

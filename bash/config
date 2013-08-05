@@ -51,7 +51,11 @@ parse_svn_url() {
 parse_svn_repository_root() {
     svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
-export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
+if [ -n "$EMACS" ]; then
+  export PS1="\w\[$EWHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
+else
+  export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
+fi
 export PS2='> '
 
 # History

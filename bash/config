@@ -43,19 +43,20 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [git:\1]/'
 }
 parse_svn_branch() {
-    parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " [svn:"$1"]" }'
+  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " [svn:"$1"]" }'
 }
 parse_svn_url() {
-    svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
 }
 parse_svn_repository_root() {
-    svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 if [ -n "$EMACS" ]; then
-  export PS1="\w\[$EWHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
+  emacs_safe_white=$EWHITE
 else
-  export PS1="\w\[$WHITE\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
+  emacs_safe_white=$WHITE
 fi
+export PS1="\w\[$emacs_safe_white\]\$(parse_git_branch)\$(parse_svn_branch)\[$NO_COLOR\]\[$MAGENTA\] [\$(ruby --version | cut -d' ' -f 1-2)]\[$NO_COLOR\]\$ "
 export PS2='> '
 
 # History
@@ -66,20 +67,20 @@ stty discard undef
 
 # Completions
 _my_dirs() {
-	local comp=${COMP_WORDS[COMP_CWORD]}
-	if [[ "$comp" != /* && "$comp" != .* && "$comp" != ~* && $(cd "${comp%/*}" 2>/dev/null && pwd && cd "$OLDPWD") != '/Users/james/Documents' ]]; then
-		COMPREPLY=($(ruby -e 'comp, pwd, docs = [ARGV.shift] + ARGV.map { |a| a.split }; puts docs.reject { |d| pwd.any? { |p| p =~ %r{#{Regexp.escape(comp)}[^/]*\Z} } }' "${COMP_WORDS[COMP_CWORD]##*/}" "$(ls -d `pwd`/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)" "$(ls -d ~/Documents/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)"))
-	fi
+  local comp=${COMP_WORDS[COMP_CWORD]}
+  if [[ "$comp" != /* && "$comp" != .* && "$comp" != ~* && $(cd "${comp%/*}" 2>/dev/null && pwd && cd "$OLDPWD") != '/Users/james/Documents' ]]; then
+    COMPREPLY=($(ruby -e 'comp, pwd, docs = [ARGV.shift] + ARGV.map { |a| a.split }; puts docs.reject { |d| pwd.any? { |p| p =~ %r{#{Regexp.escape(comp)}[^/]*\Z} } }' "${COMP_WORDS[COMP_CWORD]##*/}" "$(ls -d `pwd`/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)" "$(ls -d ~/Documents/"${COMP_WORDS[COMP_CWORD]##*/}"* 2>/dev/null)"))
+  fi
 }
 complete -F _my_dirs -o plusdirs cd
 
 _my_hosts() {
-	local comp=${COMP_WORDS[COMP_CWORD]}
-	if [[ "$comp" == *:/* && "$1" == *scp ]]; then
-		local path=${comp#*:}
-		COMPREPLY=($(compgen -W "$(ssh "${comp%%:*}" ls -FHd "${path}*" 2>/dev/null | sed 's/[*@=%|]$//')" -- "${path}"))
+  local comp=${COMP_WORDS[COMP_CWORD]}
+  if [[ "$comp" == *:/* && "$1" == *scp ]]; then
+    local path=${comp#*:}
+    COMPREPLY=($(compgen -W "$(ssh "${comp%%:*}" ls -FHd "${path}*" 2>/dev/null | sed 's/[*@=%|]$//')" -- "${path}"))
   else
     COMPREPLY=($(compgen -W "$(ruby -ne 'print $1, " " if /\AHost\s+(\S+)/' ~/.ssh/config)" -- "$comp"))
-	fi
+  fi
 }
 complete -F _my_hosts -o nospace -o default ssh scp

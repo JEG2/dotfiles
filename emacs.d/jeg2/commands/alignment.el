@@ -9,6 +9,6 @@
       (activate-mark)
       (unless (bolp)
         (beginning-of-line))
-      (while (looking-back "^\\s-*[a-zA-Z_0-9, *]+\\s-*=.*\n")
+      (while (looking-back "^\\s-*[^(=\n]+\\s-*=.*\n")
         (previous-line))
       (jeg2/align=))))

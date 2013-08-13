@@ -122,6 +122,7 @@ function e() {
     emacsclient -a "" $@
   fi
 }
+
 # inside Emacs terminals
 if [ -n "$EMACS" ]; then
   alias ri="PAGER='less -R' ri -f ansi"

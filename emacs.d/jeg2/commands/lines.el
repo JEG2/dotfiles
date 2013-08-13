@@ -20,7 +20,7 @@
 (defun jeg2/newline-between ()
   "Splits content before and after the point to insert new content between."
   (interactive)
-  ;; (indent-for-tab-command)
+  (jeg2/trim-backwards-and-forwards)
   (newline)
   (newline)
   (indent-for-tab-command)

@@ -25,6 +25,10 @@
 
 (winner-mode)
 
+;; unbind some keystrokes
+(global-unset-key (kbd "C-x C-u"))
+(global-unset-key (kbd "C-/"))
+
 ;; command shortcuts
 (global-set-key (kbd "M-/") 'hippie-expand)
 

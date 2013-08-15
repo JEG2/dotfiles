@@ -61,30 +61,30 @@ alias berk="bundle exec rake"
 function rlc() {
   if [ -x bin/rails ]; then
     bin/rails console $@
-  elif [ -x script/rails ]; then
-    script/rails console $@
-  else
+  elif [ -x script/console ]; then
     script/console $@
+  else
+    bundle exec rails console $@
   fi
 }
 # server
 function rls() {
   if [ -x bin/rails ]; then
     bin/rails server $@
-  elif [ -x script/rails ]; then
-    script/rails server $@
-  else
+  elif [ -x script/server ]; then
     script/server $@
+  else
+    bundle exec rails server $@
   fi
 }
 # generator
 function rlg() {
   if [ -x bin/rails ]; then
     bin/rails generate $@
-  elif [ -x script/rails ]; then
-    script/rails generate $@
-  else
+  elif [ -x script/generate ]; then
     script/generate $@
+  else
+    bundle exec rails generate $@
   fi
 }
 # other

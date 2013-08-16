@@ -52,10 +52,10 @@
  'markdown-mode
  'paredit
  'rainbow-mode
- 'rhtml-mode
  'ruby-compilation
  'scss-mode
  'smartparens
+ 'web-mode
  'window-number
  'yagist
  'yaml-mode

@@ -13,7 +13,8 @@
                               (string-match regex (buffer-substring-no-properties
                                                    (region-beginning)
                                                    (region-end))))))
-            (web-mode-mark-and-expand))
+            (let ((expand-region-fast-keys-enabled))
+              (er/expand-region 1)))
           (let ((matched (buffer-substring-no-properties (region-beginning)
                                                          (region-end))))
             (if (string-match regex matched)

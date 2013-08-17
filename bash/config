@@ -1,3 +1,5 @@
+# -*- sh -*-
+
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Misc
 NO_COLOR='\e[0m' #disable any colors

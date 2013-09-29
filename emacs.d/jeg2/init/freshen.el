@@ -13,4 +13,5 @@
                           (file-newer-than-file-p el-file path))
                  (delete-file path))))))))
 
-(jeg2/delete-out-of-date-bytecode (expand-file-name "jeg2" user-emacs-directory))
+(jeg2/delete-out-of-date-bytecode
+ (expand-file-name "jeg2" user-emacs-directory))

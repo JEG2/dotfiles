@@ -2,7 +2,7 @@
 
 (defun jeg2/load-init-file (path &optional noerror)
   "This loads a file from inside the the .emacs.d directory"
-  (let ((file (file-name-sans-extension 
+  (let ((file (file-name-sans-extension
                (expand-file-name path user-emacs-directory))))
     (load file noerror)))
 

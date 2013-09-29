@@ -30,17 +30,12 @@
   "Remove packages not explicitly declared."
   (let ((packages-and-dependencies (jeg2/packages-requirements packages)))
     (dolist (package (mapcar 'car package-alist))
-      (unless (memq package packages-and-dependencies) (jeg2/package-delete-by-name package)))))
+      (unless (memq package packages-and-dependencies)
+        (jeg2/package-delete-by-name package)))))
 
 (defun jeg2/packages-requirements (packages)
   "List of dependencies for packages."
   (delete-dups (apply 'append (mapcar 'jeg2/package-requirements packages))))
-
-(defun jeg2/flatten (x)
-  "Flatten a list"
-  (cond ((null x) nil)
-        ((listp x) (append (jeg2/flatten (car x)) (jeg2/flatten (cdr x))))
-        (t (list x))))
 
 (defun jeg2/package-requirements (package)
   "List of recursive dependencies for a package."
@@ -51,7 +46,6 @@
              (cons package
                    (mapcar 'jeg2/package-requirements
                            (mapcar 'car (package-desc-reqs package-info)))))))))
-
 
 (defun jeg2/package-install-and-remove-to-match-list (&rest packages)
   "Sync packages so the installed list matches the passed list."

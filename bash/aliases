@@ -71,7 +71,11 @@ function rlc() {
 }
 # server
 function rls() {
-  if [ -x bin/rails ]; then
+  if [ -x bin/foreman ]; then
+    bin/foreman start $@
+  elif [ -a Procfile ]; then
+    bundle exec foreman start $@
+  elif [ -x bin/rails ]; then
     bin/rails server $@
   elif [ -x script/server ]; then
     script/server $@

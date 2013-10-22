@@ -8,6 +8,9 @@
 ;; show junk whitespace
 (whitespace-mode)
 
+;; activate character pairing
+(smartparens-mode)
+
 ;; do some spell checking (requires:  brew install aspell --lang=en)
 (flyspell-prog-mode)
 
@@ -15,5 +18,6 @@
 
 ;; command shortcuts
 (local-set-key (kbd "C-c =") 'jeg2/align=)
+(local-set-key (kbd "C-c e") 'jeg2/close-statement)
 
 (local-set-key (kbd "C-c t s") 'jeg2/toggle-string-type)

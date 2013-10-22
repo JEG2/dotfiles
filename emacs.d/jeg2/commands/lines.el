@@ -26,3 +26,13 @@
   (indent-for-tab-command)
   (previous-line)
   (indent-for-tab-command))
+
+;;;###autoload
+(defun jeg2/close-statement ()
+  "Jumps to the end of the line and adds statement-end (default: ;)."
+  (interactive)
+  (unless (eolp)
+    (end-of-line))
+  (let ((ender (or (and (boundp 'statement-end) statement-end) ";")))
+    (unless (looking-back (regexp-quote ender))
+      (insert ender))))

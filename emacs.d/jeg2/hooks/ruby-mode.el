@@ -29,3 +29,5 @@
 (local-set-key (kbd "C-c t r") 'jeg2/toggle-ruby-regex-type)
 (local-set-key (kbd "C-c t S") 'jeg2/toggle-ruby-string-and-symbol)
 (local-set-key (kbd "C-c t h") 'jeg2/toggle-ruby-hash-type)
+
+(local-set-key (kbd "C-c x") 'xmp)  ; (requires:  gem install rcodetools)

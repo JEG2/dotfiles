@@ -77,3 +77,6 @@
  'yaml-mode
  'yasnippet
  )
+
+;; vendored packages
+(jeg2/load-init-file "jeg2/vendor/rcodetools")

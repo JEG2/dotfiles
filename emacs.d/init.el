@@ -7,10 +7,10 @@
     (load file noerror)))
 
 ;; load configuration settings by type
-(jeg2/load-init-file "jeg2/init/freshen.el")
-(jeg2/load-init-file "jeg2/init/system.el")
-(jeg2/load-init-file "jeg2/init/autoloads.el")
-(jeg2/load-init-file "jeg2/init/packages.el")
-(jeg2/load-init-file "jeg2/init/compile.el")
-(jeg2/load-init-file "jeg2/init/autohooks.el")
-(jeg2/load-init-file "jeg2/init/settings.el")
+(jeg2/load-init-file "jeg2/init/freshen")
+(jeg2/load-init-file "jeg2/init/system")
+(jeg2/load-init-file "jeg2/init/autoloads")
+(jeg2/load-init-file "jeg2/init/packages")
+(jeg2/load-init-file "jeg2/init/compile")
+(jeg2/load-init-file "jeg2/init/autohooks")
+(jeg2/load-init-file "jeg2/init/settings")

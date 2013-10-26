@@ -2,4 +2,4 @@
 # name: link
 # key: link
 # --
-<link rel="stylesheet" href="${1:stylesheets/application.css}" type="text/css" media="${2:screen}" charset="utf-8">$0
+<link rel="stylesheet" href="${1:stylesheets/application.css}" type="text/css" media="${2::$$(yas/choose-value '("screen" "print" "all" "braille" "embossed" "handheld" "projection" "speech" "tty" "tv"))}" charset="utf-8">$0

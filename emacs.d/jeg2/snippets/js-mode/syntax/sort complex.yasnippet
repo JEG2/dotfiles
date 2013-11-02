@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: sort complex
+# key: sorc
+# --
+sort( function(a, b) {
+    if      (${1:a < b}) return -1;
+    else if (${2:a > b}) return 1;
+    else            return 0;
+} );

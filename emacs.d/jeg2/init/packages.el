@@ -62,6 +62,7 @@
  'dash
  'fill-column-indicator
  'full-ack
+ 'haml-mode
  'idomenu
  'inf-ruby
  'magit

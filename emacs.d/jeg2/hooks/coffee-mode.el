@@ -1,3 +1,6 @@
+;; adjust spacing
+(set (make-local-variable 'tab-width) 2)
+
 ;; show wrap guide
 (require 'fill-column-indicator)
 (setq fci-rule-column jeg2-wrap-limit)

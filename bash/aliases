@@ -117,21 +117,7 @@ alias brkr="bin/rake routes"
 alias brl="bin/rails"
 
 # Emacs
-function e() {
-  if [ "$1" == "-" ]; then
-    TMP="$(mktemp /tmp/emacsstdin-XXXXXX)"
-    cat >$TMP
-    emacsclient -a "" $TMP
-    rm $TMP
-  elif [ -z "$1" ]; then
-    emacsclient -a "" -t $@
-  else
-    emacsclient -a "" $@
-  fi
-}
-
-# inside Emacs terminals
-if [ -n "$EMACS" ]; then
+if [ -n "$EMACS" ]; then  # inside Emacs terminals
   alias ri="PAGER='less -R' ri -f ansi"
   alias ssh="TERM=xterm ssh"
 fi

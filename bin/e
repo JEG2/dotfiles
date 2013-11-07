@@ -1,12 +1,20 @@
 #!/bin/bash
 
+# load args into an array to handle spaces
+i=0
+argv=()
+for arg in "$@"; do
+    argv[$i]="$arg"
+    i=$((i + 1))
+done
+
 if [ "$1" == "-" ]; then
   TMP="$(mktemp /tmp/emacsstdin-XXXXXX)"
   cat >$TMP
   emacsclient -a "" $TMP
   rm $TMP
 elif [ -z "$1" ]; then
-  emacsclient -a "" -t $@
+  emacsclient -a "" -t "${argv[@]}"
 else
-  emacsclient -a "" $@
+  emacsclient -a "" "${argv[@]}"
 fi

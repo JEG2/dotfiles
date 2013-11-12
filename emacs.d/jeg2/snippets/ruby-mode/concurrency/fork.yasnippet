@@ -2,6 +2,6 @@
 # name: fork
 # key: for
 # --
-${1:pid}${1:$(if (> (length text) 0) " = " "")}fork do
+${1:pid}${1:$(if (> (length yas-text) 0) " = " "")}fork do
   $0
 end

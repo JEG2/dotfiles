@@ -2,6 +2,6 @@
 # name: before
 # key: bef
 # --
-before${1:$(if (> (length text) 0) " :" "")}${1:all} do
+before${1:$(if (> (length yas-text) 0) " :" "")}${1:all} do
   $0
 end

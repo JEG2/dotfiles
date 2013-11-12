@@ -7,7 +7,7 @@ require "optparse"
 options = {${1:default: "args"}}
 
 ARGV.options do |parser|
-  parser.banner = "Usage:  #{File.basename($PROGRAM_NAME)} [OPTIONS]${2:$(if (> (length text) 0) " " "")}${2:OTHER_ARGS}"
+  parser.banner = "Usage:  #{File.basename($PROGRAM_NAME)} [OPTIONS]${2:$(if (> (length yas-text) 0) " " "")}${2:OTHER_ARGS}"
 
   parser.separator ""
   parser.separator "Specific Options:"

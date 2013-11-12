@@ -2,6 +2,6 @@
 # name: do
 # key: do
 # --
-do${1:$(if (> (length text) 0) " |" "")}${1:variable}${1:$(if (> (length text) 0) "|" "")}
+do${1:$(if (> (length yas-text) 0) " |" "")}${1:variable}${1:$(if (> (length yas-text) 0) "|" "")}
   $0
 end

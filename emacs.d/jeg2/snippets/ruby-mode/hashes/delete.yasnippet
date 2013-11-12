@@ -2,4 +2,4 @@
 # name: delete
 # key: del
 # --
-delete(${1:object}) {${2:$(if (> (length text) 0) " |" "")}${2:key}${2:$(if (> (length text) 0) "|" "")} $0 }
+delete(${1:object}) {${2:$(if (> (length yas-text) 0) " |" "")}${2:key}${2:$(if (> (length yas-text) 0) "|" "")} $0 }

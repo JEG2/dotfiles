@@ -2,6 +2,6 @@
 # name: after
 # key: aft
 # --
-after${1:$(if (> (length text) 0) " :" "")}${1:all} do
+after${1:$(if (> (length yas-text) 0) " :" "")}${1:all} do
   $0
 end

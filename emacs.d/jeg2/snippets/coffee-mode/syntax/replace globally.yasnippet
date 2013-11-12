@@ -2,5 +2,5 @@
 # name: replace globally
 # key: repg
 # --
-replace /${1:pattern}/g$2,${3:$(if (> (length text) 0) " (" "")}${3:matched}${3:$(if (> (length text) 0) ") " "")}->
+replace /${1:pattern}/g$2,${3:$(if (> (length yas-text) 0) " (" "")}${3:matched}${3:$(if (> (length yas-text) 0) ") " "")}->
    $0

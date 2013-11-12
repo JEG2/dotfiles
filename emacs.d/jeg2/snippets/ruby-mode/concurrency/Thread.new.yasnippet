@@ -2,4 +2,4 @@
 # name: Thread.new
 # key: Thread
 # --
-${1:thread}${1:$(if (> (length text) 0) " = " "")}Thread.new${2:$(if (> (length text) 0) "(" "")}${2:args}${2:$(if (> (length text) 0) ")" "")} {${3:$(if (> (length text) 0) " |" "")}${3:args}${3:$(if (> (length text) 0) "|" "")} $0 }
+${1:thread}${1:$(if (> (length yas-text) 0) " = " "")}Thread.new${2:$(if (> (length yas-text) 0) "(" "")}${2:args}${2:$(if (> (length yas-text) 0) ")" "")} {${3:$(if (> (length yas-text) 0) " |" "")}${3:args}${3:$(if (> (length yas-text) 0) "|" "")} $0 }

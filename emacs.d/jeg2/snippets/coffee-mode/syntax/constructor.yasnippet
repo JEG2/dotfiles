@@ -2,5 +2,5 @@
 # name: constructor
 # key: con
 # --
-constructor: ${1:$(if (> (length text) 0) "(" "")}${1:params}${1:$(if (> (length text) 0) ") " "")}->
+constructor: ${1:$(if (> (length yas-text) 0) "(" "")}${1:params}${1:$(if (> (length yas-text) 0) ") " "")}->
   $0

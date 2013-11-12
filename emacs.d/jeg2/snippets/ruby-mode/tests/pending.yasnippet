@@ -2,6 +2,6 @@
 # name: pending
 # key: pen
 # --
-pending${1:$(if (> (length text) 0) " \\\"" "")}${1:reason this isn't active yet}${1:$(if (> (length text) 0) "\\\"" "")}${2: do
+pending${1:$(if (> (length yas-text) 0) " \\\"" "")}${1:reason this isn't active yet}${1:$(if (> (length yas-text) 0) "\\\"" "")}${2: do
   $0
 end}

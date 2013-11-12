@@ -2,4 +2,4 @@
 # name: if... return
 # key: ifr
 # --
-if (${1:condition}) return${2:$(if (> (length text) 0) " " "")}${2:result};$0
+if (${1:condition}) return${2:$(if (> (length yas-text) 0) " " "")}${2:result};$0

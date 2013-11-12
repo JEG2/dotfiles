@@ -2,4 +2,4 @@
 # name: flunk
 # key: flu
 # --
-flunk${1:$(if (> (length text) 0) " \\\"" "")}${1:Failure message}${1:$(if (> (length text) 0) "\\\"" "")}$0
+flunk${1:$(if (> (length yas-text) 0) " \\\"" "")}${1:Failure message}${1:$(if (> (length yas-text) 0) "\\\"" "")}$0

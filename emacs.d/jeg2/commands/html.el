@@ -26,8 +26,8 @@
                   (concat "<${1:"
                           tag
                           "}>$0</${1:"
-                          "$(and (string-match \"[-A-Za-z0-9:_]+\" text) "
-                          "(match-string 0 text))}>")
+                          "$(and (string-match \"[-A-Za-z0-9:_]+\" yas-text) "
+                          "(match-string 0 yas-text))}>")
                 (concat "<"
                         tag
                         "$1>$0</"

@@ -65,6 +65,7 @@
  'haml-mode
  'idomenu
  'inf-ruby
+ 'less-css-mode
  'magit
  'markdown-mode
  'paredit

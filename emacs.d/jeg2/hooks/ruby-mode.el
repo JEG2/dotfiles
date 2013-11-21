@@ -12,7 +12,18 @@
 (smartparens-mode)
 
 (sp-with-modes (list major-mode)
-  (sp-local-pair "|" "|"))
+  ; remove pairs I use snippets for
+  (sp-local-pair "do"     nil :actions :rem)
+  (sp-local-pair "begin"  nil :actions :rem)
+  (sp-local-pair "def"    nil :actions :rem)
+  (sp-local-pair "class"  nil :actions :rem)
+  (sp-local-pair "module" nil :actions :rem)
+  (sp-local-pair "case"   nil :actions :rem)
+  (sp-local-pair "for"    nil :actions :rem)
+  (sp-local-pair "if"     nil :actions :rem)
+  (sp-local-pair "unless" nil :actions :rem)
+  (sp-local-pair "while"  nil :actions :rem)
+  (sp-local-pair "until"  nil :actions :rem))
 
 ;; do some spell checking (requires:  brew install aspell --lang=en)
 (flyspell-prog-mode)

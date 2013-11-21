@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.reduceRight... object
+# key: redro
+# --
+_.reduceRight ${1:object}, (${4:value}${5:$(if (> (length yas-text) 0) ", " "")}${5:key}) ->
+    $0
+, ${2:memo}${3:$(if (> (length yas-text) 0) ", " "")}${3:context}

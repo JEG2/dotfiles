@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.select... object
+# key: selo
+# --
+_.select ${1:object}, (${3:value}${4:$(if (> (length yas-text) 0) ", " "")}${4:key}) ->
+    $0${2:$(if (> (length yas-text) 0) "
+, " "")}${2:context}

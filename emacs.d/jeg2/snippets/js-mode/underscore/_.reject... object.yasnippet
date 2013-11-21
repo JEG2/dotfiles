@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.reject... object
+# key: rejo
+# --
+_.reject( ${1:object}, function(${3:value}${4:$(if (> (length yas-text) 0) ", " "")}${4:key}) {
+    $0
+}${2:$(if (> (length yas-text) 0) ", " "")}${2:context} );

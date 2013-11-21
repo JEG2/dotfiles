@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.reduceRight
+# key: redr
+# --
+_.reduceRight( ${1:list}, function(${4:e}${5:$(if (> (length yas-text) 0) ", " "")}${5:i}) {
+    $0
+}, ${2:memo}${3:$(if (> (length yas-text) 0) ", " "")}${3:context} );

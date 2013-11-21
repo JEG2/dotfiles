@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.debounce
+# key: deb
+# --
+_.debounce (${3:params}) ->
+    $0
+, ${1:wait}${2:$(if (> (length yas-text) 0) ", " "")}${2:immediate}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.any
+# key: any
+# --
+_.any ${1:list}, (${3:e}${4:$(if (> (length yas-text) 0) ", " "")}${4:i}) ->
+    $0${2:$(if (> (length yas-text) 0) "
+, " "")}${2:context}

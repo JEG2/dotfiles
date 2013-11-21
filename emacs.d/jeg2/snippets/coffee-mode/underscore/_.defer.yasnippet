@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: _.defer
+# key: def
+# --
+_.defer (${2:params}) ->
+    $0${1:$(if (> (length yas-text) 0) "
+, " "")}${1:args}

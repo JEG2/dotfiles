@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Backbone.Collection
+# key: col
+# --
+${1:$(if (> (length yas-text) 0) "var " "")}${1:window.${2:Name}}${1:$(if (> (length yas-text) 0) " = " "")}Backbone.Collection.extend( {
+    $0
+} );

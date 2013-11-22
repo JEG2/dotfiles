@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: render
+# key: ren
+# --
+render: function() {
+    ${1:this.$el.html(this.template(this.model.attributes));}$0
+    return this;
+}

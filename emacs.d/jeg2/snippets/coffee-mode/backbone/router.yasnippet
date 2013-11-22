@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Backbone.Router
+# key: rou
+# --
+class ${1:`(jeg2/camelize (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`} extends Backbone.Router
+  routes:
+    "${3:path/:var}": "${4:method}"$0

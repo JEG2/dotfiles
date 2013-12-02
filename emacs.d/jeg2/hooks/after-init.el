@@ -28,6 +28,7 @@
 ;; unbind some keystrokes
 (global-unset-key (kbd "C-x C-u"))
 (global-unset-key (kbd "C-/"))
+(global-unset-key (kbd "C-x C-b"))
 
 ;; command shortcuts
 (global-set-key (kbd "M-/") 'hippie-expand)

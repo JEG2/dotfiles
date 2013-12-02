@@ -14,9 +14,7 @@ if [ "$1" == "-" ]; then
   emacsclient -a "" $TMP
   rm $TMP
 elif [ -z "$1" ]; then
-  emacsclient -a "" -t -e \
-      "(with-current-buffer (get-buffer-create \"*scratch*\") (cd \"$(pwd)\") (switch-to-buffer (current-buffer)))" \
-      "${argv[@]}"
+  emacsclient -a "" -t .
 else
   emacsclient -a "" "${argv[@]}"
 fi

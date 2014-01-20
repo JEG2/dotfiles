@@ -10,7 +10,7 @@ alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.po
 # Git
 alias g="git status"
 alias ga="git add"
-alias gaa="git add --all"
+alias gaa="git add --all ."
 alias gc="git commit -m"
 alias gb="git branch"
 alias gba="git branch -a"

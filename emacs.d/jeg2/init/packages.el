@@ -60,6 +60,7 @@
  'color-theme-sanityinc-tomorrow
  'expand-region
  'dash
+ 'dart-mode
  'fill-column-indicator
  'full-ack
  'haml-mode

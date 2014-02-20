@@ -69,6 +69,7 @@
  'less-css-mode
  'magit
  'markdown-mode
+ 'multiple-cursors
  'paredit
  'rainbow-mode
  'rhtml-mode

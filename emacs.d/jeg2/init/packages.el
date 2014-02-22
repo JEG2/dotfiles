@@ -76,6 +76,7 @@
  'ruby-compilation
  'scss-mode
  'smartparens
+ 'undo-tree
  'window-number
  'yagist
  'yaml-mode

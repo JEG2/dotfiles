@@ -25,6 +25,8 @@
 
 (winner-mode)
 
+(global-undo-tree-mode)
+
 ;; unbind some keystrokes
 (global-unset-key (kbd "C-x C-u"))
 (global-unset-key (kbd "C-/"))

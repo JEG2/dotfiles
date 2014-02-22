@@ -56,13 +56,13 @@
   (jeg2/package-delete-unless-listed packages))
 
 (jeg2/package-install-and-remove-to-match-list
+ 'ag
  'coffee-mode
  'color-theme-sanityinc-tomorrow
  'expand-region
  'dash
  'dart-mode
  'fill-column-indicator
- 'full-ack
  'haml-mode
  'idomenu
  'inf-ruby

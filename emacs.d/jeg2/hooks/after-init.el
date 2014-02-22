@@ -49,8 +49,8 @@
 
 (global-set-key (kbd "C-c s") 'idomenu)
 
-(global-set-key (kbd "C-c a") 'ack-same)
-(global-set-key (kbd "C-c A") 'ack)
+(global-set-key (kbd "C-c a") 'ag-project-regexp)
+(global-set-key (kbd "C-c A") 'ag-project-dired-regexp)
 
 (global-set-key (kbd "C-c H") 'jeg2/htmlify-buffer)
 (global-set-key (kbd "C-c h") 'jeg2/htmlify-buffer-light)

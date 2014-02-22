@@ -31,6 +31,9 @@
 (local-set-key (kbd "C-c v s") 'jeg2/toggle-program-spelling)
 
 ;; command shortcuts
+(local-set-key (kbd "C-M-n") 'jeg2/other-window-next-line)
+(local-set-key (kbd "C-M-p") 'jeg2/other-window-previous-line)
+
 (local-set-key (kbd "C-c =") 'jeg2/align=)
 
 (local-set-key (kbd "C-c t s") 'jeg2/toggle-string-type)

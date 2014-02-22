@@ -17,6 +17,9 @@
                                 (interactive)
                                 (other-window 1)))
 
+(global-set-key (kbd "C-M-n") 'jeg2/other-window-next-line)
+(global-set-key (kbd "C-M-p") 'jeg2/other-window-previous-line)
+
 (require 'window-number)
 (window-number-mode)
 ;; tone down the garish appearance

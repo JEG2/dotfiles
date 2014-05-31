@@ -85,3 +85,4 @@
 
 ;; vendored packages
 (jeg2/load-init-file "jeg2/vendor/rcodetools")
+(jeg2/load-init-file "jeg2/vendor/scad-mode")

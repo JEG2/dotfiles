@@ -38,6 +38,8 @@
 ;; command shortcuts
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+(global-set-key (kbd "M-;") 'jeg2/comment-or-uncomment-region-or-line)
+
 (global-set-key (kbd "C-c l")   'jeg2/newline-below)
 (global-set-key (kbd "C-c L")   'jeg2/newline-above)
 (global-set-key (kbd "C-c RET") 'jeg2/newline-between)

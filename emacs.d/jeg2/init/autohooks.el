@@ -4,7 +4,7 @@
 (defun jeg2/autohooks ()
   "Autoload everthing in the hooks directory as a hook for the named mode."
   (interactive)
-  (dolist (path (directory-files (concat user-emacs-directory "jeg2/hooks") 
+  (dolist (path (directory-files (concat user-emacs-directory "jeg2/hooks")
                                  t
                                  "\\.el$"))
     (let* ((mode       (file-name-nondirectory

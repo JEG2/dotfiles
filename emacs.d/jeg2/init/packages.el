@@ -73,6 +73,7 @@
  'rainbow-mode
  'rhtml-mode
  'ruby-compilation
+ 'rust-mode
  'scss-mode
  'smartparens
  'undo-tree

@@ -12,4 +12,4 @@
   "Preview the current buffer in Marked."
   (interactive)
   (save-buffer)
-  (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
+  (call-process "open" nil nil nil "-a" "Marked 2.app" (buffer-file-name)))

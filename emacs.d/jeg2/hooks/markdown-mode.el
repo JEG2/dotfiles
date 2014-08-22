@@ -18,7 +18,7 @@
   (sp-local-pair "`" "`"))
 
 ;; command shortcuts
-(local-set-key (kbd "C-c y")   'jeg2/markdown-yank-as-pre)
+(local-set-key (kbd "C-c `")   'jeg2/insert-fenced-code-block)
 (local-set-key (kbd "C-c o p") 'jeg2/markdown-preview)
 
 ;; limit the spell checking activated by text-mode

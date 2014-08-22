@@ -11,6 +11,12 @@
 ;; activate character pairing
 (smartparens-mode)
 
+(sp-with-modes (list major-mode)
+  (sp-local-pair "'" nil :actions '(:rem insert))
+  ;; (sp-local-pair "'" nil :unless '(:add jeg2/sp-in-rust-mode))
+  ; pair for generics and lifetimes, but not comparisons
+  (sp-local-pair "<" ">" :when '(sp-point-after-word-p)))
+
 ;; do some spell checking (requires:  brew install aspell --lang=en)
 (flyspell-prog-mode)
 

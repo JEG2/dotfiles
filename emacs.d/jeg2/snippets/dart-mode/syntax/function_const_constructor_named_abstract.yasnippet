@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: function_const_constructor_named_abstract
+# key: fccna
+# --
+const `(save-excursion (search-backward-regexp "class +[A-Za-z0-9_]+") (forward-word 2) (backward-word) (thing-at-point 'word))`.${1:name}(${2:this.property})${3:$(if (> (length yas-text) 0) " : " "")}${3:super(property)};$0

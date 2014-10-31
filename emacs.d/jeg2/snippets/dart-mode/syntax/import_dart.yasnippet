@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import_dart
+# key: impd
+# --
+import "dart:${1:html}"${2:$(if (> (length yas-text) 0) " as " "")}${2:prefix}${3:$(if (> (length yas-text) 0) " show " "")}${3:Type}${4:$(if (> (length yas-text) 0) " hide " "")}${4:Type};

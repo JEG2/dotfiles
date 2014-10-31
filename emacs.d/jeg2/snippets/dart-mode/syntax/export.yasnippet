@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: export
+# key: exp
+# --
+export "${1:uri}"${2:$(if (> (length yas-text) 0) " show " "")}${2:Type}${3:$(if (> (length yas-text) 0) " hide " "")}${3:Type};

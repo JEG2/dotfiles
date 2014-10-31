@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function_operator
+# key: f+
+# --
+${1:`(save-excursion (search-backward-regexp "class +[A-Za-z0-9_]+") (forward-word 2) (backward-word) (thing-at-point 'word))`} operator ${2:+}(${3:`(save-excursion (search-backward-regexp "class +[A-Za-z0-9_]+") (forward-word 2) (backward-word) (thing-at-point 'word))` other}) {
+  $0
+}

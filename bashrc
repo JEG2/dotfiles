@@ -7,4 +7,4 @@ source ~/Documents/dotfiles/bash/aliases
 # chruby
 source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
-chruby ${JEG2_RUBY_VERSION-ruby-2.1.3}
+chruby ${JEG2_RUBY_VERSION-ruby-2.1.4}

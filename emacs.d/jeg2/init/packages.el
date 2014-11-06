@@ -17,6 +17,7 @@
   "Install a package by name unless it is already installed."
   (or (package-installed-p name) (jeg2/package-refresh-and-install name)))
 
+;; 24.4 fix:  https://gist.github.com/tpanum/9c8382dce0be18609dc0
 (defun jeg2/package-version-for (package)
   "Get the version of a loaded package."
   (package-desc-vers (cdr (assoc package package-alist))))
@@ -37,6 +38,7 @@
   "List of dependencies for packages."
   (delete-dups (apply 'append (mapcar 'jeg2/package-requirements packages))))
 
+;; 24.4 fix:  https://gist.github.com/tpanum/9c8382dce0be18609dc0
 (defun jeg2/package-requirements (package)
   "List of recursive dependencies for a package."
   (let ((package-info (cdr (assoc package package-alist))))

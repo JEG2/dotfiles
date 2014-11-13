@@ -17,10 +17,16 @@
   "Install a package by name unless it is already installed."
   (or (package-installed-p name) (jeg2/package-refresh-and-install name)))
 
-;; 24.4 fix:  https://gist.github.com/tpanum/9c8382dce0be18609dc0
+(defun jeg2/package-details-for (name)
+  "Safely pull out package details across Emacs versions."
+  (let ((v (cdr (assoc name package-archive-contents))))
+    (and v (if (consp v)
+               (car v) ; for Emacs 24.4+
+             v))))
+
 (defun jeg2/package-version-for (package)
   "Get the version of a loaded package."
-  (package-desc-vers (cdr (assoc package package-alist))))
+  (package-desc-vers (jeg2/package-details-for package)))
 
 (defun jeg2/package-delete-by-name (package)
   "Remove a package by name."
@@ -38,10 +44,9 @@
   "List of dependencies for packages."
   (delete-dups (apply 'append (mapcar 'jeg2/package-requirements packages))))
 
-;; 24.4 fix:  https://gist.github.com/tpanum/9c8382dce0be18609dc0
 (defun jeg2/package-requirements (package)
   "List of recursive dependencies for a package."
-  (let ((package-info (cdr (assoc package package-alist))))
+  (let ((package-info (jeg2/package-details-for package)))
      (cond ((null package-info) (list package))
            (t
             (jeg2/flatten

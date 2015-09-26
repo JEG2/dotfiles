@@ -5,6 +5,6 @@ emacs.d/*
 !emacs.d/init.el
 !emacs.d/jeg2
 
+emacs.d/jeg2/loaddefs.el
 emacs.d/jeg2/settings/secrets.el
-
 emacs.d/jeg2/**/*.elc

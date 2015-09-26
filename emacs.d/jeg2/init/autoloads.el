@@ -3,7 +3,7 @@
 
 (require 'find-lisp)
 
-(setq jeg2-autoload-file (concat user-emacs-directory "loaddefs.el"))
+(setq jeg2-autoload-file (concat user-emacs-directory "jeg2/" "loaddefs.el"))
 
 (defun jeg2/autoload-directories (directories)
   "Regenerate the autoload definitions file if necessary and load it."
@@ -32,7 +32,7 @@
   (jeg2/autoload-directories
    (mapcar (lambda (directory) (concat user-emacs-directory directory "/"))
            '("jeg2/functions" "jeg2/commands")))
-  (add-to-list 'load-path user-emacs-directory t)
+  (add-to-list 'load-path (concat user-emacs-directory "jeg2/") t)
   (load jeg2-autoload-file))
 
 (jeg2/prepare-autoloads)

@@ -12,6 +12,7 @@
  'ag
  'coffee-mode
  'color-theme-sanityinc-tomorrow
+ 'elm-mode
  'expand-region
  'dash
  'dart-mode

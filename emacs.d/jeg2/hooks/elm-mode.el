@@ -17,6 +17,8 @@
 (local-set-key (kbd "C-c v s") 'jeg2/toggle-program-spelling)
 
 ;; command shortcuts
+(local-unset-key (kbd "C-c RET"))  ; unhide global keybinding
+
 (local-set-key (kbd "C-c =") 'jeg2/align=)
 
 (local-set-key (kbd "C-c t s") 'jeg2/toggle-string-type)

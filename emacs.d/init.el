@@ -1,5 +1,9 @@
 ;; JEG2's Emacs configuration
 
+; https://github.com/bbatsov/prelude/issues/896#issuecomment-147779817
+; a temp fix that can be removed in Emacs 25:
+(setq tramp-ssh-controlmaster-options)
+
 (defun jeg2/load-init-file (path &optional noerror)
   "This loads a file from inside the the .emacs.d directory"
   (let ((file (file-name-sans-extension

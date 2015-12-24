@@ -1,6 +1,8 @@
 .DS_Store
 **/.DS_Store
 
+bash/secrets
+
 emacs.d/*
 !emacs.d/init.el
 !emacs.d/jeg2

@@ -3,6 +3,7 @@
 source ~/Documents/dotfiles/bash/env
 source ~/Documents/dotfiles/bash/config
 source ~/Documents/dotfiles/bash/aliases
+[[ -f ~/Documents/dotfiles/bash/secrets ]] && source ~/Documents/dotfiles/bash/secrets
 
 # chruby
 source /usr/local/share/chruby/chruby.sh

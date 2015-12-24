@@ -25,6 +25,7 @@
  'multiple-cursors
  'package+
  'paredit
+ 'pov-mode
  'rainbow-mode
  'rhtml-mode
  'ruby-compilation

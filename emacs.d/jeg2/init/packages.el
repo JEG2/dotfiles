@@ -16,6 +16,7 @@
  'expand-region
  'dash
  'dart-mode
+ 'elixir-mode
  'fill-column-indicator
  'haml-mode
  'idomenu

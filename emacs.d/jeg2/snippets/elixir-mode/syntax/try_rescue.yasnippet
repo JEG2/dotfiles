@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: try_rescue
+# key: tryr
+# --
+try do
+  $0
+rescue
+  ${1:error in RuntimeError} -> 
+end

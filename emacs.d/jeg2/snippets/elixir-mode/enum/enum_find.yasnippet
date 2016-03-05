@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_find
+# key: efin
+# --
+Enum.find(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:optional_default}${2:$(if (> (length yas-text) 0) ", " "")}fn ${3:x} -> $0 end)

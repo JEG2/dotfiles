@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_map_reduce
+# key: emapr
+# --
+Enum.map_reduce(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:acc}, fn ${3:x}, ${4:acc} -> $0 end)

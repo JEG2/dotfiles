@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_into
+# key: seint
+# --
+Stream.into(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:collectable}${3:$(if (> (length yas-text) 0) ", " "")}${3:fn ${4:x} -> $0 end})

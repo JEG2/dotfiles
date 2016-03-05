@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: io_gets
+# key: ioget
+# --
+IO.gets(${1:device}${1:$(if (> (length yas-text) 0) ", " "")}${2:"${3:Prompt?}"})

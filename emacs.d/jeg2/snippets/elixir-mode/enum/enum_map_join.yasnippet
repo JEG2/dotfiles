@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_map_join
+# key: emapj
+# --
+Enum.map_join(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:"${3:, }"}${2:$(if (> (length yas-text) 0) ", " "")}fn ${4:x} -> $0 end)

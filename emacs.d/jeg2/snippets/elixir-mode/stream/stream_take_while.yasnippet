@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_take_while
+# key: setakw
+# --
+Stream.take_while(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end)

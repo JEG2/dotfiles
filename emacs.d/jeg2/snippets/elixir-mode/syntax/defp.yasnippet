@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: defp
+# key: defp
+# --
+defp ${1:function_name}${2:$(if (> (length yas-text) 0) "(" "")}${2:parameter, patterns}${2:$(if (> (length yas-text) 0) ")" "")}${3:$(if (> (length yas-text) 0) " when " "")}${3:guard_clause} do
+  $0
+end

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: case
+# key: cas
+# --
+case ${1:value} do
+  ${2:parameter, patterns}${3:$(if (> (length yas-text) 0) " when " "")}${3:guard_clause} -> $0
+end

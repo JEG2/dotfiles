@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: file_stream
+# key: fstr
+# --
+File.stream!(${2:"${3:path}"}${2:$(if (> (length yas-text) 0) ", " "")}${4:$(if (> (length yas-text) 0) "~w[" "")}${4:read utf8}${4:$(if (> (length yas-text) 0) "]a, " "")}${5::line})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: test
+# key: tes
+# --
+test "${1:some behavior}"${2:$(if (> (length yas-text) 0) ", %{" "")}${2:context: value}${2:$(if (> (length yas-text) 0) "}" "")} do
+  $0
+end

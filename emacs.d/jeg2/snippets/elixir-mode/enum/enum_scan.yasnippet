@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_scan
+# key: esca
+# --
+Enum.scan(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:optional_acc}${2:$(if (> (length yas-text) 0) ", " "")}fn ${3:x}, ${4:acc} -> $0 end)

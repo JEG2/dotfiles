@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert_sigil
+# binding: C-c i s
+# --
+~${1:w}${1:$(if (string= (downcase yas-text) "w") "[" "{")}${2:content}${1:$(if (string= (downcase yas-text) "w") "]" "}")}$0

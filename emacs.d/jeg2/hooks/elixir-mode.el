@@ -20,6 +20,6 @@
 (local-set-key (kbd "C-M-n") 'jeg2/other-window-next-line)
 (local-set-key (kbd "C-M-p") 'jeg2/other-window-previous-line)
 
-(local-set-key (kbd "C-c =") 'jeg2/align=)
-
 (local-set-key (kbd "C-c t s") 'jeg2/toggle-string-type)
+(local-set-key (kbd "C-c t d") 'jeg2/toggle-elixir-do-blocks)
+(local-set-key (kbd "C-c t f") 'jeg2/toggle-elixir-function-syntax)

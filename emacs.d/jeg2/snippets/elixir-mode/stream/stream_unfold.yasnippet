@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_unfold
+# key: seunf
+# --
+Stream.unfold(${1:start_acc}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:current_acc} -> $0 end)

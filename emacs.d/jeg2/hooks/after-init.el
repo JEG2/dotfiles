@@ -74,6 +74,7 @@
 (global-set-key (kbd "C-c SPC") 'jeg2/fix-all-whitespace)
 
 (global-set-key (kbd "C-c v l") 'linum-mode)
+(global-set-key (kbd "C-c v a") 'ansi-color-apply-buffer)
 
 (global-set-key (kbd "C-c o r") 'inf-ruby)
 (global-set-key (kbd "C-c o R") 'jeg2/rails-console)

@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: function
-# key: =
+# binding: C-c i f
 # --
-${1:main} : ${2:Params}${2:$(if (> (length yas-text) 0) " -> " "")}${3:Return}
+${1:name} : ${2:Params}${2:$(if (> (length yas-text) 0) " -> " "")}${3:Return}
 $1 ${4:args}${4:$(if (> (length yas-text) 0) " " "")}=
   $0

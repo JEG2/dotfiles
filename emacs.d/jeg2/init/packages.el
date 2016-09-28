@@ -31,6 +31,7 @@
  'rhtml-mode
  'ruby-compilation
  'rust-mode
+ 'sass-mode
  'scss-mode
  'smartparens
  'undo-tree

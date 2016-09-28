@@ -1,5 +1,6 @@
 ;; adjust spacing
 (set (make-local-variable 'tab-width) 2)
+(set (make-local-variable 'coffee-tab-width) 2)
 
 ;; show wrap guide
 (require 'fill-column-indicator)

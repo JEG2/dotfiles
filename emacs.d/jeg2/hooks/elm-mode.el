@@ -22,3 +22,6 @@
 (local-set-key (kbd "C-c =") 'jeg2/align=)
 
 (local-set-key (kbd "C-c t s") 'jeg2/toggle-string-type)
+
+;; NoRedInk Style
+(setq elm-indent-offset 4)

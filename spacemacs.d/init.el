@@ -320,6 +320,9 @@ you should place your code here."
   ;; Make the modeline look good on Mac OS X
   (setq powerline-default-separator 'utf-8)
 
+  ;; Add inf-ruby to REPL list
+  (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)
+
   ;; Load my customizations
   (spacemacs/declare-prefix "o" "owner")
   (spacemacs/declare-prefix "ow" "whitespace")
@@ -349,6 +352,12 @@ you should place your code here."
     (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otd" 'jeg2/toggle-elixir-do-blocks)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
+    )
+
+  ;; Configure Modes
+  (with-eval-after-load 'ruby-mode
+    (spacemacs/declare-prefix-for-mode 'ruby-mode "o" "owner")
+    (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "o'" 'inf-ruby)
     )
   )
 

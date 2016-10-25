@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import
+# key: imp
+# --
+import ${1:${2:Prefix}.{${3:This, That}}}${4:$(if (> (length yas-text) 0) ", only: [" "")}${4:func: 2}${4:$(if (> (length yas-text) 0) "]" "")}${5:$(if (> (length yas-text) 0) ", exclude: [" "")}${5:func: 2}${5:$(if (> (length yas-text) 0) "]" "")}

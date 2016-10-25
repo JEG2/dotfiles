@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: receive
+# key: rec
+# --
+receive do
+  ${1:parameter, patterns}${2:$(if (> (length yas-text) 0) " when " "")}${2:guard_clause} -> $0
+end

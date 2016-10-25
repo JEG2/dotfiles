@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_to_list
+# key: etol
+# --
+Enum.to_list${1:$(if (> (length yas-text) 0) "(" "")}${1:enumerable}${1:$(if (> (length yas-text) 0) ")" "")}

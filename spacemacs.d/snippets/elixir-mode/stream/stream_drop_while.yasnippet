@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_drop_while
+# key: sedrow
+# --
+Stream.drop_while(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: io_write
+# key: iowri
+# --
+IO.write(${1:device}${1:$(if (> (length yas-text) 0) ", " "")}$0)

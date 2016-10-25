@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_iterate
+# key: seite
+# --
+Stream.iterate(${1:start}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:current} -> $0 end)

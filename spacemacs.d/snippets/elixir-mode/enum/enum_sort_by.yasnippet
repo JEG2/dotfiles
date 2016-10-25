@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_sort_by
+# key: esorb
+# --
+Enum.sort_by(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end${3:$(if (> (length yas-text) 0) ", " "")}${3:fn ${4:a}, ${5:b} ->  end})

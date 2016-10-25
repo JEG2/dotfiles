@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_filter_map
+# key: efilm
+# --
+Enum.filter_map(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end, fn ${3:x} ->  end)

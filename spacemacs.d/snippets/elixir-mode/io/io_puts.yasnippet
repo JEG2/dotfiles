@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: io_puts
+# key: ioput
+# --
+IO.puts(${1:device}${1:$(if (> (length yas-text) 0) ", " "")}$0)

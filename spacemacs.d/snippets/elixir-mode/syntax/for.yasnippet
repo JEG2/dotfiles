@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# --
+for ${1:x <- 1..8, Integer.is_even(x)}${2:$(if (> (length yas-text) 0) ", into: " "")}${2:%{ }} do $0 end

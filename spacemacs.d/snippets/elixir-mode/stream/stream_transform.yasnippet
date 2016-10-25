@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_transform
+# key: setra
+# --
+Stream.transform${1:(${3:enumerable}${3:$(if (> (length yas-text) 0) ", " "")}${4:acc}, fn ${5:x}, ${6:acc} -> $0 end)}${2:(${7:enumerable}${7:$(if (> (length yas-text) 0) ", " "")}fn -> $0 end, fn ${8:x}, ${9:acc} ->  end, fn ${10:acc} ->  end)}

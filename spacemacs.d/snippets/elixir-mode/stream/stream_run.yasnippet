@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_run
+# key: serun
+# --
+Stream.run${1:$(if (> (length yas-text) 0) "(" "")}${1:stream}${1:$(if (> (length yas-text) 0) ")" "")}

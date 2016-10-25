@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: with
+# key: wit
+# --
+with ${1:{:ok, data} <- File.read(path)} do
+  $0
+end

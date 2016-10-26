@@ -324,11 +324,6 @@ you should place your code here."
   (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)
 
   ;; Load my customizations
-  (spacemacs/declare-prefix "o" "owner")
-  (spacemacs/declare-prefix "ow" "whitespace")
-  (spacemacs/declare-prefix "mo" "owner")
-  (spacemacs/declare-prefix "mot" "toggle")
-
   (push (expand-file-name "customizations" dotspacemacs-directory) load-path)
 
   (use-package custom-helper-functions
@@ -343,22 +338,37 @@ you should place your code here."
     (spacemacs/set-leader-keys "owb" 'jeg2/trim-backwards)
     (spacemacs/set-leader-keys "owa" 'jeg2/trim-backwards-and-forwards)
     )
+  (use-package custom-toggle-commands
+    :commands (jeg2/ansi-color-apply-buffer)
+    :init
+    (spacemacs/set-leader-keys "ota" 'jeg2/ansi-color-apply-buffer)
+    )
   (use-package custom-elixir-commands
     :commands (jeg2/toggle-elixir-do-blocks
                jeg2/toggle-elixir-function-syntax
                jeg2/elixir-module-name)
     :init
-    (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
-    (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otd" 'jeg2/toggle-elixir-do-blocks)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
+    (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
+    (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     )
 
   ;; Configure Modes
+  (add-hook 'ruby-mode-hook 'projectile-rails-on)
   (with-eval-after-load 'ruby-mode
-    (spacemacs/declare-prefix-for-mode 'ruby-mode "o" "owner")
     (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "o'" 'inf-ruby)
+    (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "ord" 'projectile-rails-dbconsole)
+    (spacemacs/declare-prefix-for-mode 'ruby-mode "o" "owner")
+    (spacemacs/declare-prefix-for-mode 'ruby-mode "or" "rails")
     )
+
+  ;; Set prefix names
+  (spacemacs/declare-prefix "o" "owner")
+  (spacemacs/declare-prefix "ot" "toggle")
+  (spacemacs/declare-prefix "ow" "whitespace")
+  (spacemacs/declare-prefix "mo" "owner")
+  (spacemacs/declare-prefix "mot" "toggle")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

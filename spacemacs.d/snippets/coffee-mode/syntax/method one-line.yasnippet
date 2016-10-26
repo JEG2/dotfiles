@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: method one-line
+# key: m
+# --
+${1:name}: ${2:$(if (> (length yas-text) 0) "(" "")}${2:params}${2:$(if (> (length yas-text) 0) ") " "")}-> $0

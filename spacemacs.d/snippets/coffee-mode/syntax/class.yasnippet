@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cla
+# --
+class ${1:`(jeg2/camelize (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`}${2:$(if (> (length yas-text) 0) " extends " "")}${2:ParentClass}
+  $0

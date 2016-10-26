@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: exec
+# key: exe
+# --
+${1:regexp} = /${2:pattern}/g$3
+while (matched = $1.exec(${4:string}))
+  $0

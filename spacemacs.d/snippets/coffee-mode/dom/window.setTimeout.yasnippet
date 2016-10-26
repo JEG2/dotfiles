@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: window.setTimeout
+# key: sett
+# --
+${1:timeoutId}${1:$(if (> (length yas-text) 0) " = " "")}window.setTimeout ->
+  $0
+, ${2:5000}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: replace
+# key: rep
+# --
+replace /${1:pattern}/$2,${3:$(if (> (length yas-text) 0) " (" "")}${3:matched}${3:$(if (> (length yas-text) 0) ") " "")}->
+   $0

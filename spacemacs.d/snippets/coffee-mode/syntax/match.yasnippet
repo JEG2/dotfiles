@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: match
+# key: mat
+# --
+if (matched = ${1:string}.match /${2:pattern}/$3)
+  $0${4:$(if (> (length yas-text) 0) "\nelse\n    " "")}${4:throw "No match."}${4:$(if (> (length yas-text) 0) "\n" "")}

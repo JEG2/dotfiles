@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: window.setInterval
+# key: seti
+# --
+${1:intervalId}${1:$(if (> (length yas-text) 0) " = " "")}window.setInterval ->
+  $0
+, ${2:5000}

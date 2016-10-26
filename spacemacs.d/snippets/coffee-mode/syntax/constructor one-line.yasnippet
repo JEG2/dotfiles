@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: constructor one-line
+# key: c
+# --
+constructor: ${1:$(if (> (length yas-text) 0) "(" "")}${1:params}${1:$(if (> (length yas-text) 0) ") " "")}-> $0

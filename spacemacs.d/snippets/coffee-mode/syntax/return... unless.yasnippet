@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: return... unless
+# key: retu
+# --
+return${1:$(if (> (length yas-text) 0) " " "")}${1:result} unless ${2:condition}

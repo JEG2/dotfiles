@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: fn
+# key: fn
+# --
+fn ${1:main}(${2:params})${3:$(if (> (length yas-text) 0) " -> " "")}${3:int}${4: {
+  $0
+}}${4:$(if (> (length yas-text) 0) "" ";")}

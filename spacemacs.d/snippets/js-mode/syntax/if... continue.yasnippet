@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: if... continue
+# key: ifc
+# --
+if (${1:condition}) continue${2:$(if (> (length yas-text) 0) " " "")}${2:label};$0

@@ -327,7 +327,9 @@ you should place your code here."
   (push (expand-file-name "customizations" dotspacemacs-directory) load-path)
 
   (use-package custom-helper-functions
-    :commands (jeg2/camelize)
+    :commands (jeg2/regex-replace
+               jeg2/regex-replace-all
+               jeg2/camelize)
     )
   (use-package custom-whitespace-commands
     :commands (jeg2/trim-forwards

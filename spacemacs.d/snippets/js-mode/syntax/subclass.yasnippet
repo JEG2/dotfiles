@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: subclass
+# key: sub
+# --
+${1:Subclass}.prototype = new ${2:ParentClass}();
+
+for (var property in $1.prototype) {
+    if ($1.prototype.hasOwnProperty(property)) {
+        delete $1.prototype[property]
+    }
+}
+
+$1.prototype.constructor = $1;$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function
+# key: f
+# --
+${1:name} : ${2:Params}${2:$(if (> (length yas-text) 0) " -> " "")}${3:Return}
+$1 ${4:args}${4:$(if (> (length yas-text) 0) " " "")}=
+  $0

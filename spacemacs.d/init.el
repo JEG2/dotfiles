@@ -364,6 +364,12 @@ you should place your code here."
     (spacemacs/declare-prefix-for-mode 'ruby-mode "o" "owner")
     (spacemacs/declare-prefix-for-mode 'ruby-mode "or" "rails")
     )
+  (with-eval-after-load 'elm-mode
+    (add-hook 'elm-mode-hook (lambda ()
+      (setq-local yas-before-expand-snippet-hook (lambda () (elm-indent-mode 0)))
+      (setq-local yas-after-exit-snippet-hook (lambda () (elm-indent-mode 1)))
+      ))
+    )
 
   ;; Set prefix names
   (spacemacs/declare-prefix "o" "owner")

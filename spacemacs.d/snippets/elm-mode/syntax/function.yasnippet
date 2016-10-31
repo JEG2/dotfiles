@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: function
 # key: f
+# expand-env: ((yas-indent-line 'fixed))
 # --
 ${1:name} : ${2:Params}${2:$(if (> (length yas-text) 0) " -> " "")}${3:Return}
-$1 ${4:args}${4:$(if (> (length yas-text) 0) " " "")}=
-  $0
+$1${1:$(if (> (length yas-text) 0) " " "")}${4:args}${4:$(if (> (length yas-text) 0) " " "")}=
+    $0

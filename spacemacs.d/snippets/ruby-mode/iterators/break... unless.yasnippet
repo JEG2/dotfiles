@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: break... unless
+# key: breu
+# --
+break${1:$(if (> (length yas-text) 0) " " "")}${1:value} unless ${2:condition}$0

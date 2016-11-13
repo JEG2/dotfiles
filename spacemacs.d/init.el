@@ -331,6 +331,13 @@ you should place your code here."
                jeg2/regex-replace-all
                jeg2/camelize)
     )
+  (use-package custom-editing-commands
+    :commands (jeg2/newline-between
+               jeg2/close-statement)
+    :init
+    (spacemacs/set-leader-keys "oes" 'jeg2/newline-between)
+    (spacemacs/set-leader-keys "oe;" 'jeg2/close-statement)
+    )
   (use-package custom-whitespace-commands
     :commands (jeg2/trim-forwards
                jeg2/trim-backwards
@@ -345,6 +352,13 @@ you should place your code here."
     :init
     (spacemacs/set-leader-keys "ota" 'jeg2/ansi-color-apply-buffer)
     )
+  (use-package custom-html-commands
+    :commands (jeg2/htmlify-buffer
+               jeg2/htmlify-buffer-reversed
+               jeg2/erb-insert-or-toggle-tag)
+    :init
+    (spacemacs/set-leader-keys "oh" 'jeg2/htmlify-buffer-reversed)
+    )
   (use-package custom-elixir-commands
     :commands (jeg2/toggle-elixir-do-blocks
                jeg2/toggle-elixir-function-syntax
@@ -354,6 +368,13 @@ you should place your code here."
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
     (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
     (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
+    )
+  (use-package custom-markdown-commands
+    :commands (jeg2/insert-fenced-code-block
+               jeg2/markdown-preview)
+    :init
+    (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "o`" 'jeg2/insert-fenced-code-block)
+    (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "op" 'jeg2/markdown-preview)
     )
 
   ;; Configure Modes
@@ -373,6 +394,7 @@ you should place your code here."
 
   ;; Set prefix names
   (spacemacs/declare-prefix "o" "owner")
+  (spacemacs/declare-prefix "oe" "editing")
   (spacemacs/declare-prefix "ot" "toggle")
   (spacemacs/declare-prefix "ow" "whitespace")
   (spacemacs/declare-prefix "mo" "owner")

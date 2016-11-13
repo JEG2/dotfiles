@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: break... if
+# key: brei
+# --
+break${1:$(if (> (length yas-text) 0) " " "")}${1:value} if ${2:condition}$0

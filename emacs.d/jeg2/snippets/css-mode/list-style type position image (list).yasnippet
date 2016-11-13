@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: list-style: type position image
-# key: list
-# contributor: Translated from TextMate snippet 
-# uuid: 1C7E0430-2A67-4CEF-9D68-4ED6315A8567
-# --
-list-style:${1:$(if (> (length yas-text) 0) " " "")}${1:$$(yas/choose-value "disc" "circle" "square" "decimal" "zero" "none")}${2:$(if (> (length yas-text) 0) " " "")}${2:$$(yas/choose-value "inside" "outside")}${3:$(if (> (length yas-text) 0) " url(\\\"" "")}${3:image.png}${3:$(if (> (length yas-text) 0) "\\\")" "")};$0

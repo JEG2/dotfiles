@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: background: color image repeat attachment position
-# key: background
-# contributor: Translated from TextMate snippet 
-# uuid: D09967B1-2215-4B10-A331-7A372281DDA6
-# --
-background:${1:$(if (> (length yas-text) 0) " " "")}${1:#${2:DDDDDD}}${3:$(if (> (length yas-text) 0) " url(\\\"" "")}${3:image.png}${3:$(if (> (length yas-text) 0) "\\\")" "")}${4:$(if (> (length yas-text) 0) " " "")}${4:$$(yas/choose-value "repeat" "repeat-x" "repeat-y" "no-repeat")}${5:$(if (> (length yas-text) 0) " " "")}${5:$$(yas/choose-value "scroll" "fixed")}${6:$(if (> (length yas-text) 0) " " "")}${6:$$(yas/choose-value "top left" "top center" "top right" "center left" "center center" "center right" "bottom left" "bottom center" "bottom right" "x-% y-%" "x-pos y-pos")};$0

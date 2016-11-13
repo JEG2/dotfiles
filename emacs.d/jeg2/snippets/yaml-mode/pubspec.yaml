@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: pubspec
-# key: pub
-# --
-name: ${1:library}
-description: ${2:What this thing does.}
-dependencies:
-  ${3:browser: any}
-$0

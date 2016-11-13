@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: window.setInterval
-# key: seti
-# --
-${1:$(if (> (length yas-text) 0) "var " "")}${1:intervalId}${1:$(if (> (length yas-text) 0) " = " "")}window.setInterval( function() {
-    $0
-}, ${2:5000});

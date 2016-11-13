@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: function_const_constructor_abstract
-# key: fcca
-# --
-const `(save-excursion (search-backward-regexp "class +[A-Za-z0-9_]+") (forward-word 2) (backward-word) (thing-at-point 'word))`(${1:this.property})${2:$(if (> (length yas-text) 0) " : " "")}${2:super(property)};$0

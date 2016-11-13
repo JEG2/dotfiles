@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: class_abstract
-# key: ca
-# --
-abstract class ${1:`(jeg2/camelize (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`}${2:$(if (> (length yas-text) 0) " extends " "")}${2:ParentClass}${3:$(if (> (length yas-text) 0) " with " "")}${3:Mixin}${4:$(if (> (length yas-text) 0) " implements " "")}${4:Interface} {
-  $0
-}

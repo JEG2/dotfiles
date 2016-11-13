@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: match
-# key: mat
-# --
-var ${1:regexp}  = /${2:pattern}/$3;
-var matched = ${4:string}.match($1);
-if (matched != null) {
-    $0
-}${5:$(if (> (length yas-text) 0) " else {\n    " "")}${5:throw "No match.";}${5:$(if (> (length yas-text) 0) "\n}" "")}

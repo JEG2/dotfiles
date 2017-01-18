@@ -1,11 +1,11 @@
 # -*- sh -*-
 
 # Enviroment Variables
-export EDITOR="e"
-export CVSEDITOR="e"
+export EDITOR="vi"
+export CVSEDITOR="vi"
 export CVS_RSH="ssh"
-export SVN_EDITOR="e"
-export GIT_EDITOR="e"
+export SVN_EDITOR="vi"
+export GIT_EDITOR="vi"
 export LC_CTYPE=en_US.UTF-8
 export HISTSIZE=500
 export HISTFILESIZE=1500

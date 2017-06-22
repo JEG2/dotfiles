@@ -20,11 +20,11 @@
   rebase = true
 [rerere]
   enabled = 1
-# [github]
-#   user = JEG2
-#   token = ...
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+# [github]
+#   user = JEG2
+#   oauth-token = ...

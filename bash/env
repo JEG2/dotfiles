@@ -13,6 +13,7 @@ export HISTCONTROL=erasedups
 export PROMPT_COMMAND='history -a'  # write previous line as prompt is displayed
 export CLICOLOR=1
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Path
 export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/bin:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:/usr/local/bin:/usr/local/sbin:/usr/local/pgsql/bin:/usr/local/heroku/bin:$PATH"

@@ -403,6 +403,9 @@ you should place your code here."
   (spacemacs/declare-prefix "ow" "whitespace")
   (spacemacs/declare-prefix "mo" "owner")
   (spacemacs/declare-prefix "mot" "toggle")
+
+  ;; Use my snippet's only
+  (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

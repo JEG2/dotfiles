@@ -2,4 +2,4 @@
 # name: enum_min_max
 # key: eminm
 # --
-Enum.min_max${1:$(if (> (length yas-text) 0) "(" "")}${1:enumerable}${1:$(if (> (length yas-text) 0) ")" "")}
+Enum.min_max(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:fn -> $0 end})

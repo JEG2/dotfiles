@@ -2,4 +2,4 @@
 # name: enum_min_by
 # key: eminb
 # --
-Enum.min_by(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end)
+Enum.min_by(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}fn ${2:x} -> $0 end${3:$(if (> (length yas-text) 0) ", " "")}${3:fn ->  end})

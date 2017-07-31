@@ -2,4 +2,4 @@
 # name: enum_max
 # key: emax
 # --
-Enum.max${1:$(if (> (length yas-text) 0) "(" "")}${1:enumerable}${1:$(if (> (length yas-text) 0) ")" "")}
+Enum.max(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:fn -> $0 end})

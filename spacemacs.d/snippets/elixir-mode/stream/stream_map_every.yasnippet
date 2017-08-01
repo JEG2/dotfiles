@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stream_map_every
+# key: semape
+# --
+Stream.map_every(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:nth}, fn ${3:x} -> $0 end)

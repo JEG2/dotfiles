@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stop
+# key: sto
+# --
+{:stop, ${1:reason}${2:$(if (> (length yas-text) 0) ", " "")}${2:reply}${3:$(if (> (length yas-text) 0) ", " "")}${3:new_state}}$0

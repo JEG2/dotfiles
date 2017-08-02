@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gen_server_start_link
+# key: gsstal
+# --
+GenServer.start_link(${1:__MODULE__}, ${2:args}${3:$(if (> (length yas-text) 0) ", " "")}${3:name: ${4:__MODULE__}})$0

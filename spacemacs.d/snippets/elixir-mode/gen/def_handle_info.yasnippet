@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_handle_info
+# key: defhi
+# --
+def handle_info(${1:message}, ${2:state})${3:$(if (> (length yas-text) 0) " when " "")}${3:guard_clause} do
+  $0
+end

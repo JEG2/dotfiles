@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_handle_cast
+# key: defhc
+# --
+def handle_cast(${1:message}, ${2:state})${3:$(if (> (length yas-text) 0) " when " "")}${3:guard_clause} do
+  $0
+end

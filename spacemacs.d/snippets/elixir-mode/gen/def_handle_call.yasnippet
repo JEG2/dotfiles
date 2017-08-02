@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_handle_call
+# key: defhc
+# --
+def handle_call(${1:message}, ${2:_from}, ${3:state})${4:$(if (> (length yas-text) 0) " when " "")}${4:guard_clause} do
+  $0
+end

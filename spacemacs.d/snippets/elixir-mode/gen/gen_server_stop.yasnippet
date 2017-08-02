@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gen_server_stop
+# key: gssto
+# --
+GenServer.stop(${1:__MODULE__}${2:$(if (> (length yas-text) 0) ", " "")}${2:reason})$0

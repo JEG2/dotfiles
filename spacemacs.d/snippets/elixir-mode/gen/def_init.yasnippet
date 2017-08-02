@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_init
+# key: defi
+# --
+def init(${1:args})${2:$(if (> (length yas-text) 0) " when " "")}${2:guard_clause} do
+  $0
+end

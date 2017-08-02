@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_code_change
+# key: defcc
+# --
+def code_change(${1:old_vsn}, ${2:state}, ${3:extra})${4:$(if (> (length yas-text) 0) " when " "")}${4:guard_clause} do
+  $0
+end

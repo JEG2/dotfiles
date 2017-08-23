@@ -335,6 +335,11 @@ you should place your code here."
                jeg2/regex-replace-all
                jeg2/camelize)
     )
+  (use-package custom-ring-commands
+    :commands (jeg2/yank-path)
+    :init
+    (spacemacs/set-leader-keys "oyp" 'jeg2/yank-path)
+    )
   (use-package custom-editing-commands
     :commands (jeg2/newline-between
                jeg2/close-statement)

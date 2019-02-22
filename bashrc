@@ -9,3 +9,6 @@ source ~/Documents/dotfiles/bash/aliases
 export RUBY_CONFIGURE_OPTIONS='--with-opt-dir=/usr/local/opt/openssl:/usr/local/opt/readline:/usr/local/opt/libyaml:/usr/local/opt/gdbm'
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# z
+. /usr/local/etc/profile.d/z.sh

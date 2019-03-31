@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     lua
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -53,6 +52,7 @@ values."
      html
      java
      javascript
+     lua
      markdown
      python
      ruby
@@ -376,6 +376,7 @@ you should place your code here."
     :init
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otd" 'jeg2/toggle-elixir-do-blocks)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
+    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "of" 'elixir-format)
     (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
     (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     )

@@ -1,4 +1,0 @@
-.headers ON
-.mode column
-.separator ","
-.nullvalue "NULL"

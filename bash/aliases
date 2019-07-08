@@ -1,12 +1,5 @@
 # -*- sh -*-
 
-# Mac OS X
-alias rebuild_db="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
-
-# PostgreSQL
-alias start_postgres="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias stop_postgres="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-
 # Git
 alias g="git status"
 alias ga="git add"
@@ -34,11 +27,6 @@ alias gpsd="git push --delete"
 alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
-
-# TMUX
-alias ta="tmux attach"
-alias tls="tmux list-sessions"
-alias tk="tmux kill-server"
 
 # Ruby
 alias r="ruby"
@@ -108,9 +96,6 @@ alias brkdc="bin/rake db:create"
 alias brklc="bin/rake log:clear"
 alias brkr="bin/rake routes"
 alias brl="bin/rails"
-
-# Elixir
-alias ix='iex --erl "-kernel shell_history enabled -kernel shell_history_path '"'"'/Users/jeg2/.elixir-history'"'"'"'
 
 # Emacs
 if [ -n "$EMACS" ]; then  # inside Emacs terminals

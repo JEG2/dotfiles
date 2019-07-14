@@ -324,8 +324,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; Make the modeline look good on Mac OS X
-  (setq powerline-default-separator 'utf-8)
+  ;; Make VIM keys work in terminal
+  (setq term-char-mode-point-at-process-mark nil)
 
   ;; Add inf-ruby to REPL list
   (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)

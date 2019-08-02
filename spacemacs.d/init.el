@@ -39,7 +39,6 @@ values."
      ansible
      auto-completion
      emoji
-     csv
      elixir
      elm
      emacs-lisp
@@ -53,7 +52,6 @@ values."
      java
      javascript
      lua
-     markdown
      org
      osx
      python
@@ -64,7 +62,6 @@ values."
             shell-default-position 'full)
      shell-scripts
      spell-checking
-     sql
      syntax-checking
      terraform
      typescript
@@ -136,11 +133,10 @@ values."
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
-   ;; Example for 5 recent files and 7 projects: '((recents . 5) (projects . 7))
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   ;; (default nil)
-   dotspacemacs-startup-lists '()
+   dotspacemacs-startup-lists '((recents . 5)
+                                (projects . 7))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -173,7 +169,7 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
@@ -268,8 +264,18 @@ values."
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
    dotspacemacs-smooth-scrolling t
-   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
-   ;; derivatives. If set to `relative', also turns on relative line numbers.
+   ;; Control line numbers activation.
+   ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
+   ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
+   ;; This variable can also be set to a property list for finer control:
+   ;; '(:relative nil
+   ;;   :disabled-for-modes dired-mode
+   ;;                       doc-view-mode
+   ;;                       markdown-mode
+   ;;                       org-mode
+   ;;                       pdf-view-mode
+   ;;                       text-mode
+   ;;   :size-limit-kb 1000)
    ;; (default nil)
    dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
@@ -437,7 +443,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dash-docs transient reformatter tide typescript-mode lua-mode org-mime org-category-capture ghub let-alist winum fuzzy flycheck-credo company-ansible erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks terraform-mode hcl-mode jinja2-mode helm-dash dash-at-point ansible-doc ansible ob-elixir minitest insert-shebang hide-comnt graphviz-dot-mode yapfify yaml-mode xterm-color web-mode web-beautify toml-mode tagedit sql-indent smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv racer pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails rake inflections pip-requirements orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download multi-term mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode htmlize helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md flyspell-correct-helm flyspell-correct flycheck-rust seq flycheck-pos-tip pos-tip flycheck-mix flycheck-elm flycheck fish-mode feature-mode evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help erlang emoji-cheat-sheet-plus emmet-mode elm-mode diff-hl cython-mode csv-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company-emoji company-emacs-eclim eclim company-anaconda coffee-mode chruby cargo rust-mode bundler inf-ruby auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic alchemist company elixir-mode ac-ispell auto-complete reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+    (yapfify yaml-mode xterm-color web-mode web-beautify toml-mode tide typescript-mode terraform-mode hcl-mode tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv racer pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails rake inflections pip-requirements pbcopy osx-trash osx-dictionary orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download ob-elixir multi-term minitest magit-gitflow magit-popup magit-gh-pulls lua-mode livid-mode skewer-mode simple-httpd live-py-mode launchctl json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jinja2-mode insert-shebang hy-mode htmlize helm-pydoc helm-gitignore helm-dash dash-docs helm-css-scss helm-company helm-c-yasnippet haml-mode graphviz-dot-mode gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht fuzzy flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip pos-tip flycheck-mix flycheck-elm flycheck-credo flycheck fish-mode feature-mode evil-magit magit transient git-commit with-editor eshell-z eshell-prompt-extras esh-help erlang emoji-cheat-sheet-plus emmet-mode elm-mode reformatter diff-hl dash-at-point cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company-emoji company-emacs-eclim eclim company-ansible company-anaconda coffee-mode chruby cargo markdown-mode rust-mode bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ansible-doc ansible anaconda-mode pythonic alchemist company elixir-mode ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smartparens restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-unimpaired evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-escape goto-chg eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

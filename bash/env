@@ -1,6 +1,7 @@
 # -*- sh -*-
 
 # Enviroment Variables
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export ALTERNATE_EDITOR="emacs"
 export EDITOR="emacsclient"
 export CVSEDITOR="emacsclient"

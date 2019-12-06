@@ -112,6 +112,15 @@
          (backward-char)
          (jeg2/trim-backwards))))
 
+(defun jeg2/insert-pipeline (&optional in-place)
+  "Inserts a pipe on a newline or in-place."
+  (interactive "P")
+  (unless in-place
+    (unless (eolp)
+      (end-of-line))
+    (newline-and-indent))
+  (insert "|> "))
+
 ;; Helper Functions
 
 (defun jeg2/elixir-module-name ()

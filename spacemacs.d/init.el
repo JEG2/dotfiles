@@ -384,11 +384,13 @@ you should place your code here."
   (use-package custom-elixir-commands
     :commands (jeg2/toggle-elixir-do-blocks
                jeg2/toggle-elixir-function-syntax
-               jeg2/elixir-module-name)
+               jeg2/elixir-module-name
+               jeg2/insert-pipeline)
     :init
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otd" 'jeg2/toggle-elixir-do-blocks)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "of" 'elixir-format)
+    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "op" 'jeg2/insert-pipeline)
     (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
     (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     )

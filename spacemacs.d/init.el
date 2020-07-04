@@ -435,6 +435,7 @@ you should place your code here."
 
   ;; Use my snippet's only
   (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
+  (setq yas-triggers-in-field nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

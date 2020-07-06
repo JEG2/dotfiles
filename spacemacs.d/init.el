@@ -53,7 +53,8 @@ values."
      java
      javascript
      lua
-     org
+     (org :variables
+          org-projectile-file "notes.org")
      osx
      python
      ruby
@@ -423,6 +424,9 @@ you should place your code here."
       (setq-local yas-after-exit-snippet-hook (lambda () (elm-indent-mode 1)))
       ))
     )
+  (with-eval-after-load 'org-agenda
+    (require 'org-projectile)
+    (push (org-projectile:todo-files) org-agenda-files))
 
   ;; Set prefix names
   (spacemacs/declare-prefix "o" "owner")

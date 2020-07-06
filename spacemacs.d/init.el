@@ -338,7 +338,7 @@ you should place your code here."
   (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)
 
   ;; Pick the Elixir to use
-  (setq exec-path (add-to-list 'exec-path "/Users/james/.asdf/installs/elixir/1.9.1-otp-22/bin/"))
+  (setq exec-path (add-to-list 'exec-path "/Users/james/.asdf/installs/elixir/1.10.4-otp-23/bin/"))
 
   ;; Load my customizations
   (push (expand-file-name "customizations" dotspacemacs-directory) load-path)

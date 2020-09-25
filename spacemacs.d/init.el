@@ -321,7 +321,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Set the initial window size
-  (setq initial-frame-alist '((top . 23) (left . 0) (width . 162) (height . 73)))
+  (setq initial-frame-alist '((top . 23) (left . 0) (width . 162) (height . 54)))
   (setq standard-indent 2)
   )
 

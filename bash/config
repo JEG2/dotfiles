@@ -45,7 +45,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/g:\1 /'
 }
 function parse_elixir_version {
-    asdf current elixir | cut -d' ' -f 1
+    asdf current elixir | ruby -e 'puts ARGF.read.split[1]'
 }
 function parse_ruby_version {
     ruby --version | cut -d' ' -f 2

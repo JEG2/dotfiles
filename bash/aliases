@@ -18,7 +18,7 @@ alias gr="git rebase"
 alias gri="git rebase -i"
 alias griu="git rebase -i @{upstream}"
 alias gl="git log"
-alias glr=" git --no-pager log --graph --abbrev-commit --date=relative -10 --all --pretty='tformat:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias glr="git --no-pager log --graph --abbrev-commit --date=relative -10 --all --pretty='tformat:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
 alias gs="git show"
 alias gd="git diff"
 alias gbl="git blame"
@@ -27,6 +27,7 @@ alias gpsd="git push --delete"
 alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
+alias gh='git config --get remote.origin.url | ruby -ne "puts %{https://github.com/#{\$_.split(/.com[\:\/]/)[-1].gsub(%{.git},%{})}}"| xargs open'
 
 # Ruby
 alias r="ruby"

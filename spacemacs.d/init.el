@@ -61,7 +61,8 @@ values."
      ruby-on-rails
      rust
      (shell :variables
-            shell-default-position 'full)
+            shell-default-position 'full
+            shell-default-term-shell "/usr/local/bin/fish")
      shell-scripts
      spell-checking
      syntax-checking

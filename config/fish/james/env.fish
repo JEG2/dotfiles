@@ -12,3 +12,7 @@ set -x ERL_AFLAGS '-kernel shell_history enabled'
 set -x KERL_BUILD_DOCS yes
 
 set PATH /Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/bin /usr/local/sbin /usr/local/pgsql/bin /usr/local/heroku/bin $PATH
+
+if test -n "$EMACS"
+    set -x TERM eterm-color
+end

@@ -51,7 +51,9 @@ values."
      helm
      html
      java
-     javascript
+     (javascript :variables
+                 javascript-disable-tern-port-files nil
+                 tern-command '("/Users/james/.asdf/shims/tern"))
      lua
      markdown
      (org :variables

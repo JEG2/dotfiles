@@ -7,7 +7,7 @@
   (mark-whole-buffer)
   (replace-string "font-family: default;" "font-family: \"DejaVu Sans Mono\"")
   (save-buffer)
-  (call-process "open" nil nil nil (buffer-file-name))
+  (call-process "open" nil nil nil "-a" "Safari.app" (buffer-file-name))
   (kill-buffer))
 
 (defun jeg2/htmlify-buffer-reversed ()

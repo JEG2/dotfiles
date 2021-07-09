@@ -40,7 +40,7 @@ values."
      auto-completion
      csv
      emoji
-     elixir
+     (elixir :variables elixir-backend 'alchemist)
      elm
      emacs-lisp
      erlang

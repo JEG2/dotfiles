@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Electrokinesis UI</title>
+
+    <script>
+      class EkMenuButton {
+        static parse(data) {
+          return new EkMenuButton(data.name, data.action, [data.menu]);
+        }
+
+        constructor(name, action, args) {
+          this.name = name;
+          this.action = action;
+          this.args = args;
+        }
+      }
+
+      class EkMenu {
+        static parse(data) {
+          let buttons;
+          if (Array.isArray(data.buttons[0])) {
+            buttons = data.buttons.map(row =>
+              row.map(button => EkMenuButton.parse(button))
+            );
+          } else {
+            buttons = data.buttons.map(button => [EkMenuButton.parse(button)]);
+          }
+
+          let buttonWidth;
+          switch (data.buttonSize) {
+            case "Small":
+              buttonWidth = 50;
+              break;
+            case "Medium":
+              buttonWidth = 100;
+              break;
+            case "Large":
+              buttonWidth = 250;
+              break;
+          }
+
+          return new EkMenu(buttons, buttonWidth);
+        }
+
+        constructor(buttons, buttonWidth) {
+          this.buttons = buttons;
+          this.buttonWidth = buttonWidth;
+
+          if (buttons[0].length == 1) {
+            this.style = "List";
+          } else {
+            this.style = "Grid";
+          }
+          this.columns = buttons[0].length;
+          this.rows = buttons.length;
+        }
+      }
+
+      class EkUI {
+        constructor(menus) {
+          this.menus = menus;
+          this.menuStack = [];
+          this._loadMenu();
+        }
+
+        display() {
+          this._buildHTML();
+          this._sizeAndPosition("BottomRight", 0, 0);
+          this.selectionMode = "Rows";
+          this.row = 0;
+        }
+
+        selectPrevious() {
+          this._deselect();
+
+          if (this.selectionMode === "Rows") {
+            if (this.row === 0) {
+              this.row = this.menu.rows - 1;
+            } else {
+              this.row = this.row - 1;
+            }
+          } else {
+            if (this.column === 0) {
+              this.column = this.menu.columns - 1;
+            } else {
+              this.column = this.column - 1;
+            }
+          }
+
+          this._select();
+        }
+
+        selectNext() {
+          this._deselect();
+
+          if (this.selectionMode === "Rows") {
+            this.row = (this.row + 1) % this.menu.rows;
+          } else {
+            this.column = (this.column + 1) % this.menu.columns;
+          }
+
+          this._select();
+        }
+
+        executeSelection() {
+          if (this.selectionMode === "Rows" && this.menu.style !== "List") {
+            this._deselect();
+
+            this.selectionMode = "Columns";
+            this.column = 0;
+
+            this._select();
+          } else {
+            let button;
+            if (this.menu.style === "List") {
+              button = this.menu.buttons[this.row][0];
+            } else {
+              button = this.menu.buttons[this.row][this.column];
+            }
+
+            /* window.KeyboardMaestro.Trigger("temp", JSON.stringify(button)); */
+            switch (button.action) {
+              case "PushMenu":
+                this.menuStack.unshift(button.args[0]);
+                this._loadMenu();
+                this.display();
+                break;
+              case "PopMenu":
+                this.menuStack.shift();
+                this._loadMenu();
+                this.display();
+                break;
+            }
+            /* window.KeyboardMaestro.Trigger("temp", button.name); */
+          }
+        }
+
+        _loadMenu() {
+          this.menu = this.menus[this.menuStack[0] || "Top"];
+          this.selectionMode = null;
+          this.column = null;
+          this.row = null;
+        }
+
+        _buildHTML() {
+          let html = `<div class="rows">`;
+          this.menu.buttons.forEach((row, y) => {
+            html += `<div class="columns">`;
+            row.forEach(button => {
+              html += `<button`;
+              if (y == 0) {
+                html += ` class="selected"`;
+              }
+              html += ` style="width: ${this.menu.buttonWidth}px;">`;
+              html += `${button.name}</button>`;
+            });
+            html += `</div>`;
+          });
+          html += `</div>`;
+
+          const parent = document.getElementById("ek");
+          parent.innerHTML = html;
+        }
+
+        _sizeAndPosition(anchor = "BottomRight", xOffset = 0, yOffset = 0) {
+          const width =
+            this.menu.columns * this.menu.buttonWidth +
+            8 * (this.menu.columns - 1) + 16 * 2;
+          const height =
+            this.menu.rows * 32 + 8 * (this.menu.rows - 1) + 16 * 2;
+
+          let x;
+          let y;
+          switch (anchor) {
+            case "TopLeft":
+              x = `SCREEN(Main,Left)`;
+              y = `SCREEN(Main,Top)`;
+              break;
+            case "TopRight":
+              x = `SCREEN(Main,Right)-${width}`;
+              y = `SCREEN(Main,Top)`;
+              break;
+            case "Center":
+              x = `FLOOR(SCREEN(Main,Right)/2-${width/2})`;
+              y = `FLOOR(SCREEN(Main,Bottom)/2-${height/2})`;
+              break;
+            case "BottomLeft":
+              x = `SCREEN(Main,Left)`;
+              y = `SCREEN(Main,Bottom)-${height}`;
+              break;
+            case "BottomRight":
+              x = `SCREEN(Main,Right)-${width}`;
+              y = `SCREEN(Main,Bottom)-${height}`;
+              break;
+          }
+
+          window.KeyboardMaestro.ResizeWindow(
+            `${x}+${xOffset},${y}+${yOffset},${width},${height}`
+          );
+        }
+
+        _deselect() {
+          const selected = document.querySelectorAll("button.selected");
+          selected.forEach(button => button.classList.remove("selected"));
+        }
+
+        _select() {
+          if (this.selectionMode === "Rows") {
+            const selection = document.querySelectorAll(
+              `.columns:nth-child(${this.row + 1}) button`
+            );
+            selection.forEach(button => button.classList.add("selected"));
+          } else {
+            const button = document.querySelector(
+              `.columns:nth-child(${this.row + 1}) ` +
+              `button:nth-child(${this.column + 1})`
+            );
+            button.classList.add("selected");
+          }
+        }
+      }
+
+      function KMInit() {
+        parsedMenus = {};
+        menuData = JSON.parse(
+          window.KeyboardMaestro.GetVariable("ElectrokinesisMenus")
+        );
+        for (const [name, menu] of Object.entries(menuData)) {
+          parsedMenus[name] = EkMenu.parse(menu);
+        }
+
+        window.ek = new EkUI(parsedMenus);
+      }
+
+      function KMWillShowWindow() {
+        ek.display();
+      }
+
+     function KMDidShowWindow() {
+       window.KeyboardMaestro.Trigger("Reactivate Launch Window");
+     }
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+
+        font-family: system-ui;
+        line-height: 20px;
+        text-align: center;
+
+        background-color: rgba(148, 55, 255, 0.5);
+      }
+
+      #ek {
+        padding: 16px;
+      }
+
+      .rows {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .columns {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      button {
+        box-sizing: border-box;
+        height: 32px;
+        padding: 6px 8px;
+
+        border: 0;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #111827;
+
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none #D1D5DB solid;
+        text-decoration-thickness: auto;
+
+        cursor: pointer;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      button:hover, button.selected {
+        background-color: rgb(249, 250, 251);
+      }
+
+      button:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+
+      button:focus-visible {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body data-kmwindowid="ElectrokinesisUI">
+    <div id="ek">
+      <h1>Loading…</h1>
+    </div>
+  </body>
+</html>

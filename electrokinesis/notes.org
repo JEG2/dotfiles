@@ -1,0 +1,13 @@
+* Tasks
+** DONE Handle both types of menu automatically
+   CLOSED: [2021-11-20 Sat 11:33]
+** DONE Get highlighting working
+   CLOSED: [2021-11-21 Sun 12:24]
+** TODO Build data for keyboard menus
+** TODO Trigger keyboard actions
+** DONE Add menu to menu traversal
+   CLOSED: [2021-11-25 Thu 17:19]
+** TODO Rebuild mouse grid
+** TODO Add mouse movement actions
+** TODO Add display line
+** TODO Add calculator menus

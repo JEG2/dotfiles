@@ -1,4 +1,4 @@
-erlang 24.2.1
-elixir 1.13.2-otp-24
+erlang 25.0
+elixir 1.13.4-otp-25
 nodejs 16.7.0
 ruby 3.0.1

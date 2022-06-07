@@ -6,8 +6,10 @@
   (replace-string "font-size: 0pt;" "font-size: 14pt;")
   (mark-whole-buffer)
   (replace-string "font-family: default;" "font-family: \"DejaVu Sans Mono\"")
-  (save-buffer)
-  (call-process "open" nil nil nil "-a" "Safari.app" (buffer-file-name))
+  (shell-command-on-region
+   (point-min)
+   (point-max)
+   "textutil -stdin -format html -convert rtf -stdout | pbcopy")
   (kill-buffer))
 
 (defun jeg2/htmlify-buffer-reversed ()

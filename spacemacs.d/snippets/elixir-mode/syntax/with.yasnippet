@@ -2,6 +2,6 @@
 # name: with
 # key: wit
 # --
-with ${1:{:ok, data} <- File.read(path)} do
-  $0
+with ${1:{:ok, data\}} <- ${2:File.read(path)},$0 do
+  
 end

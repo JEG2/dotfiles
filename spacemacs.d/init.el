@@ -424,7 +424,17 @@ you should place your code here."
 
   ;; Configure Modes
   (add-hook 'elixir-mode-hook
-            (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+            (lambda ()
+              (add-hook 'before-save-hook 'elixir-format nil t)
+
+              (sp-with-modes 'elixir-mode
+                (sp-local-pair "def" nil :actions :rem)
+                (sp-local-pair "defp" nil :actions :rem)
+                )
+
+              (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
+              (yas/reload-all)
+              ))
   (add-hook 'elixir-format-hook (lambda ()
                                   (if (projectile-project-p)
                                       (setq elixir-format-arguments
@@ -432,6 +442,11 @@ you should place your code here."
                                                   (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
                                     (setq elixir-format-arguments nil))))
   (add-hook 'ruby-mode-hook 'projectile-rails-on)
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
+              (yas/reload-all)
+              ))
   (with-eval-after-load 'ruby-mode
     (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "o'" 'inf-ruby)
     (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "ord" 'projectile-rails-dbconsole)
@@ -457,8 +472,7 @@ you should place your code here."
   (spacemacs/declare-prefix "mo" "owner")
   (spacemacs/declare-prefix "mot" "toggle")
 
-  ;; Use my snippet's only
-  (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
+  ;; Don't allow snippets in snippets
   (setq yas-triggers-in-field nil)
   )
 

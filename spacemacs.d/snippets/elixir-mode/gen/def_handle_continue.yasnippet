@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def_handle_continue
+# key: defhc
+# --
+def handle_continue(${1:continue_id}, ${2:state})${3:$(if (> (length yas-text) 0) " when " "")}${3:guard_clause} do
+  $0
+end

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enum_zip_reduce
+# key: ezipr
+# --
+Enum.zip_reduce(${1:enumerable}${1:$(if (> (length yas-text) 0) ", " "")}${2:other}${2:$(if (> (length yas-text) 0) ", " "")}${3:initial_acc}, fn ${4:${5:a}, ${6:b}}, ${7:acc} -> $0 end)

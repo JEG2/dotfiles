@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: map_new
+# key: mnew
+# --
+Map.new(${1:map}${1:$(if (> (length yas-text) 0) ", " "")}${2:fn ${3:x} -> $0 end})

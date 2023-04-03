@@ -1,0 +1,26 @@
+# Git
+alias g="git status"
+alias ga="git add"
+alias gaa="git add --all ."
+alias gc="git commit -m"
+alias gb="git branch"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gcot="git checkout -t"
+alias gm="git merge"
+alias gl="git log"
+alias glr="git --no-pager log --graph --abbrev-commit --date=relative -10 --all --pretty='tformat:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias gs="git show"
+alias gd="git diff"
+alias gbl="git blame"
+alias gps="git push"
+alias gpsd="git push --delete"
+alias gpso="git push -u origin"
+alias gpl="git pull"
+
+# Emacs
+if [ -n "$EMACS" ]  # inside Emacs terminals
+then
+  alias ri="PAGER='less -R' ri -f ansi"
+  alias ssh="TERM=xterm ssh"
+fi

@@ -1,0 +1,15 @@
+# Enviroment Variables
+export ALTERNATE_EDITOR="emacs"
+export EDITOR="emacsclient"
+export CVSEDITOR="emacsclient"
+export CVS_RSH="ssh"
+export SVN_EDITOR="emacsclient"
+export GIT_EDITOR="emacsclient"
+export LC_CTYPE=en_US.UTF-8
+export CLICOLOR=1
+export ERL_AFLAGS="-kernel shell_history enabled"
+export KERL_BUILD_DOCS=yes
+export KERL_CONFIGURE_OPTIONS="--without-javac"
+
+# Path
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

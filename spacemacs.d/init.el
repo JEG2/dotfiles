@@ -31,11 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      auto-completion
      csv
      emoji
@@ -57,6 +52,7 @@ values."
      python
      ruby
      ruby-on-rails
+     rust
      (shell :variables
             shell-default-position 'full
             shell-default-term-shell "/usr/local/bin/fish")

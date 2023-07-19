@@ -47,7 +47,8 @@ values."
                  tern-command '("/Users/james/.asdf/shims/tern"))
      markdown
      (org :variables
-          org-projectile-file "notes.org")
+          org-projectile-file "notes.org"
+          org-confirm-babel-evaluate nil)
      osx
      python
      ruby
@@ -55,7 +56,7 @@ values."
      rust
      (shell :variables
             shell-default-position 'full
-            shell-default-term-shell "/usr/local/bin/fish")
+            shell-default-term-shell "/bin/zsh")
      shell-scripts
      spell-checking
      syntax-checking

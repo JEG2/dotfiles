@@ -105,4 +105,5 @@ source $ZSH/oh-my-zsh.sh
 [[ -f ~/Documents/dotfiles/zsh/secrets ]] && . ~/Documents/dotfiles/zsh/secrets
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
+export ASDF_DATA_DIR="/Users/james/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"

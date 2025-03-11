@@ -39,6 +39,7 @@ values."
      emacs-lisp
      erlang
      dash
+     docker
      git
      helm
      html
@@ -60,6 +61,7 @@ values."
      shell-scripts
      spell-checking
      syntax-checking
+     terraform
      typescript
      version-control
      yaml
@@ -273,7 +275,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -315,7 +317,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Set the initial window size
-  (setq initial-frame-alist '((top . 23) (left . 0) (width . 80) (height . 51)))
+  (setq initial-frame-alist '((top . 23) (left . 0) (width . 84) (height . 51)))
   (setq standard-indent 2)
   (require 'facemenu)
   )
@@ -327,6 +329,16 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Move lockfiles
+  (setq lock-file-name-transforms
+        '(("\\`/.*/\\([^/]+\\)\\'" "~/.emacs.d/aux/\\1" t)))
+
+  ;; Quiet dired
+  ;; (setq ls-lisp-use-insert-directory-program nil)
+  ;; (require 'ls-lisp)
+  ;; (setq dired-use-ls-dired nil)
+  ;; (setq dired-quick-sort-suppress-setup-warning t)
+
   ;; Fix modeline
   (setq powerline-default-separator 'utf-8)
 

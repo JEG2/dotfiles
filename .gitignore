@@ -3,6 +3,7 @@
 
 bash/secrets
 config/fish/james/secrets.fish
+zsh/secrets
 
 emacs.d/*
 !emacs.d/init.el

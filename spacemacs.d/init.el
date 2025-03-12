@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
                  javascript-disable-tern-port-files nil
                  tern-command '("/Users/james/.asdf/shims/tern"))
      markdown
+     multiple-cursors
      (org :variables
           org-projectile-file "notes.org"
           org-confirm-babel-evaluate nil)
@@ -64,6 +65,7 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      terraform
+     (treemacs :variables treemacs-use-git-mode 'simple)
      typescript
      version-control
      yaml
@@ -590,7 +592,7 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; Set the initial window size
-  (setq initial-frame-alist '((top . 23) (left . 0) (width . 84) (height . 51))
+  (setq initial-frame-alist '((top . 23) (left . 0) (width . 119) (height . 51))
         )
   (setq standard-indent 2)
   (require 'facemenu)

@@ -633,7 +633,7 @@ before packages are loaded."
   (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)
 
   ;; Pick the Elixir to use
-  (setq exec-path (add-to-list 'exec-path "/Users/james/.asdf/installs/elixir/1.18.2-otp-27/bin/"))
+  (setq exec-path (add-to-list 'exec-path "/Users/james/.asdf/installs/elixir/1.18.3-otp-27/bin/"))
 
   ;; Load my customizations
   (push (expand-file-name "customizations" dotspacemacs-directory) load-path)

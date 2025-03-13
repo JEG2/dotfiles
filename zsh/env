@@ -9,7 +9,7 @@ export LC_CTYPE=en_US.UTF-8
 export CLICOLOR=1
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS=yes
-export KERL_CONFIGURE_OPTIONS="--without-javac"
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
 
 # Path
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

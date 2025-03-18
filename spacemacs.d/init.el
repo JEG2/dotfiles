@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
                  tern-command '("/Users/james/.asdf/shims/tern"))
      markdown
      multiple-cursors
+     neotree
      (org :variables
           org-projectile-file "notes.org"
           org-confirm-babel-evaluate nil)
@@ -65,7 +66,6 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      terraform
-     (treemacs :variables treemacs-use-git-mode 'simple)
      typescript
      version-control
      yaml
@@ -623,6 +623,9 @@ before packages are loaded."
     (when (and (eq system-type 'darwin) (executable-find "gls"))
       (setq insert-directory-program "gls")))
 
+  ;; Configure Neotree
+  (setq neo-theme 'nerd)
+
   ;; Fix modeline
   (setq powerline-default-separator 'utf-8)
 
@@ -764,3 +767,24 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   '((hcl-indent-level . 2) (typescript-backend . tide) (typescript-backend . lsp)
+     (javascript-backend . tide) (javascript-backend . tern)
+     (javascript-backend . lsp))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)

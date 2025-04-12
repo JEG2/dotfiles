@@ -592,7 +592,7 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; Set the initial window size
-  (setq initial-frame-alist '((top . 23) (left . 0) (width . 119) (height . 51))
+  (setq initial-frame-alist '((top . 23) (left . 0) (width . 84) (height . 51))
         )
   (setq standard-indent 2)
   (require 'facemenu)
@@ -712,6 +712,7 @@ before packages are loaded."
     )
 
   ;; Configure Modes
+  (setq-default flycheck-disabled-checkers '(elixir-credo))
   (add-hook 'elixir-mode-hook
             (lambda ()
               (add-hook 'before-save-hook 'elixir-format nil t)
@@ -724,12 +725,6 @@ before packages are loaded."
               (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
               (yas/reload-all)
               ))
-  (add-hook 'elixir-format-hook (lambda ()
-                                  (if (projectile-project-p)
-                                      (setq elixir-format-arguments
-                                            (list "--dot-formatter"
-                                                  (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
-                                    (setq elixir-format-arguments nil))))
   (add-hook 'ruby-mode-hook 'projectile-rails-on)
   (add-hook 'ruby-mode-hook
             (lambda ()
@@ -772,19 +767,19 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((hcl-indent-level . 2) (typescript-backend . tide) (typescript-backend . lsp)
-     (javascript-backend . tide) (javascript-backend . tern)
-     (javascript-backend . lsp))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(safe-local-variable-values
+     '((elixir-basic-offset . 2) (hcl-indent-level . 2) (typescript-backend . tide)
+       (typescript-backend . lsp) (javascript-backend . tide)
+       (javascript-backend . tern) (javascript-backend . lsp))))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )
+  )

@@ -32,15 +32,12 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     (auto-completion :disabled-for elixir)
+   '(auto-completion
      csv
-     emoji
-     (elixir :variables elixir-backend 'alchemist)
-     elm
+     elixir
      emacs-lisp
+     emoji
      erlang
-     dash
      docker
      git
      helm
@@ -49,27 +46,21 @@ This function should only modify configuration layer settings."
                  javascript-disable-tern-port-files nil
                  tern-command '("/Users/james/.asdf/shims/tern"))
      markdown
-     multiple-cursors
-     neotree
      (org :variables
           org-projectile-file "notes.org"
           org-confirm-babel-evaluate nil)
      osx
      python
      ruby
-     ruby-on-rails
-     rust
-     (shell :variables
-            shell-default-position 'full
-            shell-default-term-shell "/bin/zsh")
      shell-scripts
      spell-checking
      syntax-checking
      terraform
-     typescript
+     tern
      version-control
      yaml
      )
+
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
    ;; loaded using load/require/use-package in the user-config section below in
@@ -103,29 +94,6 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-   ;; If non-nil then enable support for the portable dumper. You'll need to
-   ;; compile Emacs 27 from source following the instructions in file
-   ;; EXPERIMENTAL.org at to root of the git repository.
-   ;;
-   ;; WARNING: pdumper does not work with Native Compilation, so it's disabled
-   ;; regardless of the following setting when native compilation is in effect.
-   ;;
-   ;; (default nil)
-   dotspacemacs-enable-emacs-pdumper nil
-
-   ;; Name of executable file pointing to emacs 27+. This executable must be
-   ;; in your PATH.
-   ;; (default "emacs")
-   dotspacemacs-emacs-pdumper-executable-file "emacs"
-
-   ;; Name of the Spacemacs dump file. This is the file will be created by the
-   ;; portable dumper in the cache directory under dumps sub-directory.
-   ;; To load it when starting Emacs add the parameter `--dump-file'
-   ;; when invoking Emacs 27.1 executable on the command line, for instance:
-   ;;   ./emacs --dump-file=$HOME/.emacs.d/.cache/dumps/spacemacs-27.1.pdmp
-   ;; (default (format "spacemacs-%s.pdmp" emacs-version))
-   dotspacemacs-emacs-dumper-dump-file (format "spacemacs-%s.pdmp" emacs-version)
-
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
    dotspacemacs-elpa-timeout 5
@@ -203,8 +171,8 @@ It should only modify the values of Spacemacs settings."
    ;; pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists '((recents . 3)
+                                (projects . 6))
 
    ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
@@ -256,7 +224,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator utf-8 :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -268,10 +236,13 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 16.0
                                :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               :width normal)
+
+   ;; Default icons font, it can be `all-the-icons' or `nerd-icons'.
+   dotspacemacs-default-icons-font 'all-the-icons
+
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
@@ -291,10 +262,10 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-major-mode-leader-key ","
 
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m" for terminal mode, "<M-return>" for GUI mode).
+   ;; (default "C-M-m" for terminal mode, "M-<return>" for GUI mode).
    ;; Thus M-RET should work as leader key in both GUI and terminal modes.
    ;; C-M-m also should work in terminal mode, but not in GUI mode.
-   dotspacemacs-major-mode-emacs-leader-key (if window-system "<M-return>" "C-M-m")
+   dotspacemacs-major-mode-emacs-leader-key (if window-system "M-<return>" "C-M-m")
 
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs `C-i', `TAB' and `C-m', `RET'.
@@ -323,6 +294,7 @@ It should only modify the values of Spacemacs settings."
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
    dotspacemacs-large-file-size 5
+
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -390,7 +362,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default t) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
 
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' to obtain fullscreen
@@ -522,7 +494,7 @@ It should only modify the values of Spacemacs settings."
    ;; performance issues, instead of calculating the frame title by
    ;; `spacemacs/title-prepare' all the time.
    ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-frame-title-format "%t:%a"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -595,15 +567,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq initial-frame-alist '((top . 23) (left . 0) (width . 84) (height . 51))
         )
   (setq standard-indent 2)
-  (require 'facemenu)
-  )
-
-
-(defun dotspacemacs/user-load ()
-  "Library to load while dumping.
-This function is called only while dumping Spacemacs configuration. You can
-`require' or `load' the libraries of your choice that will be included in the
-dump."
   )
 
 (defun dotspacemacs/user-config ()
@@ -616,34 +579,11 @@ before packages are loaded."
   (setq lock-file-name-transforms
         '(("\\`/.*/\\([^/]+\\)\\'" "~/.emacs.d/aux/\\1" t)))
 
-  ;; Quiet dired
-  (use-package dired
-    :defer t
-    :config
-    (when (and (eq system-type 'darwin) (executable-find "gls"))
-      (setq insert-directory-program "gls")))
-
-  ;; Configure Neotree
-  (setq neo-theme 'nerd)
-
-  ;; Fix modeline
-  (setq powerline-default-separator 'utf-8)
-
-  ;; Make VIM keys work in terminal
-  (setq term-char-mode-point-at-process-mark nil)
-
-  ;; Add inf-ruby to REPL list
-  (push '("ruby" inf-ruby . inf-ruby) spacemacs-repl-list)
-
-  ;; Pick the Elixir to use
-  (setq exec-path (add-to-list 'exec-path "/Users/james/.asdf/installs/elixir/1.18.3-otp-27/bin/"))
+  ;; Don't allow snippets in snippets
+  (setq yas-triggers-in-field nil)
 
   ;; Load my customizations
   (push (expand-file-name "customizations" dotspacemacs-directory) load-path)
-
-  ;; Reduce Javascript indentation
-  (setq-default js2-basic-offset 2
-                js-indent-level 2)
 
   (use-package custom-helper-functions
     :commands (jeg2/regex-replace
@@ -671,11 +611,6 @@ before packages are loaded."
     (spacemacs/set-leader-keys "owb" 'jeg2/trim-backwards)
     (spacemacs/set-leader-keys "owa" 'jeg2/trim-backwards-and-forwards)
     )
-  (use-package custom-toggle-commands
-    :commands (jeg2/ansi-color-apply-buffer)
-    :init
-    (spacemacs/set-leader-keys "ota" 'jeg2/ansi-color-apply-buffer)
-    )
   (use-package custom-html-commands
     :commands (jeg2/htmlify-buffer
                jeg2/htmlify-buffer-reversed
@@ -686,13 +621,10 @@ before packages are loaded."
   (use-package custom-elixir-commands
     :commands (jeg2/toggle-elixir-do-blocks
                jeg2/toggle-elixir-function-syntax
-               jeg2/elixir-module-name
-               jeg2/insert-pipeline)
+               jeg2/elixir-module-name)
     :init
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otd" 'jeg2/toggle-elixir-do-blocks)
     (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "otf" 'jeg2/toggle-elixir-function-syntax)
-    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "of" 'elixir-format)
-    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "op" 'jeg2/insert-pipeline)
     (spacemacs/declare-prefix-for-mode 'elixir-mode "o" "owner")
     (spacemacs/declare-prefix-for-mode 'elixir-mode "ot" "toggle")
     )
@@ -703,62 +635,42 @@ before packages are loaded."
     (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "o`" 'jeg2/insert-fenced-code-block)
     (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "op" 'jeg2/markdown-preview)
     )
-  (use-package custom-frame-commands
-    :commands (jeg2/set-full-size
-               jeg2/set-streaming-size)
-    :init
-    (spacemacs/set-leader-keys "off" 'jeg2/set-full-size)
-    (spacemacs/set-leader-keys "ofs" 'jeg2/set-streaming-size)
-    )
 
-  ;; Configure Modes
-  (setq-default flycheck-disabled-checkers '(elixir-credo))
+  ;; Elixir
   (add-hook 'elixir-mode-hook
             (lambda ()
               (add-hook 'before-save-hook 'elixir-format nil t)
 
-              (sp-with-modes 'elixir-mode
-                (sp-local-pair "def" nil :actions :rem)
-                (sp-local-pair "defp" nil :actions :rem)
-                )
+              (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
+              (yas/reload-all)
+              ))
 
-              (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
-              (yas/reload-all)
-              ))
-  (add-hook 'ruby-mode-hook 'projectile-rails-on)
-  (add-hook 'ruby-mode-hook
-            (lambda ()
-              (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
-              (yas/reload-all)
-              ))
-  (with-eval-after-load 'ruby-mode
-    (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "o'" 'inf-ruby)
-    (spacemacs/set-leader-keys-for-major-mode 'ruby-mode "ord" 'projectile-rails-dbconsole)
-    (spacemacs/declare-prefix-for-mode 'ruby-mode "o" "owner")
-    (spacemacs/declare-prefix-for-mode 'ruby-mode "or" "rails")
-    )
-  (with-eval-after-load 'elm-mode
-    (add-hook 'elm-mode-hook (lambda ()
-                               (setq-local yas-before-expand-snippet-hook (lambda () (elm-indent-mode 0)))
-                               (setq-local yas-after-exit-snippet-hook (lambda () (elm-indent-mode 1)))
-                               ))
-    )
+  ;; Javascript
+  (setq js2-strict-missing-semi-warning nil)
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
+
+  ;; org
   (with-eval-after-load 'org-agenda
+    (dolist (key '("f" "C-n" "G" "\\" "|")) (define-key org-agenda-mode-map (kbd key) nil))
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "fc") #'org-agenda-filter-by-category)
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "fd") #'org-agenda-filter-remove-all)
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "fe") #'org-agenda-filter-by-effort)
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "fh") #'org-agenda-filter-by-top-headline)
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "ft") #'org-agenda-filter-by-tag)
+    (evil-define-key 'evilified org-agenda-mode-map (kbd "fx") #'org-agenda-filter-by-regexp)
     (require 'org-projectile)
-    (push (org-projectile:todo-files) org-agenda-files))
+    (push (org-projectile:todo-files) org-agenda-files)
+    )
 
   ;; Set prefix names
   (spacemacs/declare-prefix "o" "owner")
   (spacemacs/declare-prefix "oe" "editing")
-  (spacemacs/declare-prefix "of" "frames")
-  (spacemacs/declare-prefix "ot" "toggle")
   (spacemacs/declare-prefix "ow" "whitespace")
   (spacemacs/declare-prefix "mo" "owner")
   (spacemacs/declare-prefix "mot" "toggle")
-
-  ;; Don't allow snippets in snippets
-  (setq yas-triggers-in-field nil)
   )
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -772,9 +684,64 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(package-selected-packages
+     '(ace-jump-helm-line ace-link add-node-modules-path aggressive-indent alchemist
+                          all-the-icons auto-compile auto-highlight-symbol
+                          auto-yasnippet browse-at-remote bui bundler
+                          centered-cursor-mode clean-aindent-mode code-cells
+                          code-review column-enforce-mode company-anaconda
+                          company-emoji company-shell company-terraform
+                          company-web csv-mode cython-mode dap-mode devdocs
+                          diff-hl diminish dired-quick-sort disable-mouse docker
+                          dockerfile-mode dotenv-mode drag-stuff dumb-jump
+                          edit-indirect elisp-def elisp-demos elisp-slime-nav
+                          emmet-mode emoji-cheat-sheet-plus emr erlang
+                          eval-sexp-fu evil-anzu evil-args evil-cleverparens
+                          evil-collection evil-easymotion evil-escape
+                          evil-evilified-state evil-exchange evil-goggles
+                          evil-iedit-state evil-indent-plus evil-lion
+                          evil-lisp-state evil-matchit evil-nerd-commenter
+                          evil-numbers evil-org evil-surround evil-textobj-line
+                          evil-tutor evil-unimpaired evil-visual-mark-mode
+                          evil-visualstar expand-region eyebrowse fancy-battery
+                          fish-mode flycheck-bashate flycheck-credo flycheck-elsa
+                          flycheck-package flycheck-pos-tip flyspell-correct-helm
+                          ggtags gh-md git-link git-messenger git-modes
+                          git-timemachine gitignore-templates gnuplot golden-ratio
+                          google-translate grizzl helm-ag helm-c-yasnippet
+                          helm-comint helm-company helm-css-scss helm-descbinds
+                          helm-git-grep helm-ls-git helm-make helm-mode-manager
+                          helm-org helm-org-rifle helm-projectile helm-purpose
+                          helm-pydoc helm-swoop helm-themes helm-xref hide-comnt
+                          highlight-indentation highlight-numbers
+                          highlight-parentheses hl-todo holy-mode hungry-delete
+                          hybrid-mode impatient-mode import-js indent-guide info+
+                          insert-shebang inspector js-doc js2-mode js2-refactor
+                          launchctl link-hint live-py-mode livid-mode lorem-ipsum
+                          lsp-docker lsp-mode lsp-treemacs macrostep markdown-toc
+                          minitest multi-line multiple-cursors nameless
+                          nodejs-repl npm-mode ob-elixir open-junk-file
+                          org-cliplink org-contrib org-download org-mime
+                          org-pomodoro org-present org-projectile org-rich-yank
+                          org-superstar orgit-forge osx-clipboard osx-dictionary
+                          osx-trash overseer page-break-lines paradox
+                          password-generator pet pip-requirements pipenv pippel
+                          poetry popwin prettier-js pug-mode py-isort pydoc
+                          pyenv-mode pylookup pytest quickrun rainbow-delimiters
+                          rake restart-emacs reveal-in-osx-finder robe rspec-mode
+                          rubocop rubocopfmt ruby-hash-syntax ruby-refactor
+                          ruby-test-mode ruby-tools sass-mode scss-mode shfmt
+                          skewer-mode slim-mode smeargle space-doc spaceline
+                          spacemacs-purpose-popwin spacemacs-whitespace-cleanup
+                          sphinx-doc string-edit-at-point string-inflection
+                          symbol-overlay symon tagedit term-cursor tern toc-org
+                          treemacs-evil treemacs-icons-dired treemacs-magit
+                          treemacs-persp treemacs-projectile undo-fu
+                          undo-fu-session vi-tilde-fringe volatile-highlights
+                          vundo web-beautify web-mode wgrep winum writeroom-mode
+                          ws-butler yaml-mode yapfify yasnippet-snippets))
    '(safe-local-variable-values
-     '((elixir-basic-offset . 2) (hcl-indent-level . 2) (typescript-backend . tide)
-       (typescript-backend . lsp) (javascript-backend . tide)
+     '((js2-basic-offset . 2) (elixir-basic-offset . 2) (javascript-backend . tide)
        (javascript-backend . tern) (javascript-backend . lsp))))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.

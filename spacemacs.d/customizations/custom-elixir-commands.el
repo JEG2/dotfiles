@@ -15,7 +15,7 @@
          (newline)
          (indent-for-tab-command)
          (while (and (not (looking-at "\\(?:,\selse:\\|$\\)"))
-              (< (point) (point-max)))
+                     (< (point) (point-max)))
            (forward-char))
          (when (looking-at ",\selse:")
            (delete-char 2)
@@ -111,15 +111,6 @@
          (insert ")")
          (backward-char)
          (jeg2/trim-backwards))))
-
-(defun jeg2/insert-pipeline (&optional in-place)
-  "Inserts a pipe on a newline or in-place."
-  (interactive "P")
-  (unless in-place
-    (unless (eolp)
-      (end-of-line))
-    (newline-and-indent))
-  (insert "|> "))
 
 ;; Helper Functions
 

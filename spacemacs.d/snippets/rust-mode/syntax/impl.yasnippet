@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: impl
-# key: imp
-# --
-impl${1:$(if (> (length yas-text) 0) "<" "")}${1:T}${1:$(if (> (length yas-text) 0) ">" "")} ${2:TraitName}${2:$(if (> (length yas-text) 0) " for " "")}${3:TypeName} {
-  $0
-}

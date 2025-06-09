@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: task
-# key: tas
-# --
-${1:$(if (> (length yas-text) 0) "desc \\\"" "")}${1:Task description}${1:$(if (> (length yas-text) 0) "\\\"\n" "")}task ${3:$(if (> (length yas-text) 0) "" ":")}${2:task_name}${3:$(if (> (length yas-text) 0) ": " "")}${3:%w[${4:dependent tasks}]} do
-  $0
-end

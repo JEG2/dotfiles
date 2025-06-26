@@ -637,9 +637,13 @@ before packages are loaded."
     )
 
   ;; Elixir
+  (setq-default flycheck-disabled-checkers '(elixir-credo))
+
   (add-hook 'elixir-mode-hook
             (lambda ()
               (add-hook 'before-save-hook 'elixir-format nil t)
+
+              (sp-local-pair 'elixir-mode "defp" nil :actions :rem)
 
               (setq yas-snippet-dirs '("~/.spacemacs.d/snippets"))
               (yas/reload-all)

@@ -11,5 +11,9 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS=yes
 export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
 
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Path
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

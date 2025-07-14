@@ -32,7 +32,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(auto-completion
+   '(
+     auto-completion
+     ;; (auto-completion :disabled-for elixir)
      csv
      elixir
      emacs-lisp
@@ -745,8 +747,9 @@ This function is called at the very end of Spacemacs initialization."
                           vundo web-beautify web-mode wgrep winum writeroom-mode
                           ws-butler yaml-mode yapfify yasnippet-snippets))
    '(safe-local-variable-values
-     '((js2-basic-offset . 2) (elixir-basic-offset . 2) (javascript-backend . tide)
-       (javascript-backend . tern) (javascript-backend . lsp))))
+     '((hcl-indent-level . 2) (js2-basic-offset . 2) (elixir-basic-offset . 2)
+       (javascript-backend . tide) (javascript-backend . tern)
+       (javascript-backend . lsp))))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.

@@ -107,3 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # asdf
 export ASDF_DATA_DIR="/Users/james/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)

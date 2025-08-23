@@ -59,6 +59,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      terraform
      tern
+     toml
      version-control
      yaml
      )
@@ -741,11 +742,12 @@ This function is called at the very end of Spacemacs initialization."
                           spacemacs-purpose-popwin spacemacs-whitespace-cleanup
                           sphinx-doc string-edit-at-point string-inflection
                           symbol-overlay symon tagedit term-cursor tern toc-org
-                          treemacs-evil treemacs-icons-dired treemacs-magit
-                          treemacs-persp treemacs-projectile undo-fu
-                          undo-fu-session vi-tilde-fringe volatile-highlights
-                          vundo web-beautify web-mode wgrep winum writeroom-mode
-                          ws-butler yaml-mode yapfify yasnippet-snippets))
+                          toml-mode treemacs-evil treemacs-icons-dired
+                          treemacs-magit treemacs-persp treemacs-projectile
+                          undo-fu undo-fu-session vi-tilde-fringe
+                          volatile-highlights vundo web-beautify web-mode wgrep
+                          winum writeroom-mode ws-butler yaml-mode yapfify
+                          yasnippet-snippets))
    '(safe-local-variable-values
      '((hcl-indent-level . 2) (js2-basic-offset . 2) (elixir-basic-offset . 2)
        (javascript-backend . tide) (javascript-backend . tern)

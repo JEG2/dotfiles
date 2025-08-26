@@ -1,10 +1,5 @@
 local function get_current_buffer()
-  local buffer_name = vim.api.nvim_buf_get_name(0)
-  if string.find(buffer_name, "^oil://") then
-    return string.gsub(buffer_name, "^oil://", "", 1)
-  else
-    return buffer_name
-  end
+  return string.gsub(vim.api.nvim_buf_get_name(0), "^oil://", "", 1)
 end
 
 local function get_current_buffers_directory()

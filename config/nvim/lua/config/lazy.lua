@@ -1,3 +1,7 @@
+-- Requirements:
+-- * `brew install luarocks`
+-- * Install a Nerd Font:  https://www.nerdfonts.com/
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -30,7 +34,7 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "kanagawa" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

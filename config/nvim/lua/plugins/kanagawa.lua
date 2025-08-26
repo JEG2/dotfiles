@@ -7,7 +7,7 @@ return {
       theme = "dragon",
       overrides = function(colors)
         return {
-          EndOfBuffer = { fg = colors.theme.ui.bg_p2 }
+          EndOfBuffer = { fg = colors.theme.ui.fg_dim }
         }
       end
     })

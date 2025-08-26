@@ -13,7 +13,6 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
-				-- { name = "cmdline" },
 			}),
 			mapping = cmp.mapping.preset.insert({
 				["<C-Space>"] = cmp.mapping.complete(),

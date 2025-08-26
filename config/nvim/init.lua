@@ -1,3 +1,5 @@
+-- Requirements:
+-- * `brew install neovim`
 require("config.leaders")
 require("config.lazy")
 require("config.neovide")

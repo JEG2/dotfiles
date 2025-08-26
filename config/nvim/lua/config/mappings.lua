@@ -1,4 +1,3 @@
--- https://github.com/benfrain/neovim/blob/main/lua/mappings.lua#L64
 -- buffer
 vim.keymap.set("n", "<Leader><Tab>", "<CMD>b#<CR>", { desc = "buffer delete" })
 vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "buffer delete" })

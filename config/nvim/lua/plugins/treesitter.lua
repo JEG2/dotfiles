@@ -1,33 +1,35 @@
+-- Requirements:
+-- * `brew install tree-sitter-cli`
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = 'master', 
-  lazy = false, 
+  branch = 'master',
+  lazy = false,
   build = ":TSUpdate",
-  config = function () 
+  config = function ()
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
       ensure_installed = {
-        'bash', 
-        'csv', 
-        'dockerfile', 
-        'eex', 
-        'elixir', 
-        'erlang', 
-        'heex', 
-        'html', 
-        'javascript', 
-        'json', 
-        'lua', 
-        'markdown', 
-        'markdown_inline', 
-        'mermaid', 
-        'terraform', 
+        'bash',
+        'csv',
+        'dockerfile',
+        'eex',
+        'elixir',
+        'erlang',
+        'heex',
+        'html',
+        'javascript',
+        'json',
+        'lua',
+        'markdown',
+        'markdown_inline',
+        'mermaid',
+        'terraform',
         'toml',
-        'yaml'  
+        'yaml'
       },
       highlight = { enable = true },
-      indent = { enable = true } 
+      indent = { enable = true }
     })
    end
 }

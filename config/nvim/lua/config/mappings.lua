@@ -1,7 +1,15 @@
 -- https://github.com/benfrain/neovim/blob/main/lua/mappings.lua#L64
--- buffers
-vim.keymap.set('n', '<Leader>bf', require('fzf-lua').buffers, { desc = 'buffer find' })
+-- buffer
+vim.keymap.set("n", "<Leader><Tab>", "<CMD>b#<CR>", { desc = "buffer delete" })
+vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "buffer delete" })
 
--- files
-vim.keymap.set('n', '<Leader>ff', require('fzf-lua').files, { desc = 'file find' })
-vim.keymap.set('n', '<Leader>fs', ':w<CR>', { desc = 'file save' })
+-- file
+vim.keymap.set("n", "<Leader>fs", "<CMD>w<CR>", { desc = "file save" })
+
+-- info
+vim.keymap.set("n", "<Leader>il", "<CMD>LspInfo<CR>", { desc = "info LSP" })
+vim.keymap.set("n", "<Leader>ip", "<CMD>Lazy<CR>", { desc = "info packages" })
+vim.keymap.set("n", "<Leader>is", "<CMD>Mason<CR>", { desc = "info servers" })
+
+-- search
+vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })

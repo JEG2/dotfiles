@@ -1,6 +1,5 @@
 require("config.leaders")
 require("config.lazy")
 require("config.neovide")
--- require("config.syntax")
 require("config.options")
 require("config.mappings")

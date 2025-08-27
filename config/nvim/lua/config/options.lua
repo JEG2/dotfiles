@@ -13,3 +13,6 @@ vim.opt.smartindent = true
 -- show mixed line numbering
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+-- show where 80 characters is
+vim.opt.colorcolumn = "80"

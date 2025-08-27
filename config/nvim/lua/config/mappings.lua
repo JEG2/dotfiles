@@ -12,3 +12,8 @@ vim.keymap.set("n", "<Leader>is", "<CMD>Mason<CR>", { desc = "info servers" })
 
 -- search
 vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })
+
+-- special
+vim.keymap.set("", "<leader>=", function()
+  require("conform").format({ async = false, lsp_fallback = true })
+end, { desc = "format" })

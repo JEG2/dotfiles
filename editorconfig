@@ -1,0 +1,22 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+spelling_language = en-us
+
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+indent_style = space
+indent_size = 2
+
+[Makefile]
+tab_width = 4
+indent_style = tab
+indent_size = tab
+
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+
+max_line_length = 80

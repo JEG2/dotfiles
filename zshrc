@@ -100,13 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. ~/Documents/dotfiles/zsh/env
-. ~/Documents/dotfiles/zsh/aliases
-[[ -f ~/Documents/dotfiles/zsh/secrets ]] && . ~/Documents/dotfiles/zsh/secrets
-
-# asdf
-export ASDF_DATA_DIR="/Users/james/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

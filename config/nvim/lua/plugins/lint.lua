@@ -1,3 +1,5 @@
+-- Requirements:
+-- * `brew install shellcheck`
 return {
   "mfussenegger/nvim-lint",
   config = function()

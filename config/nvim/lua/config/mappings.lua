@@ -15,5 +15,7 @@ vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })
 
 -- special
 vim.keymap.set("", "<leader>=", function()
+  -- WARNING:  moving this under `keys` in the conform plugin definition broke
+  -- formatting on save
   require("conform").format({ async = false, lsp_fallback = true })
 end, { desc = "format" })

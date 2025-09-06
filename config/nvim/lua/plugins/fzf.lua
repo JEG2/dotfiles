@@ -36,40 +36,40 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     -- buffer
-    {"<Leader>bf", function()
+    { "<Leader>bf", function()
       require("fzf-lua").buffers({})
-    end, { desc = "buffer find" }},
+    end, { desc = "buffer find" } },
     -- file
-    {"<Leader>fi", function()
+    { "<Leader>fi", function()
       require("fzf-lua").files({
         cwd = "/Users/james/Documents/dotfiles/config/nvim/"
       })
-    end, { desc = "file init" }},
-    {"<Leader>ff", function()
+    end, { desc = "file init" } },
+    { "<Leader>ff", function()
       require("fzf-lua").files({ cwd = get_current_buffers_directory() })
-    end, { desc = "file find" }},
-    {"<Leader>fp", function()
+    end, { desc = "file find" } },
+    { "<Leader>fp", function()
       require("fzf-lua").files({ cwd = find_project_directory() })
-    end, { desc = "file (find in) project" }},
-    {"<Leader>fw", function()
+    end, { desc = "file (find in) project" } },
+    { "<Leader>fw", function()
       require("fzf-lua").files({})
-    end, { desc = "file (find in) working directory" }},
+    end, { desc = "file (find in) working directory" } },
     -- search
-    {"<Leader>sa", function()
+    { "<Leader>sa", function()
       require("fzf-lua").treesitter({})
-    end, { desc = "search AST (in buffer)" }},
-    {"<Leader>sf", function()
+    end, { desc = "search AST (in buffer)" } },
+    { "<Leader>sf", function()
       require("fzf-lua").grep_curbuf({})
-    end, { desc = "search fuzzy (in buffer)" }},
-    {"<Leader>sg", function()
+    end, { desc = "search fuzzy (in buffer)" } },
+    { "<Leader>sg", function()
       require("fzf-lua").lgrep_curbuf({})
-    end, { desc = "search grep (in buffer)" }},
-    {"<Leader>sp", function()
+    end, { desc = "search grep (in buffer)" } },
+    { "<Leader>sp", function()
       require("fzf-lua").live_grep({})
-    end, { desc = "search grep (in project)" }},
-    {"<Leader>sr", function()
+    end, { desc = "search grep (in project)" } },
+    { "<Leader>sr", function()
       require("fzf-lua").resume({})
-    end, { desc = "search resume" }},
+    end, { desc = "search resume" } },
   },
   opts = {}
 }

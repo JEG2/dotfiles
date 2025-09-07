@@ -1,9 +1,14 @@
-local function get_current_buffer()
-  return string.gsub(vim.api.nvim_buf_get_name(0), "^oil://", "", 1)
-end
-
+-- Requirements:
+-- * `brew install fzf`
+-- * `brew install fd`
+-- * `brew install ripgrep`
 local function get_current_buffers_directory()
-  local current_buffer = get_current_buffer()
+  local current_buffer = string.gsub(
+    vim.api.nvim_buf_get_name(0),
+    "^oil://",
+    "",
+    1
+  )
   if current_buffer == "" then
     return vim.fn.getcwd()
   else
@@ -12,20 +17,12 @@ local function get_current_buffers_directory()
 end
 
 local function find_project_directory()
-  local current_buffer = get_current_buffer()
-  local buffer_dir
-  local cwd = vim.fn.getcwd()
-  if current_buffer == "" then
-    buffer_dir = cwd
-  else
-    buffer_dir = vim.fn.fnamemodify(current_buffer, ":h")
-  end
-
+  local buffer_dir = get_current_buffers_directory()
   local git_root = vim.fn.systemlist(
     "git -C " .. vim.fn.escape(buffer_dir, " ") .. " rev-parse --show-toplevel"
   )[1]
   if vim.v.shell_error ~= 0 then
-    return cwd
+    return vim.fn.getcwd()
   end
   return git_root
 end
@@ -40,6 +37,26 @@ return {
       require("fzf-lua").buffers({})
     end, { desc = "buffer find" } },
     -- file
+    { "<Leader>fd", function()
+      local saved_wd = vim.fn.getcwd()
+      local documents_dir = "/Users/james/Documents/"
+      if documents_dir ~= saved_wd then
+        vim.cmd("cd " .. documents_dir)
+      end
+      require("fzf-lua").fzf_exec("fd --type dir", {
+        prompt = "~/Documents/",
+        actions = {
+          ["default"] = function(selected)
+            if selected and #selected == 1 then
+              vim.cmd("e " .. selected[1])
+              vim.cmd("cd " .. get_current_buffers_directory())
+            elseif documents_dir ~= saved_wd then
+              vim.cmd("cd " .. saved_wd)
+            end
+          end,
+        },
+      })
+    end, { desc = "file init" } },
     { "<Leader>fi", function()
       require("fzf-lua").files({
         cwd = "/Users/james/Documents/dotfiles/config/nvim/"
@@ -65,7 +82,15 @@ return {
       require("fzf-lua").lgrep_curbuf({})
     end, { desc = "search grep (in buffer)" } },
     { "<Leader>sp", function()
-      require("fzf-lua").live_grep({})
+      local saved_wd = vim.fn.getcwd()
+      local project_dir = find_project_directory()
+      if project_dir ~= saved_wd then
+        vim.cmd("cd " .. project_dir)
+      end
+      require("fzf-lua").live_grep({ rg_glob = true })
+      if project_dir ~= saved_wd and project_dir == vim.fn.getcwd() then
+        vim.cmd("cd " .. saved_wd)
+      end
     end, { desc = "search grep (in project)" } },
     { "<Leader>sr", function()
       require("fzf-lua").resume({})

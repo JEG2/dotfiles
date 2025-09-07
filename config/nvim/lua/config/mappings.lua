@@ -21,9 +21,9 @@ vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })
 --window
 vim.keymap.set(
   "n",
-  "<Leader>wk",
-  "<CMD>split<CR>",
-  { desc = "window (split) above" }
+  "<Leader>wh",
+  "<CMD>vsplit<CR>",
+  { desc = "window (split) left" }
 )
 vim.keymap.set(
   "n",
@@ -33,13 +33,25 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  "<Leader>wh",
-  "<CMD>vsplit<CR>",
-  { desc = "window (split) left" }
+  "<Leader>wk",
+  "<CMD>split<CR>",
+  { desc = "window (split) above" }
 )
 vim.keymap.set(
   "n",
   "<Leader>wl",
   "<CMD>belowright vsplit<CR>",
   { desc = "window (split) right" }
+)
+vim.keymap.set(
+  "n",
+  "<Leader>ws",
+  "<CMD>mksession<CR>",
+  { desc = "window save" }
+)
+vim.keymap.set(
+  "n",
+  "<Leader>wr",
+  "<CMD>source Session.vim<CR>",
+  { desc = "window restore" }
 )

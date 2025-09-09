@@ -1,7 +1,7 @@
 return {
   "mason-org/mason-lspconfig.nvim",
   opts = {
-    ensure_installed = { "elixirls", "lua_ls", "tailwindcss" },
+    ensure_installed = { "elixirls", "emmet_ls", "lua_ls", "tailwindcss" },
   },
   dependencies = {
     { "folke/neodev.nvim",    opts = {} },
@@ -21,6 +21,27 @@ return {
         lspconfig.tailwindcss.setup({
           filetypes = { "css", "eelixir", "heex", "html", "javascript" },
           -- set default capabilities for cmp lsp completion source
+          capabilities = capabilities,
+          init_options = {
+            userLanguages = {
+              elixir = "phoenix-heex",
+              eelixir = "html-eex",
+              heex = "phoenix-heex"
+            }
+          },
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  'class[:]\\s*"([^"]*)"'
+                }
+              }
+            }
+          }
+        })
+
+        lspconfig.emmet_ls.setup({
+          filetypes = { "html", "css", "elixir", "eelixir", "heex" },
           capabilities = capabilities
         })
 

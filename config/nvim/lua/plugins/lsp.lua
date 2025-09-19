@@ -9,16 +9,14 @@ return {
     {
       "neovim/nvim-lspconfig",
       config = function()
-        local lspconfig = require("lspconfig")
-
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        lspconfig.elixirls.setup({
+        vim.lsp.config.elixirls = {
           cmd = { "elixir-ls" },
           -- set default capabilities for cmp lsp completion source
           capabilities = capabilities
-        })
+        }
 
-        lspconfig.tailwindcss.setup({
+        vim.lsp.config.tailwindcss = {
           filetypes = { "css", "eelixir", "heex", "html", "javascript" },
           -- set default capabilities for cmp lsp completion source
           capabilities = capabilities,
@@ -38,14 +36,14 @@ return {
               }
             }
           }
-        })
+        }
 
-        lspconfig.emmet_ls.setup({
-          filetypes = { "html", "css", "elixir", "eelixir", "heex" },
+        vim.lsp.config.emmet_ls = {
+          filetypes = { "html", "css", "eelixir", "heex" },
           capabilities = capabilities
-        })
+        }
 
-        lspconfig.lua_ls.setup({
+        vim.lsp.config.lua_ls = {
           settings = {
             Lua = {
               workspace = {
@@ -53,7 +51,7 @@ return {
               }
             }
           }
-        })
+        }
       end,
     }
   }

@@ -18,6 +18,32 @@ vim.keymap.set("n", "<Leader>is", "<CMD>Mason<CR>", { desc = "info servers" })
 -- search
 vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })
 
+-- tag
+vim.keymap.set("i", "<C-Space><<", function(args)
+  vim.snippet.expand("<${1:div}$2>$0</$1>")
+end, { desc = "tag insert" })
+vim.keymap.set("i", "<C-Space></", function(args)
+  vim.snippet.expand("<${1:img}$2 />$0")
+end, { desc = "tag (self-closing) insert" })
+vim.keymap.set("i", "<C-Space><#", function(args)
+  vim.snippet.expand("<!-- $0 -->")
+end, { desc = "tag (comment) insert" })
+vim.keymap.set("i", "<C-Space><%", function(args)
+  vim.snippet.expand("<% $0 %>")
+end, { desc = "tag (embedded) insert" })
+vim.keymap.set("i", "<C-Space><=", function(args)
+  vim.snippet.expand("<%= $0 %>")
+end, { desc = "tag (embedded insertion) insert" })
+vim.keymap.set("i", "<C-Space><i", function(args)
+  vim.snippet.expand("<%= if $1 do %>\n  $0\n<% end %>")
+end, { desc = "tag (embedded if) insert" })
+vim.keymap.set("i", "<C-Space><e", function(args)
+  vim.snippet.expand("<%= if $1 do %>\n  $2\n<% else %>\n  $0\n<% end %>")
+end, { desc = "tag (embedded if/else) insert" })
+vim.keymap.set("i", "<C-Space><f", function(args)
+  vim.snippet.expand("<%= for ${1:item} <- ${2:enum} do %>\n  $0\n<% end %>")
+end, { desc = "tag (embedded for) insert" })
+
 --window
 vim.keymap.set(
   "n",

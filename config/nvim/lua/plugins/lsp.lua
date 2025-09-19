@@ -1,3 +1,5 @@
+-- Requirements:
+-- * `asdf install nodejs`
 return {
   "mason-org/mason-lspconfig.nvim",
   opts = {

@@ -9,14 +9,27 @@ vim.keymap.set(
 
 -- file
 vim.keymap.set("n", "<Leader>fs", "<CMD>w<CR>", { desc = "file save" })
+vim.keymap.set(
+  "n",
+  "<Leader>fge",
+  "<CMD>e %:h/.git/info/exclude<CR>",
+  { desc = "file git exclude" }
+)
 
 -- info
 vim.keymap.set("n", "<Leader>il", "<CMD>LspInfo<CR>", { desc = "info LSP" })
 vim.keymap.set("n", "<Leader>ip", "<CMD>Lazy<CR>", { desc = "info packages" })
 vim.keymap.set("n", "<Leader>is", "<CMD>Mason<CR>", { desc = "info servers" })
 
+-- quickfix
+vim.keymap.set("n", "<Leader>qb", "<CMD>copen<CR>", { desc = "quickfix browse" })
+vim.keymap.set("n", "<Leader>qf", "<CMD>cfirst<CR>", { desc = "quickfix first" })
+vim.keymap.set("n", "<Leader>ql", "<CMD>clast<CR>", { desc = "quickfix last" })
+vim.keymap.set("n", "<Leader>qn", "<CMD>cnext<CR>", { desc = "quickfix next" })
+vim.keymap.set("n", "<Leader>qp", "<CMD>cprev<CR>", { desc = "quickfix previous" })
+
 -- search
-vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "file save" })
+vim.keymap.set("n", "<Leader>sd", "<CMD>noh<CR>", { desc = "search delete" })
 
 -- tag
 vim.keymap.set("i", "<C-Space><<", function(args)
@@ -45,27 +58,28 @@ vim.keymap.set("i", "<C-Space><f", function(args)
 end, { desc = "tag (embedded for) insert" })
 
 --window
+vim.keymap.set("n", "<Leader>wd", "<CMD>close<CR>", { desc = "window delete" })
 vim.keymap.set(
   "n",
-  "<Leader>wh",
+  "<Leader>wH",
   "<CMD>vsplit<CR>",
   { desc = "window (split) left" }
 )
 vim.keymap.set(
   "n",
-  "<Leader>wj",
+  "<Leader>wJ",
   "<CMD>belowright split<CR>",
   { desc = "window (split) below" }
 )
 vim.keymap.set(
   "n",
-  "<Leader>wk",
+  "<Leader>wK",
   "<CMD>split<CR>",
   { desc = "window (split) above" }
 )
 vim.keymap.set(
   "n",
-  "<Leader>wl",
+  "<Leader>wL",
   "<CMD>belowright vsplit<CR>",
   { desc = "window (split) right" }
 )

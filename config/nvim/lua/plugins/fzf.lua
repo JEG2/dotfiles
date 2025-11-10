@@ -75,12 +75,12 @@ return {
     { "<Leader>sa", function()
       require("fzf-lua").treesitter({})
     end, { desc = "search AST (in buffer)" } },
-    { "<Leader>sf", function()
-      require("fzf-lua").grep_curbuf({})
-    end, { desc = "search fuzzy (in buffer)" } },
     { "<Leader>sg", function()
       require("fzf-lua").lgrep_curbuf({})
     end, { desc = "search grep (in buffer)" } },
+    { "<Leader>sl", function()
+      require("fzf-lua").lsp_finder({})
+    end, { desc = "search LSP references" } },
     { "<Leader>sp", function()
       local saved_wd = vim.fn.getcwd()
       local project_dir = find_project_directory()
@@ -96,5 +96,15 @@ return {
       require("fzf-lua").resume({})
     end, { desc = "search resume" } },
   },
-  opts = {}
+  opts = function(_, _)
+    local fzf = require("fzf-lua")
+    local defaults = fzf.config.defaults
+    local actions = fzf.actions
+
+    defaults.keymap.fzf["ctrl-l"] = "toggle"
+    defaults.keymap.fzf["ctrl-o"] = "select-all+accept"
+
+    defaults.actions.files["ctrl-I"] = actions.toggle_ignore
+    defaults.actions.files["ctrl-H"] = actions.toggle_hidden
+  end
 }

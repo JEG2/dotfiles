@@ -12,3 +12,6 @@ vim.opt.relativenumber = true
 
 -- show where 80 characters is
 vim.opt.colorcolumn = "80"
+
+-- choose spelling dictionary
+vim.opt.spelllang = "en_us"

@@ -1,3 +1,6 @@
+-- check
+vim.keymap.set("n", "<Leader>cs", "<CMD>setlocal spell!<CR>", { desc = "check spelling" })
+
 -- buffer
 vim.keymap.set("n", "<Leader><Tab>", "<CMD>b#<CR>", { desc = "buffer previous" })
 vim.keymap.set("n", "<Leader>bd", "<CMD>bd<CR>", { desc = "buffer delete" })
